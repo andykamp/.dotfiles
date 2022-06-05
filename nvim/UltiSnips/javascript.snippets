@@ -1,0 +1,464 @@
+
+################################################
+# comments
+###############################################
+
+snippet todo "// TODO"
+// TODO $0
+endsnippet
+
+snippet hc "header comment"
+// ---------------------------------------------
+// $0
+// ---------------------------------------------
+endsnippet
+
+
+################################################
+#  space and jsx stuff
+###############################################
+
+snippet ws "white space" t
+&nbsp;
+endsnippet
+
+################################################
+#  console
+###############################################
+
+snippet clg "console.log" i
+console.log('$1', $2);
+endsnippet
+
+snippet cwl "console.warn" i
+console.warn('$1', $2);
+endsnippet
+
+snippet cel "console.error" i
+console.error('$1', $2);
+endsnippet
+
+
+
+################################################
+#  imports
+###############################################
+
+snippet i "import module" 
+import ${1} from '${2:$1}';
+endsnippet
+
+snippet i1 "import spesific module" 
+import ${1} from '../${2:$1}';
+endsnippet
+
+snippet i2 "import spesific module" 
+import ${1} from '../../${2:$1}';
+endsnippet
+
+snippet i3 "import spesific module" 
+import ${1} from '../../../${2:$1}';
+endsnippet
+
+snippet is "import spesific module" 
+import { ${1} }  from '${2:$1}';
+endsnippet
+
+snippet is1 "import spesific module" 
+import { ${1} }  from '../${2:$1}';
+endsnippet
+
+snippet is2 "import spesific module" 
+import { ${1} }  from '../../${2:$1}';
+endsnippet
+
+snippet is3 "import spesific module" 
+import { ${1} }  from '../../../${2:$1}';
+endsnippet
+
+snippet ri "react imports"
+import React from 'react'
+import styled from 'styled-components'
+endsnippet
+
+snippet rip "react import proptypes"
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components'
+endsnippet
+
+
+################################################
+#  tags
+###############################################
+
+snippet t "jsx tag" 
+<${1:div}>$0</${1/(\w+).*/$1/}>
+endsnippet
+
+snippet tv "jsx tag visual" 
+<${1:div}>${VISUAL}</${1/(\w+).*/$1/}>
+endsnippet
+
+snippet tc "jsx tag closed (inline tag)"
+<${1:div}/>
+endsnippet
+
+snippet rp "react prop" i
+${1:prop}={${2:$1}}
+endsnippet
+
+snippet kv "key value" i
+${1:prop}: ${2:$1}
+endsnippet
+
+################################################
+#  functions
+###############################################
+
+snippet c "const func" 
+const $1 = ($2)=>{
+	${3://something}
+}
+endsnippet
+
+snippet ca "const func async" 
+const $1 = async ($2)=>{
+	${3://something}
+}
+endsnippet
+
+snippet f "func" 
+function $1 ($2){
+	${3://something}
+}
+endsnippet
+	
+snippet fa "func async" 
+async function $1 ($2){
+	${3://something}
+}
+endsnippet
+
+
+
+################################################
+# try/catch
+###############################################
+
+snippet tryc "Try Catch"
+try{
+	${1://something}
+} catch(e){
+	${2://something}
+}
+endsnippet
+
+################################################
+# Set timout or interval
+###############################################
+snippet  stim "setTimout"
+setTimeout(()=>{
+	$1
+},$2)
+endsnippet
+
+snippet  sint "SetInterval"
+setInterval(()=>{
+	$1
+},$2)
+endsnippet
+
+################################################
+# Promise API
+###############################################
+
+snippet prom "promise"
+new Promise(function(resolve, reject){
+	${1://something}
+})
+endsnippet
+
+snippet promf "promise function "
+const $1 = async ($2)=>{
+	return new Promise(function(resolve, reject){
+		${3://something}
+	})
+}
+endsnippet
+	
+
+
+################################################
+# xhr API
+###############################################
+
+snippet xhr "xhr boilderplate" 
+// TODO not implemented in snippets
+endsnippet
+
+################################################
+# fetch API
+###############################################
+
+
+snippet fetchg "fetch API get" 
+	const url = $1
+    fetch(url, {
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json',
+      },
+      credentials: 'include',
+    })
+      .then((response) => {
+      })
+      .catch((error) => {
+      });
+endsnippet
+
+
+snippet fetchp "fetch API post" 
+	const url = $1
+	const body = JSON.stringify({
+		$2
+	})
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      credentials: 'include',
+      body,
+    })
+      .then((response) => {
+      })
+      .catch((error) => {
+      });
+endsnippet
+
+
+snippet fetchd "fetch API delete" 
+	const url = $1
+    fetch(url, {
+      method: 'DELETE',
+      headers: {
+        'content-type': 'application/json',
+      },
+      credentials: 'include',
+      body,
+    })
+      .then((response) => {
+      })
+      .catch((error) => {
+      });
+endsnippet
+
+
+
+
+snippet kriss "Description" b
+
+endsnippet
+################################################
+# JSON
+###############################################
+
+snippet jpar "JSON.parse()" i
+JSON.parse($1)
+endsnippet
+
+snippet jstr "JSON.stringify" i
+JSON.stringify($1)
+endsnippet
+	
+################################################
+# copy
+###############################################
+
+snippet dcopy "deep copy" i 
+JSON.parse(JSON.stringify($1))
+endsnippet
+
+snippet scopy "shallow copy" i 
+// TODO not implemented
+endsnippet
+
+################################################
+# storybook
+###############################################
+
+snippet sc "storbook component"  
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components'
+
+export const $1 = ({$2}) => {
+	return (
+		<${5:div}>
+			${6}
+		</${5/(\w+).*/$1/}>
+	);
+};
+
+$1.defaultProps = {
+	$3
+};
+
+$1.propTypes = {`!p
+props = t[2]
+if props:
+  snip >> 1
+  for prop in props.split(', '):
+    snip += prop + ': PropTypes.any,'
+`
+};
+
+export default $1;
+
+endsnippet
+
+snippet ss "storybook story"
+import React from 'react';
+
+import { $1 } from './${2:$1}';
+
+export default {
+	title: '$3',
+	component: $1,
+};
+
+const Template = (args) => <$1 {...args} />;
+
+export const Default = Template.bind({});
+Default.args = {
+	$4
+};
+
+export const Playground = Template.bind({});
+Playground.args = {
+	$5
+};
+endsnippet
+
+snippet	sts "storybooko story"
+export const $1 = Template.bind({});
+$1.args = {
+  $2
+};
+endsnippet
+
+
+snippet stm "story mdx" 
+import { Canvas, Meta } from '@storybook/addon-docs';
+
+<Meta title="${1:folder/name}" />
+
+ 
+# ${2:$1}
+
+${3: something}
+
+endsnippet
+
+################################################
+#  react
+###############################################
+
+
+snippet rfc "React Functional Component" b
+import React from 'react';
+import PropTypes from 'prop-types';
+
+function ${1:`!v expand('%:t:r')`}({ $2 }) {
+	return (
+		<${4:div} className={styles.base}>
+			$0
+		</$4>
+	);
+}
+
+$1.defaultProps = {$3};
+
+$1.propTypes = {`!p
+props = t[2]
+if props:
+  snip >> 1
+  for prop in props.split(', '):
+    snip += prop + ': PropTypes.any,'
+`
+};
+
+export default $1;
+endsnippet
+
+
+
+
+################################################
+# react functional helpers
+###############################################
+
+snippet us.s "useState" w
+const [$1, set${1/\w+\s*/\u$0/g}] = useState(${3:''})${0:;}
+endsnippet
+
+snippet us.e "useEffect" w
+useEffect(() => {
+  $1
+})${0:;}
+endsnippet
+
+snippet us.ep "useEffect with props" w
+useEffect(() => {
+  $1
+},[$2])${0:;}
+endsnippet
+
+snippet us.er "useEffect with return" w
+useEffect(() => {
+  $1
+	return () => {
+    $2
+	};
+})${0:;}
+endsnippet
+
+snippet us.sl "useSelector"
+const $1 = useSelector((state)=>state.$2)
+endsnippet
+	
+
+snippet us.c "useContext" w
+const $1 = useContext($2)${0:;}
+endsnippet
+
+snippet us.r "useReducer" w
+const [$1, dispatch] = useReducer($1Reducer, ${2:${VISUAL:initialState}})
+const $1Reducer = (state, action) => {
+	switch (action.type) {
+		default:
+			return state;
+	}
+}${0:;}
+endsnippet
+
+snippet us.cb "useCallback" w
+useCallback(
+	() => {
+		$1
+	},
+	[$2],
+)${0:;}
+endsnippet
+
+snippet us.m "useMemo" w
+const $1 = useMemo(() => {
+	$2
+}, [$3])${0:;}
+endsnippet
+
+snippet us.rf "useRef" w
+const $1 = useRef($2)${0:;}
+endsnippet
+

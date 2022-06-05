@@ -1,0 +1,194 @@
+
+################################################
+# Styled Component - OPS needs to be here to handle the inline css stuff!
+###############################################
+
+snippet sti "Styled Component import" b
+import styled from 'styled-components';
+endsnippet
+
+snippet st "Styled Component" b
+const Styled${1:`!v expand('%:t:r')`} = styled.${2:div}\`
+	$3
+\`;
+
+endsnippet
+
+
+snippet stt "styled compoinent template" b
+const Styled${1:`!v expand('%:t:r')`} = styled.${2:div}\`
+	display: flex;
+	flex-direction: ${3:column};
+	justify-content: ${4:center};
+	align-items: ${5:center};
+	width: ${6:${(props) => props.width}px;}
+	height: ${7:${(props) => props.height}px;}
+	background: ${8:${(props) => props.background};}
+	color: ${9:${(props) => props.color};}
+\`;
+endsnippet
+
+snippet stp "styled props " i
+$1: ${props => props.${2:$1}};
+endsnippet
+
+snippet stpt "styled props theme" b
+${1:value}: ${props => props.theme.${2:$1}};
+endsnippet
+
+################################################
+# css
+###############################################
+
+# flex
+snippet cssf "flex" 
+  display: flex;
+  flex-direction: ${1:row};
+  justify-content: ${2:center};
+  align-items: ${3:center};
+endsnippet
+
+snippet cssrow "flex row"
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+endsnippet
+
+snippet csscol "css flex col"
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+endsnippet
+
+# height width
+snippet csshw "height width"
+width: ${1:100%};
+height: ${2:100%};
+endsnippet
+
+# border
+snippet cssb "border"
+border: ${1:1}px solid ${2:red};
+endsnippet
+
+# background
+snippet cssbg "background"
+background: ${1:red};
+endsnippet
+
+snippet cssbgp "background props"
+background: ${(props)=>props.${1:background}};
+endsnippet
+
+# color
+snippet cssc "color"
+color: ${1:red};
+endsnippet
+
+snippet csscp "color"
+color: ${(props)=>props.${1:color}};
+endsnippet
+
+# hover
+snippet cssh "hover"
+&:{
+	cursor: pointer;
+	${1:something}
+}
+endsnippet
+
+################################################
+# html boilerplate 
+###############################################
+
+snippet hprettier "help prettier"
+// add this after you have added esling (see next snipppet) 
+// edit .prettierrc.json to be same as prettiererc snippet
+endsnippet
+
+snippet prettierrc "prettierrc boilderplate"
+// add this after you have added esling (see next snipppet) 
+module.exports = {
+  semi: true,
+  trailingComma: 'es5',
+  singleQuote: true,
+  printWidth: 120,
+  tabWidth: 2,
+  arrowParens: 'always',
+};
+endsnippet
+
+snippet heslint "helpt eslint"
+// install eslint
+// yarn add eslint --dev
+// create eslintrc.json
+// yarn run esling --init 
+// add eslint plugins to make it worok with react, make proper configs for esling AND prettier
+//yarn add eslint-config-prettier eslint-plugin-prettier prettier --dev
+// edit .eslintrc.json to be same as the eslintrc snippet
+endsnippet
+
+snippet eslintrc "eslintrc boilerplate"
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["react", "@typescript-eslint"],
+  "rules": {}
+}
+
+endsnippet
+
+################################################
+# html boilerplate 
+###############################################
+
+snippet htmlb "html boilerplate" 
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>A Basic HTML5 Template</title>
+  <meta name="description" content="A simple HTML5 Template for new projects.">
+  <meta name="author" content="SitePoint">
+
+  <meta property="og:title" content="A Basic HTML5 Template">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.sitepoint.com/a-basic-html5-template/">
+  <meta property="og:description" content="A simple HTML5 Template for new projects.">
+  <meta property="og:image" content="image.png">
+
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+</head>
+
+<body>
+  <!-- your content here... -->
+  <script src="js/ycripts.js"></script>
+</body>
+</html>
+endsnippet
