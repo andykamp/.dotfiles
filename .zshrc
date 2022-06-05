@@ -98,7 +98,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# remap git to g for convinience
 alias g=git
+# remap visualizing github tree for convinience
 alias glog1="sh ~/log-git-live.sh"
 
 # Add colors to Terminal
