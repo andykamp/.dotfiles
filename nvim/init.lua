@@ -49,9 +49,11 @@ require('packer').startup(function()
   use 'nvim-treesitter/nvim-treesitter-textobjects' -- ???
   use 'jiangmiao/auto-pairs'
   use 'alvan/vim-closetag'
+
   use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client. Needed to get quick configs for lsp
    use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp. Needed to add capabilities to lsp
   use 'williamboman/nvim-lsp-installer' -- allows easy lsp installment via :LspInstall
+
  use 'SirVer/ultisnips' -- create own code snippets located at ./Ultisnips
  -- use 'honza/vim-snippets' -- set of pre-generated snippets for mulitple language
  -- use 'mlaursen/vim-react-snippets' -- spesific reat snippets
@@ -67,17 +69,20 @@ use({
      requires = { "nvim-treesitter/nvim-treesitter" },
   },
 })
+
   -- use 'hrsh7th/cmp-buffer'
   -- use 'hrsh7th/cmp-path'
   -- use 'hrsh7th/cmp-cmdline'
 --  use 'saadparwaiz1/cmp_luasnip'
   -- use 'L3MON4D3/LuaSnip' -- Snippets plugitelescopen
+
   use 'ThePrimeagen/harpoon' -- use for quick commands
   use 'ojroques/vim-oscyank' -- lets you copy to OS clipboard
-  use 'vim-test/vim-test'
   use 'vimwiki/vimwiki' -- used for markdown notes
-  use 'nvim-orgmode/orgmode' -- used for markdown notes and task tracking
+
   use 'lukas-reineke/headlines.nvim' -- background highlighting from headlines in markdown, vimwiki and orgmode
+  use 'vim-test/vim-test'
+  use 'nvim-orgmode/orgmode' -- used for markdown notes and task tracking
   -- makes checkbox lists prettier in orgmode
   use {"akinsho/org-bullets.nvim", config = function()
   require("org-bullets").setup {
@@ -89,14 +94,20 @@ end)
 -----------------------------------------------------------------------------
 --Set colorscheme (order is important here)
 -----------------------------------------------------------------------------
-vim.o.termguicolors = false
-vim.g.onedark_terminal_italics = 2
+
+
+-- general colorscheme
+-- vim.o.termguicolors = false
+--vim.g.onedark_terminal_italics = 2
+vim.cmd [[set termguicolors]]
 vim.cmd [[colorscheme onedark]]
 
+
+-- command line colors
 require('lualine').setup {
     sections = {
-        lualine_a = { 'mode', {'filename', path=2},  },
-        lualine_b = { },
+        lualine_a = { 'mode', {'branch'},{'filename', path=2},  },
+        lualine_b = {},
         lualine_c = {{'diagnostics', always_visible = true, symbols = { error = 'E', warn = 'W', info = 'I', hint='H', } } },
         lualine_x = {},
         lualine_y = {},
