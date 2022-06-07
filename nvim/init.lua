@@ -42,11 +42,12 @@ require('packer').startup(function()
   use 'sainnhe/edge'
 
   -- UI and visual helper tools for faster workflows 
+  use { 'preservim/nerdtree'} -- file explorer
+  use 'Xuyuanp/nerdtree-git-plugin' -- add gir related icon in nerdtree to visualize untracked files etc   
+  use 'ryanoasis/vim-devicons'
   use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } } -- Fancier statusline
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } } -- UI to select things (files, grep results, open buffers...)
   use 'ThePrimeagen/harpoon' -- use for quick commands
-  use { 'preservim/nerdtree'} -- file explorer
-  use 'Xuyuanp/nerdtree-git-plugin' -- add gir related icon in nerdtree to visualize untracked files etc   
   use 'easymotion/vim-easymotion' -- jump to any word you loook at by <leader><leader>w etc
   use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } } -- Add git related info in the signs columns and popups
@@ -112,6 +113,9 @@ vim.cmd [[colorscheme edge]]
 
 -- bottom line  setup
 require('lualine').setup {
+    options = {
+		theme = "nord",
+	},
     sections = {
         lualine_a = { 'mode', {'branch'},{'filename', path=2},  },
         lualine_b = {},

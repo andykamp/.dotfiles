@@ -144,6 +144,8 @@ map('n',  '<M-f>',  ':Telescope git_files<CR>', options)
 -----------------------------------------------------------------------------
 --- nerdtree
 -----------------------------------------------------------------------------
+vim.g.webdevicons_enable_nerdtree = 1
+
 vim.g.NERDTreeShowHidden = 1
 vim.g.NERDTreeAutoDeleteBuffer = 1
 vim.g.NERDTreeQuitOnOpen = 0
