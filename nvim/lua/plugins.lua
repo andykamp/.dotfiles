@@ -1,3 +1,7 @@
+-----------------------------------------------------------------------------
+-- This file contains plugin configurations
+-----------------------------------------------------------------------------
+
 local map = vim.api.nvim_set_keymap
 local options = { noremap = true }
 

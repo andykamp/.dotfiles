@@ -1,3 +1,6 @@
+-----------------------------------------------------------------------------
+-- This file contains all keymappings for general vim and for pluginsh
+-----------------------------------------------------------------------------
 local map = vim.api.nvim_set_keymap
 
 -- map the leader key
@@ -5,6 +8,9 @@ map('n', '<Space>', '', {})
 vim.g.mapleader = ' '  -- 'vim.g' sets global variables
 
 local options = { noremap = true }
+
+-- personally more intuitiv with ; for forward and shift+; for backward. Default is other way around
+-- TODO
 
 -- map nerdtree switch to active file
 map('n', '<leader>r', ':NERDTreeFind<cr>', options)
