@@ -151,6 +151,7 @@ vim.g.NERDTreeAutoDeleteBuffer = 1
 vim.g.NERDTreeQuitOnOpen = 0
 vim.g.NERDTreeMinmalUi= 1
 vim.g.NERDTreeDirArrows = 1
-map('n',  '<leader>nn',  ':NERDTreeToggle<CR>', options)
+map('n',  '<leader>nn',  ':NERDTreeToggle<CR>', options) -- toggle on/off nerdtree
+map('n', '<leader>r', ':NERDTreeFind<cr>', options) -- map nerdtree switch to active file
 
 

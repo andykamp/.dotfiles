@@ -19,8 +19,6 @@ local options = { noremap = true }
 -- personally more intuitiv with ; for forward and shift+; for backward. Default is other way around
 -- TODO
 
--- map nerdtree switch to active file
-map('n', '<leader>r', ':NERDTreeFind<cr>', options)
 
 -- oscyank
 map('v', '<leader>c', ':OSCYank<CR>', options)

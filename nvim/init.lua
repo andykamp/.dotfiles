@@ -42,6 +42,7 @@ require('packer').startup(function()
   use 'sainnhe/edge'
 
   -- UI and visual helper tools for faster workflows 
+  use 'norcalli/nvim-colorizer.lua'
   use { 'preservim/nerdtree'} -- file explorer
   use 'Xuyuanp/nerdtree-git-plugin' -- add gir related icon in nerdtree to visualize untracked files etc   
   use 'ryanoasis/vim-devicons'
