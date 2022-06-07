@@ -3,9 +3,16 @@
 -----------------------------------------------------------------------------
 local map = vim.api.nvim_set_keymap
 
--- map the leader key
+--Remap space as leader key
 map('n', '<Space>', '', {})
-vim.g.mapleader = ' '  -- 'vim.g' sets global variables
+map('', '<Space>', '<Nop>', { noremap = true, silent = true })
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
+--Remap for dealing with word wrap (with this wrapped lines are treated as individual lines)
+vim.api.nvim_set_keymap('n', 'k', "v:count == 0 ? 'gk' : 'k'", { noremap = true, expr = true, silent = true })
+vim.api.nvim_set_keymap('n', 'j', "v:count == 0 ? 'gj' : 'j'", { noremap = true, expr = true, silent = true })
+
 
 local options = { noremap = true }
 
@@ -26,9 +33,9 @@ map('n', 'K', '5k', options)
 map('v', 'J', '5j', options)
 map('v', 'K', '5k', options)
 
--- TODO not working cycle trough tabs
-map('n', '<Tab>', 'gt', options)
-map('n', '<S-Tab>', 'gT', options)
+-- UPS overriding '<tab>' breaks <c-i> seeing they are strictly eqvivalent..
+-- map('n', '<Tab>', 'gt', options)
+-- map('n', '<S-Tab>', 'gT', options)
 
 -- stop higlighting searches
 map('n',  '<leader>,',  ':nohlsearch<CR>', options)
@@ -49,5 +56,6 @@ map('t', '<C-k>', '<C-\\><C-n><C-w><C-k>', options)
 map('t', '<C-l>', '<C-\\><C-n><C-w><C-l>', options)
 map('t', '<C-j>', '<C-\\><C-n><C-w><C-j>', options)
 map('t', '<C-o>', '<C-\\><C-n><C-o>', options)
+
 
 

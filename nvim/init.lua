@@ -1,5 +1,6 @@
 -----------------------------------------------------------------------------
 -- Install packer
+-- Packer is used for all installs. Use PackerClean and PackerInstall to remove/install packages
 -----------------------------------------------------------------------------
 local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 
@@ -7,11 +8,12 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
 end
 
-vim.cmd [[
-  augroup packer
+vim.cmd([[
+  augroup Packer
     autocmd!
+    autocmd BufWritePost init.lua PackerCompile
   augroup end
-]]
+]])
 
 -----------------------------------------------------------------------------
 --  Plugins
@@ -20,44 +22,54 @@ vim.cmd [[
 local use = require('packer').use
 require('packer').startup(function()
   use 'wbthomason/packer.nvim' -- Package manager
-  use 'tpope/vim-fugitive' -- Git commands in nvim
-  use 'tpope/vim-rhubarb' -- Fugitive-companion to interact with github
-  use 'tpope/vim-commentary' -- "gc" to comment visual regions/lines (gcc to comment a line)
-  use 'tpope/vim-surround' -- enables the s and S command
-  -- UI to select things (files, grep results, open buffers...)
-  use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
-  use 'joshdick/onedark.vim' -- Theme inspired by Atom
 
+  -- git related plugins 
+  use 'tpope/vim-fugitive' -- Git commands in nvim TODOOOOO
+  use 'tpope/vim-rhubarb' -- Fugitive-companion to interact with github TODOOOOO
+
+  -- handy dandy shorcut plugins
+  use 'tpope/vim-commentary' -- "gc" to comment visual regions/lines (gcc to comment a line) TODOOOOOO
+  use 'tpope/vim-surround' -- enables the s and S command TODOOOOOOO
+  use 'jiangmiao/auto-pairs' -- create pars of brackets etc
+  use 'alvan/vim-closetag'  -- close jsx/tsx tags
+  use 'lukas-reineke/headlines.nvim' -- background highlighting from headlines in markdown, vimwiki and orgmode
+  use 'ojroques/vim-oscyank' -- lets you copy to OS clipboard TODOOOOOO
+
+  -- colorschemas
+  use 'joshdick/onedark.vim'
+  use 'sonph/onehalf'
+  use 'arcticicestudio/nord-vim'
+  use 'sainnhe/edge'
+
+  -- UI and visual helper tools for faster workflows 
   use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } } -- Fancier statusline
+  use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } } -- UI to select things (files, grep results, open buffers...)
+  use 'ThePrimeagen/harpoon' -- use for quick commands
   use { 'preservim/nerdtree'} -- file explorer
-  -- use { 'preservim/tagbar' }
-  use 'Xuyuanp/nerdtree-git-plugin'
+  use 'Xuyuanp/nerdtree-git-plugin' -- add gir related icon in nerdtree to visualize untracked files etc   
   use 'easymotion/vim-easymotion' -- jump to any word you loook at by <leader><leader>w etc
-  -- Add indentation guides even on blank lines
-  use 'lukas-reineke/indent-blankline.nvim'
-  -- Add git related info in the signs columns and popups
-  use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
- use {'neoclide/coc.nvim', branch = 'release'} -- code completion
-
-  -- async linter
-  use 'dense-analysis/ale'
-  use 'ludovicchabant/vim-gutentags' -- Automatic tags management
+  use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
+  use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } } -- Add git related info in the signs columns and popups
   use 'junegunn/goyo.vim'
-  -- Highlight, edit, and navigate code using a fast incremental parsing library
-  use 'nvim-treesitter/nvim-treesitter'
-  -- Additional textobjects for treesitter
-  use 'nvim-treesitter/nvim-treesitter-textobjects' -- ???
-  use 'jiangmiao/auto-pairs'
-  use 'alvan/vim-closetag'
+  -- use { 'preservim/tagbar' }
 
+  -- Code formatting and language servers
+  use {'neoclide/coc.nvim', branch = 'release'} -- code completion
+  use 'dense-analysis/ale'  -- async linter
+  use 'ludovicchabant/vim-gutentags' -- Automatic tags management
+  use 'nvim-treesitter/nvim-treesitter'-- Highlight, edit, and navigate code using a fast incremental parsing library
+  use 'nvim-treesitter/nvim-treesitter-textobjects' -- ??? Additional textobjects for treesitter
+
+  -- language server plugins
   use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client. Needed to get quick configs for lsp
-   use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp. Needed to add capabilities to lsp
+  use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp. Needed to add capabilities to lsp
   use 'williamboman/nvim-lsp-installer' -- allows easy lsp installment via :LspInstall
 
- use 'SirVer/ultisnips' -- create own code snippets located at ./Ultisnips
+ -- Snippets (TODO map to something smooth)
  -- use 'honza/vim-snippets' -- set of pre-generated snippets for mulitple language
  -- use 'mlaursen/vim-react-snippets' -- spesific reat snippets
-use({
+ use 'SirVer/ultisnips' -- create own code snippets located at ./Ultisnips
+ use({
   "hrsh7th/nvim-cmp",
   requires = {
     "quangnguyen30192/cmp-nvim-ultisnips",
@@ -68,42 +80,38 @@ use({
     -- If you want to enable filetype detection based on treesitter:
      requires = { "nvim-treesitter/nvim-treesitter" },
   },
-})
-
+ })
   -- use 'hrsh7th/cmp-buffer'
   -- use 'hrsh7th/cmp-path'
   -- use 'hrsh7th/cmp-cmdline'
---  use 'saadparwaiz1/cmp_luasnip'
+  -- use 'saadparwaiz1/cmp_luasnip'
   -- use 'L3MON4D3/LuaSnip' -- Snippets plugitelescopen
-
-  use 'ThePrimeagen/harpoon' -- use for quick commands
-  use 'ojroques/vim-oscyank' -- lets you copy to OS clipboard
+  use({
+		"akinsho/org-bullets.nvim",
+		config = function()
+			require("org-bullets").setup({
+				symbols = { "◉", "○", "✸", "✿" },
+			})
+		end,
+	})
   use 'vimwiki/vimwiki' -- used for markdown notes
-
-  use 'lukas-reineke/headlines.nvim' -- background highlighting from headlines in markdown, vimwiki and orgmode
-  use 'vim-test/vim-test'
-  use 'nvim-orgmode/orgmode' -- used for markdown notes and task tracking
-  -- makes checkbox lists prettier in orgmode
-  use {"akinsho/org-bullets.nvim", config = function()
-  require("org-bullets").setup {
-    symbols = { "◉", "○", "✸", "✿" }
-  }
-end}
 end)
 
 -----------------------------------------------------------------------------
 --Set colorscheme (order is important here)
 -----------------------------------------------------------------------------
 
-
--- general colorscheme
 -- vim.o.termguicolors = false
 --vim.g.onedark_terminal_italics = 2
 vim.cmd [[set termguicolors]]
-vim.cmd [[colorscheme onedark]]
+vim.cmd [[set background=dark]]
+-- vim.cmd [[colorscheme onedark]]
+vim.g.edge_style = 'aura'
+vim.g.edge_better_performanc = 1
+vim.cmd [[colorscheme edge]]
 
 
--- command line colors
+-- bottom line  setup
 require('lualine').setup {
     sections = {
         lualine_a = { 'mode', {'branch'},{'filename', path=2},  },
@@ -111,19 +119,10 @@ require('lualine').setup {
         lualine_c = {{'diagnostics', always_visible = true, symbols = { error = 'E', warn = 'W', info = 'I', hint='H', } } },
         lualine_x = {},
         lualine_y = {},
-        lualine_z = {require('orgmode.clock').get_statusline},
+        lualine_z = {},
     }
 }
 
---Remap space as leader key
-vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true })
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-
-
---Remap for dealing with word wrap
-vim.api.nvim_set_keymap('n', 'k', "v:count == 0 ? 'gk' : 'k'", { noremap = true, expr = true, silent = true })
-vim.api.nvim_set_keymap('n', 'j', "v:count == 0 ? 'gj' : 'j'", { noremap = true, expr = true, silent = true })
 
 -----------------------------------------------------------------------------
 -- Highlight on yank
@@ -135,69 +134,7 @@ vim.cmd [[
   augroup end
 ]]
 
------------------------------------------------------------------------------
---Map blankline
------------------------------------------------------------------------------
-vim.g.indent_blankline_char = '┊'
-vim.g.indent_blankline_filetype_exclude = { 'help', 'packer' }
-vim.g.indent_blankline_buftype_exclude = { 'terminal', 'nofile' }
-vim.g.indent_blankline_show_trailing_blankline_indent = false
-require("indent_blankline").setup {
-    show_current_context = true,
-    show_current_context_start = true,
-}
 
------------------------------------------------------------------------------
--- Gitsigns
------------------------------------------------------------------------------
-require('gitsigns').setup {
-  signs = {
-    add = { hl = 'GitGutterAdd', text = '+' },
-    change = { hl = 'GitGutterChange', text = '~' },
-    delete = { hl = 'GitGutterDelete', text = '_' },
-    topdelete = { hl = 'GitGutterDelete', text = '‾' },
-    changedelete = { hl = 'GitGutterChange', text = '~' },
-  },
-}
-
------------------------------------------------------------------------------
--- wimwiki
------------------------------------------------------------------------------
-vim.g.wiki_global_ext = 0
-local l = {}
-l.path = '~/vimwiki/'
-l.syntax = 'markdown'
-l.ext = '.md'
-vim.g.vimwiki_list = { l }
-
------------------------------------------------------------------------------
--- Telescope
------------------------------------------------------------------------------
-require('telescope').setup {
-  defaults = {
-    mappings = {
-      i = {
-        ['<C-u>'] = false,
-        ['<C-d>'] = false,
-      },
-    },
-  },
-}
-
---Add leader shortcuts
-vim.api.nvim_set_keymap('n', '<leader>fb', [[<cmd>lua require('telescope.builtin').buffers()<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>ff', [[<cmd>lua require('telescope.builtin').find_files({previewer = false})<CR>]], { noremap = true, silent = true })
--- vim.api.nvim_set_keymap('n', '<leader>fb', [[<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>fh', [[<cmd>lua require('telescope.builtin').help_tags()<CR>]], { noremap = true, silent = true })
---vim.api.nvim_set_keymap('n', '<leader>ft', [[<cmd>lua require('telescope.builtin').tags()<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>fd', [[<cmd>lua require('telescope.builtin').grep_string()<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>fg', [[<cmd>lua require('telescope.builtin').live_grep()<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>ft', [[<cmd>lua require('telescope.builtin').tags{ only_current_buffer = true }<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>?', [[<cmd>lua require('telescope.builtin').oldfiles()<CR>]], { noremap = true, silent = true })
-
-vim.api.nvim_set_keymap('n', '<leader>gb', [[<cmd>lua require('telescope.builtin').git_branches()<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>gc', [[<cmd>lua require('telescope.builtin').git_bcommits()<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>gs', [[<cmd>lua require('telescope.builtin').git_stash()<CR>]], { noremap = true, silent = true })
 
 -----------------------------------------------------------------------------
 -- Treesitter configuration
@@ -372,6 +309,9 @@ lspconfig.sumneko_lua.setup {
 --  },
 --}
 
+-------------------------------------------------------------------------------
+---- ultisnip setup
+-------------------------------------------------------------------------------
     local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
     local cmp = require 'cmp'
     cmp.setup {
@@ -411,11 +351,11 @@ lspconfig.sumneko_lua.setup {
         ),
       },
     }
+
 -----------------------------------------------------------------------------
--- imort other folders
+-- imort other vim files
 -----------------------------------------------------------------------------
 require('maps')
 require('settings')
 require('plugins')
 
-require('orgmode')

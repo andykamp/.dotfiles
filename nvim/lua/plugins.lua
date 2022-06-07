@@ -1,25 +1,55 @@
 -----------------------------------------------------------------------------
--- This file contains plugin configurations
+-- jhis file contains plugin configurations
 -----------------------------------------------------------------------------
 
 local map = vim.api.nvim_set_keymap
 local options = { noremap = true }
 
 
+
+-----------------------------------------------------------------------------
+-- gutentags
+-----------------------------------------------------------------------------
+vim.g.gutentags_ctags_auto_set_tags = 0
+vim.g.gutentags_file_list_command = "git ls-files"
+
+
+-----------------------------------------------------------------------------
+-- gitsigns
+-----------------------------------------------------------------------------
+require('gitsigns').setup {
+  signs = {
+    add = { hl = 'GitGutterAdd', text = '+' },
+    change = { hl = 'GitGutterChange', text = '~' },
+    delete = { hl = 'GitGutterDelete', text = '_' },
+    topdelete = { hl = 'GitGutterDelete', text = '‾' },
+    changedelete = { hl = 'GitGutterChange', text = '~' },
+  },
+}
+
+-----------------------------------------------------------------------------
+-- indent-blankline
+-----------------------------------------------------------------------------
+vim.g.indent_blankline_char = '┊'
+vim.g.indent_blankline_filetype_exclude = { 'help', 'packer' }
+vim.g.indent_blankline_buftype_exclude = { 'terminal', 'nofile' }
+vim.g.indent_blankline_show_trailing_blankline_indent = false
+require("indent_blankline").setup {
+    show_current_context = true,
+    show_current_context_start = true,
+}
+
 -----------------------------------------------------------------------------
 -- vimwiki
 -----------------------------------------------------------------------------
-
+vim.g.wiki_global_ext = 0
+local l = {}
+l.path = '~/vimwiki/'
+l.syntax = 'markdown'
+l.ext = '.md'
+vim.g.vimwiki_list = { l }
 vim.g.vimwiki_listsyms = '✗○◐●✓'
 map('n', '<leader>wq',  ':VimwikiToggleListItem<CR>', options)
-
------------------------------------------------------------------------------
--- tagbar
------------------------------------------------------------------------------
-
-vim.g.tagbar_autofocus = 1
-
-map('n', '<leader>tt',  ':TagbarToggle<CR>', options)
 
 -----------------------------------------------------------------------------
 -- goyo
@@ -59,6 +89,35 @@ vim.g.ale_linter_aliases = aliases
 
 
 
+-----------------------------------------------------------------------------
+-- Telescope
+-----------------------------------------------------------------------------
+require('telescope').setup {
+  defaults = {
+    file_ignore_patterns = { "node_modules", 'git', 'tags', 'dist', 'build' },
+    mappings = {
+      i = {
+        ['<C-u>'] = false,
+        ['<C-d>'] = false,
+      },
+    },
+  },
+}
+
+--Add leader shortcuts
+vim.api.nvim_set_keymap('n', '<leader>fb', [[<cmd>lua require('telescope.builtin').buffers()<CR>]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>ff', [[<cmd>lua require('telescope.builtin').find_files({previewer = false, hidden=true})<CR>]], { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', '<leader>fb', [[<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>fh', [[<cmd>lua require('telescope.builtin').help_tags()<CR>]], { noremap = true, silent = true })
+--vim.api.nvim_set_keymap('n', '<leader>ft', [[<cmd>lua require('telescope.builtin').tags()<CR>]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>fd', [[<cmd>lua require('telescope.builtin').grep_string()<CR>]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>fg', [[<cmd>lua require('telescope.builtin').live_grep()<CR>]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>ft', [[<cmd>lua require('telescope.builtin').tags{ only_current_buffer = true }<CR>]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>?', [[<cmd>lua require('telescope.builtin').oldfiles()<CR>]], { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap('n', '<leader>gb', [[<cmd>lua require('telescope.builtin').git_branches()<CR>]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>gc', [[<cmd>lua require('telescope.builtin').git_bcommits()<CR>]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>gs', [[<cmd>lua require('telescope.builtin').git_stash()<CR>]], { noremap = true, silent = true })
 
 
 -----------------------------------------------------------------------------
@@ -93,34 +152,4 @@ vim.g.NERDTreeMinmalUi= 1
 vim.g.NERDTreeDirArrows = 1
 map('n',  '<leader>nn',  ':NERDTreeToggle<CR>', options)
 
-
------------------------------------------------------------------------------
---- test-vim
------------------------------------------------------------------------------
-map('n',  't<C-n>', ':TestNearest<CR>', options)
-map('n',  't<C-f>', ':TestFile<CR>', options)
-map('n',  't<C-s>', ':TestSuite<CR>', options)
-map('n',  't<C-l>', ':TestLast<CR>', options)
-map('n',  't<C-g>', ':TestVisit<CR>', options)
-
------------------------------------------------------------------------------
--- orgmode
------------------------------------------------------------------------------
-require('orgmode').setup_ts_grammar()
-require'nvim-treesitter.configs'.setup {
-  -- If TS highlights are not enabled at all, or disabled via `disable` prop, highlighting will fallback to default Vim syntax highlighting
-  highlight = {
-    enable = true,
-    disable = {'org'}, -- Remove this to use TS highlighter for some of the highlights (Experimental)
-    additional_vim_regex_highlighting = {'org'}, -- Required since TS highlighter doesn't support all syntax features (conceal)
-  },
-  ensure_installed = {'org'}, -- Or run :TSUpdate org
-}
-
-require('orgmode').setup({
-  org_agenda_files = {'~/notes.org'},
-  org_default_notes_file = '~/notes.org',
-  org_todo_keywords = {'TODO', 'PROGRESS', 'REVIEW', '|', 'DONE'}
-})
--- require("headlines").setup ()
 
