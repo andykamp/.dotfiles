@@ -89,11 +89,6 @@ _G.packer_plugins = {
     path = "/Users/anderskampenes/.local/share/nvim/site/pack/packer/start/cmp-nvim-ultisnips",
     url = "https://github.com/quangnguyen30192/cmp-nvim-ultisnips"
   },
-  ["coc.nvim"] = {
-    loaded = true,
-    path = "/Users/anderskampenes/.local/share/nvim/site/pack/packer/start/coc.nvim",
-    url = "https://github.com/neoclide/coc.nvim"
-  },
   edge = {
     loaded = true,
     path = "/Users/anderskampenes/.local/share/nvim/site/pack/packer/start/edge",

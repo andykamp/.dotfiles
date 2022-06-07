@@ -54,20 +54,20 @@ require('packer').startup(function()
   -- use { 'preservim/tagbar' }
 
   -- Code formatting and language servers
-  use {'neoclide/coc.nvim', branch = 'release'} -- code completion
   use 'dense-analysis/ale'  -- async linter
   use 'ludovicchabant/vim-gutentags' -- Automatic tags management
   use 'nvim-treesitter/nvim-treesitter'-- Highlight, edit, and navigate code using a fast incremental parsing library
   use 'nvim-treesitter/nvim-treesitter-textobjects' -- ??? Additional textobjects for treesitter
 
   -- language server plugins
+  use 'williamboman/nvim-lsp-installer' -- allows easy lsp installment via :LspInstall
   use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client. Needed to get quick configs for lsp
   use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp. Needed to add capabilities to lsp
-  use 'williamboman/nvim-lsp-installer' -- allows easy lsp installment via :LspInstall
+  -- use 'hrsh7th/cmp-buffer'
+  -- use 'hrsh7th/cmp-path'
+  -- use 'hrsh7th/cmp-cmdline'
 
  -- Snippets (TODO map to something smooth)
- -- use 'honza/vim-snippets' -- set of pre-generated snippets for mulitple language
- -- use 'mlaursen/vim-react-snippets' -- spesific reat snippets
  use 'SirVer/ultisnips' -- create own code snippets located at ./Ultisnips
  use({
   "hrsh7th/nvim-cmp",
@@ -81,11 +81,10 @@ require('packer').startup(function()
      requires = { "nvim-treesitter/nvim-treesitter" },
   },
  })
-  -- use 'hrsh7th/cmp-buffer'
-  -- use 'hrsh7th/cmp-path'
-  -- use 'hrsh7th/cmp-cmdline'
-  -- use 'saadparwaiz1/cmp_luasnip'
-  -- use 'L3MON4D3/LuaSnip' -- Snippets plugitelescopen
+ -- use 'honza/vim-snippets' -- set of pre-generated snippets for mulitple language
+ -- use 'mlaursen/vim-react-snippets' -- spesific reat snippets
+
+
   use({
 		"akinsho/org-bullets.nvim",
 		config = function()
@@ -275,41 +274,6 @@ lspconfig.sumneko_lua.setup {
 }
 
 -------------------------------------------------------------------------------
----- luasnip setup
--------------------------------------------------------------------------------
---local luasnip = require 'luasnip'
-
--------------------------------------------------------------------------------
----- nvim-cmp setup
--------------------------------------------------------------------------------
---local cmp = require 'cmp'
---cmp.setup {
---  snippet = {
---    expand = function(args)
---      luasnip.lsp_expand(args.body)
---    end,
---  },
---  mapping = {
---    ['<C-p>'] = cmp.mapping.select_prev_item(),
---    ['<C-n>'] = cmp.mapping.select_next_item(),
---    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
---    ['<C-f>'] = cmp.mapping.scroll_docs(4),
---    ['<C-Space>'] = cmp.mapping.complete(),
---    ['<C-e>'] = cmp.mapping.close(),
---    ['<CR>'] = cmp.mapping.confirm {
---      behavior = cmp.ConfirmBehavior.Replace,
---      select = true,
---    },
---  },
---  sources = {
---    { name = 'nvim_lsp' },
---    { name = 'luasnip' },
---    { name = 'buffer', priority = 10 },
---    { name = 'orgmode' },
---  },
---}
-
--------------------------------------------------------------------------------
 ---- ultisnip setup
 -------------------------------------------------------------------------------
     local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
@@ -334,7 +298,7 @@ lspconfig.sumneko_lua.setup {
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.close(),
         ['<CR>'] = cmp.mapping.confirm {
-           behavior = cmp.ConfirmBehavior.Replace,
+           behavior = cmp.ConfirmBehavior.Insert,
            select = true,
         },
         ["<Tab>"] = cmp.mapping(

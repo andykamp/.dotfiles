@@ -1,5 +1,5 @@
 -----------------------------------------------------------------------------
--- jhis file contains plugin configurations
+-- This file contains plugin configurations
 -----------------------------------------------------------------------------
 
 local map = vim.api.nvim_set_keymap
@@ -62,11 +62,10 @@ map('n', '<leader>gy', ':Goyo <CR>', options)
 -----------------------------------------------------------------------------
 -- Ultisnips
 -----------------------------------------------------------------------------
+-- TODO add shortcut to toggle
 vim.g.UltiSnipsSnippetDirectories= {'~/.config/nvim/UltiSnips' }
 vim.g.UltiSnipsExpandTrigger = "<Tab>"
-
---- If you want :UltiSnipsEdit to split your window.
-vim.g.UltiSnipsEditSplit="vertical"
+vim.g.UltiSnipsEditSplit="vertical" -- If you want :UltiSnipsEdit to split your window.
 
 -----------------------------------------------------------------------------
 -- ale
