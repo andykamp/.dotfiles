@@ -52,6 +52,7 @@ require('packer').startup(function()
   use 'easymotion/vim-easymotion' -- jump to any word you loook at by <leader><leader>w etc
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } } -- Add git related info in the signs columns and popups
   use 'junegunn/goyo.vim'
+  use 'akinsho/toggleterm.nvim'
   -- use { 'preservim/tagbar' }
 
   -- visual helpers  
