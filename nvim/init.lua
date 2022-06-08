@@ -32,7 +32,6 @@ require('packer').startup(function()
   use 'tpope/vim-surround' -- enables the s and S command TODOOOOOOO
   use 'jiangmiao/auto-pairs' -- create pars of brackets etc
   use 'alvan/vim-closetag'  -- close jsx/tsx tags
-  use 'lukas-reineke/headlines.nvim' -- background highlighting from headlines in markdown, vimwiki and orgmode
   use 'ojroques/vim-oscyank' -- lets you copy to OS clipboard TODOOOOOO
 
   -- colorschemas
@@ -40,9 +39,10 @@ require('packer').startup(function()
   use 'sonph/onehalf'
   use 'arcticicestudio/nord-vim'
   use 'sainnhe/edge'
+  use {'rose-pine/neovim', as ='rose-pine' } -- config = "vim.cmd('colorscheme rose-pine')"}
 
-  -- UI and visual helper tools for faster workflows 
-  use 'norcalli/nvim-colorizer.lua'
+
+  -- Helper tools for faster workflows 
   use { 'preservim/nerdtree'} -- file explorer
   use 'Xuyuanp/nerdtree-git-plugin' -- add gir related icon in nerdtree to visualize untracked files etc   
   use 'ryanoasis/vim-devicons'
@@ -50,10 +50,14 @@ require('packer').startup(function()
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } } -- UI to select things (files, grep results, open buffers...)
   use 'ThePrimeagen/harpoon' -- use for quick commands
   use 'easymotion/vim-easymotion' -- jump to any word you loook at by <leader><leader>w etc
-  use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } } -- Add git related info in the signs columns and popups
   use 'junegunn/goyo.vim'
   -- use { 'preservim/tagbar' }
+
+  -- visual helpers  
+  use 'norcalli/nvim-colorizer.lua'
+  use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
+  use 'lukas-reineke/headlines.nvim' -- background highlighting from headlines in markdown, vimwiki and orgmode
 
   -- Code formatting and language servers
   use 'dense-analysis/ale'  -- async linter
@@ -87,6 +91,7 @@ require('packer').startup(function()
  -- use 'mlaursen/vim-react-snippets' -- spesific reat snippets
 
 
+  -- Markdown and documentation
   use({
 		"akinsho/org-bullets.nvim",
 		config = function()
@@ -115,16 +120,18 @@ vim.cmd [[colorscheme edge]]
 -- bottom line  setup
 require('lualine').setup {
     options = {
-		theme = "nord",
+		theme = "rose-pine",
+        section_separators = '',
+        component_separators = ''
 	},
-    sections = {
-        lualine_a = { 'mode', {'branch'},{'filename', path=2},  },
-        lualine_b = {},
-        lualine_c = {{'diagnostics', always_visible = true, symbols = { error = 'E', warn = 'W', info = 'I', hint='H', } } },
-        lualine_x = {},
-        lualine_y = {},
-        lualine_z = {},
-    }
+    -- sections = {
+    --     lualine_a = { 'mode', {'branch'},{'filename', path=2},  },
+    --     lualine_b = {},
+    --     lualine_c = {{'diagnostics', always_visible = true, symbols = { error = 'E', warn = 'W', info = 'I', hint='H', } } },
+    --     lualine_x = {},
+    --     lualine_y = {},
+    --     lualine_z = {},
+    -- }
 }
 
 
