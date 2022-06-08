@@ -143,6 +143,7 @@ map('n',  '<leader>t4',  ':lua require("harpoon.term").gotoTerminal(2)<CR>', opt
 map('n',  '<leader>t5',  ':lua require("harpoon.term").gotoTerminal(2)<CR>', options)
 map('n',  '<leader>t6',  ':lua require("harpoon.term").gotoTerminal(6)<CR>', options)
 
+-- TODO can add global go-to-files here aswell
 map('n',  '<leader>h1',  ':lua require("harpoon.ui").nav_file(1)  <CR>', options)
 map('n',  '<leader>h2',  ':lua require("harpoon.ui").nav_file(2)  <CR>', options)
 map('n',  '<leader>h3',  ':lua require("harpoon.ui").nav_file(3)  <CR>', options)
@@ -150,12 +151,12 @@ map('n',  '<leader>h4',  ':lua require("harpoon.ui").nav_file(4)  <CR>', options
 map('n',  '<leader>h5',  ':lua require("harpoon.ui").nav_file(5)  <CR>', options)
 map('n',  '<leader>h6',  ':lua require("harpoon.ui").nav_file(6)  <CR>', options)
 
-map('n',  'g1',  ':lua require("harpoon.term").sendCommand(1, 1)  <CR>', options)
-map('n',  'g2',  ':lua require("harpoon.term").sendCommand(1, 2)  <CR>', options)
-map('n',  '<F3>',  ':lua require("harpoon.term").sendCommand(1, 3)  <CR>', options)
-map('n',  '<F4>',  ':lua require("harpoon.term").sendCommand(1, 4)  <CR>', options)
-map('n',  '<F5>',  ':lua require("harpoon.term").sendCommand(1, 5)  <CR>', options)
-map('n',  '<M-f>',  ':Telescope git_files<CR>', options)
+-- map('n',  'g1',  ':lua require("harpoon.term").sendCommand(1, 1)  <CR>', options)
+-- map('n',  'g2',  ':lua require("harpoon.term").sendCommand(1, 2)  <CR>', options)
+-- map('n',  '<F3>',  ':lua require("harpoon.term").sendCommand(1, 3)  <CR>', options)
+-- map('n',  '<F4>',  ':lua require("harpoon.term").sendCommand(1, 4)  <CR>', options)
+-- map('n',  '<F5>',  ':lua require("harpoon.term").sendCommand(1, 5)  <CR>', options)
+map('n',  '<leader>hg',  ':Telescope git_files<CR>', options)
 
 -----------------------------------------------------------------------------
 --- nerdtree
@@ -187,7 +188,42 @@ autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTa
 
 
 -----------------------------------------------------------------------------
---- toggletermh
+--- marks
+-----------------------------------------------------------------------------
+require'marks'.setup {
+  -- whether to map keybinds or not. default true
+  default_mappings = true,
+  -- which builtin marks to show. default {}
+  builtin_marks = { ".", "<", ">", "^" },
+  -- whether movements cycle back to the beginning/end of buffer. default true
+  cyclic = true,
+  -- whether the shada file is updated after modifying uppercase marks. default false
+  force_write_shada = false,
+  -- how often (in ms) to redraw signs/recompute mark positions. 
+  -- higher values will have better performance but may cause visual lag, 
+  -- while lower values may cause performance penalties. default 150.
+  refresh_interval = 250,
+  -- sign priorities for each type of mark - builtin marks, uppercase marks, lowercase
+  -- marks, and bookmarks.
+  -- can be either a table with all/none of the keys, or a single number, in which case
+  -- the priority applies to all marks.
+  -- default 10.
+  sign_priority = { lower=10, upper=15, builtin=8, bookmark=20 },
+  -- disables mark tracking for specific filetypes. default {}
+  excluded_filetypes = {},
+  -- marks.nvim allows you to configure up to 10 bookmark groups, each with its own
+  -- sign/virttext. Bookmarks can be used to group together positions and quickly move
+  -- across multiple buffers. default sign is '!@#$%^&*()' (from 0 to 9), and
+  -- default virt_text is "".
+  bookmark_0 = {
+    sign = "⚑",
+    virt_text = "hello world"
+  },
+  mappings = {}
+}
+
+-----------------------------------------------------------------------------
+--- toggleterm
 -----------------------------------------------------------------------------
 require('toggleterm').setup({
 	size = 20,
@@ -224,36 +260,37 @@ end
 
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
-local Terminal = require("toggleterm.terminal").Terminal
-local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
+-- UNCOMMENT IF FIND USEFUL IN THE FUTURE
+-- local Terminal = require("toggleterm.terminal").Terminal
+-- local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
 
-function _LAZYGIT_TOGGLE()
-	lazygit:toggle()
-end
+-- function _LAZYGIT_TOGGLE()
+-- 	lazygit:toggle()
+-- end
 
-local node = Terminal:new({ cmd = "node", hidden = true })
+-- local node = Terminal:new({ cmd = "node", hidden = true })
 
 
-function _NODE_TOGGLE()
-	node:toggle()
-end
+-- function _NODE_TOGGLE()
+-- 	node:toggle()
+-- end
 
--- map('n',  '<leader>tn',  ':lua _NODE_TOGGLE() <CR>',  {noremap = true, silent = true})
+-- -- map('n',  '<leader>tn',  ':lua _NODE_TOGGLE() <CR>',  {noremap = true, silent = true})
 
-local ncdu = Terminal:new({ cmd = "ncdu", hidden = true })
+-- local ncdu = Terminal:new({ cmd = "ncdu", hidden = true })
 
-function _NCDU_TOGGLE()
-	ncdu:toggle()
-end
+-- function _NCDU_TOGGLE()
+-- 	ncdu:toggle()
+-- end
 
-local htop = Terminal:new({ cmd = "htop", hidden = true })
+-- local htop = Terminal:new({ cmd = "htop", hidden = true })
 
-function _HTOP_TOGGLE()
-	htop:toggle()
-end
+-- function _HTOP_TOGGLE()
+-- 	htop:toggle()
+-- end
 
-local python = Terminal:new({ cmd = "python", hidden = true })
+-- local python = Terminal:new({ cmd = "python", hidden = true })
 
-function _PYTHON_TOGGLE()
-	python:toggle()
-end
+-- function _PYTHON_TOGGLE()
+-- 	python:toggle()
+-- end

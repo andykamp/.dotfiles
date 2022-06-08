@@ -53,6 +53,7 @@ require('packer').startup(function()
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } } -- Add git related info in the signs columns and popups
   use 'junegunn/goyo.vim'
   use 'akinsho/toggleterm.nvim'
+  use 'chentoast/marks.nvim'
   -- use { 'preservim/tagbar' }
 
   -- visual helpers  
