@@ -110,15 +110,18 @@ require('telescope').setup {
 }
 
 --Add leader shortcuts
-map('n', '<leader>fb', [[<cmd>lua require('telescope.builtin').buffers()<CR>]], { noremap = true, silent = true })
 map('n', '<leader>ff', [[<cmd>lua require('telescope.builtin').find_files({previewer = false, hidden=true})<CR>]], { noremap = true, silent = true })
+map('n', '<leader>?', [[<cmd>lua require('telescope.builtin').oldfiles()<CR>]], { noremap = true, silent = true })
+
+map('n', '<leader>fb', [[<cmd>lua require('telescope.builtin').buffers()<CR>]], { noremap = true, silent = true })
+
 -- vim.api.nvim_set_keymap('n', '<leader>fb', [[<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>]], { noremap = true, silent = true })
-map('n', '<leader>fh', [[<cmd>lua require('telescope.builtin').help_tags()<CR>]], { noremap = true, silent = true })
---vim.api.nvim_set_keymap('n', '<leader>ft', [[<cmd>lua require('telescope.builtin').tags()<CR>]], { noremap = true, silent = true })
 map('n', '<leader>fd', [[<cmd>lua require('telescope.builtin').grep_string()<CR>]], { noremap = true, silent = true })
 map('n', '<leader>fg', [[<cmd>lua require('telescope.builtin').live_grep()<CR>]], { noremap = true, silent = true })
+
+map('n', '<leader>fh', [[<cmd>lua require('telescope.builtin').help_tags()<CR>]], { noremap = true, silent = true })
 map('n', '<leader>ft', [[<cmd>lua require('telescope.builtin').tags{ only_current_buffer = true }<CR>]], { noremap = true, silent = true })
-map('n', '<leader>?', [[<cmd>lua require('telescope.builtin').oldfiles()<CR>]], { noremap = true, silent = true })
+-- map('n', '<leader>ft', [[<cmd>lua require('telescope.builtin').tags()<CR>]], { noremap = true, silent = true })
 
 map('n', '<leader>gb', [[<cmd>lua require('telescope.builtin').git_branches()<CR>]], { noremap = true, silent = true })
 map('n', '<leader>gc', [[<cmd>lua require('telescope.builtin').git_bcommits()<CR>]], { noremap = true, silent = true })
@@ -132,20 +135,27 @@ require('harpoon.term')
 map('n',  '<leader>hm',  ':lua require("harpoon.mark").add_file()<CR>', options)
 map('n',  '<leader>ha',  ':lua require("harpoon.ui").toggle_quick_menu()<CR>', options)
 map('n',  '<leader>hA',  ':lua require("harpoon.cmd-ui").toggle_quick_menu()<CR>', options)
-map('n',  '<leader>1',  ':lua require("harpoon.term").gotoTerminal(1)<CR>', options)
-map('n',  '<leader>2',  ':lua require("harpoon.term").gotoTerminal(2)<CR>', options)
-map('n',  '<M-1>',  ':lua require("harpoon.ui").nav_file(1)  <CR>', options)
-map('n',  '<M-2>',  ':lua require("harpoon.ui").nav_file(2)  <CR>', options)
-map('n',  '<M-3>',  ':lua require("harpoon.ui").nav_file(3)  <CR>', options)
-map('n',  '<M-4>',  ':lua require("harpoon.ui").nav_file(4)  <CR>', options)
-map('n',  '<M-5>',  ':lua require("harpoon.ui").nav_file(5)  <CR>', options)
+
+map('n',  '<leader>t1',  ':lua require("harpoon.term").gotoTerminal(1)<CR>', options)
+map('n',  '<leader>t2',  ':lua require("harpoon.term").gotoTerminal(2)<CR>', options)
+map('n',  '<leader>t3',  ':lua require("harpoon.term").gotoTerminal(2)<CR>', options)
+map('n',  '<leader>t4',  ':lua require("harpoon.term").gotoTerminal(2)<CR>', options)
+map('n',  '<leader>t5',  ':lua require("harpoon.term").gotoTerminal(2)<CR>', options)
+map('n',  '<leader>t6',  ':lua require("harpoon.term").gotoTerminal(6)<CR>', options)
+
+map('n',  '<leader>h1',  ':lua require("harpoon.ui").nav_file(1)  <CR>', options)
+map('n',  '<leader>h2',  ':lua require("harpoon.ui").nav_file(2)  <CR>', options)
+map('n',  '<leader>h3',  ':lua require("harpoon.ui").nav_file(3)  <CR>', options)
+map('n',  '<leader>h4',  ':lua require("harpoon.ui").nav_file(4)  <CR>', options)
+map('n',  '<leader>h5',  ':lua require("harpoon.ui").nav_file(5)  <CR>', options)
+map('n',  '<leader>h6',  ':lua require("harpoon.ui").nav_file(6)  <CR>', options)
+
 map('n',  'g1',  ':lua require("harpoon.term").sendCommand(1, 1)  <CR>', options)
 map('n',  'g2',  ':lua require("harpoon.term").sendCommand(1, 2)  <CR>', options)
 map('n',  '<F3>',  ':lua require("harpoon.term").sendCommand(1, 3)  <CR>', options)
 map('n',  '<F4>',  ':lua require("harpoon.term").sendCommand(1, 4)  <CR>', options)
 map('n',  '<F5>',  ':lua require("harpoon.term").sendCommand(1, 5)  <CR>', options)
 map('n',  '<M-f>',  ':Telescope git_files<CR>', options)
-
 
 -----------------------------------------------------------------------------
 --- nerdtree
