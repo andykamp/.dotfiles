@@ -144,6 +144,11 @@ _G.packer_plugins = {
     path = "/Users/anderskampenes/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
+  ["nvim-colorizer.lua"] = {
+    loaded = true,
+    path = "/Users/anderskampenes/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
+    url = "https://github.com/norcalli/nvim-colorizer.lua"
+  },
   ["nvim-lsp-installer"] = {
     loaded = true,
     path = "/Users/anderskampenes/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
@@ -194,6 +199,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/anderskampenes/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  ["rose-pine"] = {
+    loaded = true,
+    path = "/Users/anderskampenes/.local/share/nvim/site/pack/packer/start/rose-pine",
+    url = "https://github.com/rose-pine/neovim"
   },
   ["telescope.nvim"] = {
     loaded = true,

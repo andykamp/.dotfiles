@@ -8,6 +8,12 @@ local options = { noremap = true }
 
 
 -----------------------------------------------------------------------------
+-- nvim-colorizer
+-----------------------------------------------------------------------------
+require'colorizer'.setup()
+
+
+-----------------------------------------------------------------------------
 -- gutentags
 -----------------------------------------------------------------------------
 vim.g.gutentags_ctags_auto_set_tags = 0
@@ -145,7 +151,7 @@ map('n',  '<M-f>',  ':Telescope git_files<CR>', options)
 --- nerdtree
 -----------------------------------------------------------------------------
 vim.g.webdevicons_enable_nerdtree = 1
-
+vim.g.NERDTreeGitStatusUseNerdFonts = 1
 vim.g.NERDTreeShowHidden = 1
 vim.g.NERDTreeAutoDeleteBuffer = 1
 vim.g.NERDTreeQuitOnOpen = 0
@@ -153,5 +159,13 @@ vim.g.NERDTreeMinmalUi= 1
 vim.g.NERDTreeDirArrows = 1
 map('n',  '<leader>nn',  ':NERDTreeToggle<CR>', options) -- toggle on/off nerdtree
 map('n', '<leader>r', ':NERDTreeFind<cr>', options) -- map nerdtree switch to active file
+-- Exit Vim if NERDTree is the only window remaining in the only tab.
+vim.cmd([[
+ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+]])
+-- Close the tab if NERDTree is the only window remaining in it.
+vim.cmd([[
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+]])
 
 
