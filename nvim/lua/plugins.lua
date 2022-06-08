@@ -157,8 +157,15 @@ vim.g.NERDTreeAutoDeleteBuffer = 1
 vim.g.NERDTreeQuitOnOpen = 0
 vim.g.NERDTreeMinmalUi= 1
 vim.g.NERDTreeDirArrows = 1
+
+-- shortcut to remove allow the J and K to be the normal 5j and 5k
+vim.g.NERDTreeMapJumpLastChild = 'z'
+vim.g.NERDTreeMapJumpFirstChild = 'z'
+
+-- shortcuts to toggle and find 
 map('n',  '<leader>nn',  ':NERDTreeToggle<CR>', options) -- toggle on/off nerdtree
 map('n', '<leader>r', ':NERDTreeFind<cr>', options) -- map nerdtree switch to active file
+
 -- Exit Vim if NERDTree is the only window remaining in the only tab.
 vim.cmd([[
  autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
