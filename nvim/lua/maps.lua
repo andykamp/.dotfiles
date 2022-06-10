@@ -56,4 +56,8 @@ map('t', '<C-j>', '<C-\\><C-n><C-w><C-j>', options)
 map('t', '<C-o>', '<C-\\><C-n><C-o>', options)
 
 
+-- marks
+map('n', "æ", "'", options)
+
+
 
