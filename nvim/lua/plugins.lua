@@ -108,14 +108,16 @@ require('telescope').setup {
     file_ignore_patterns = { "node_modules", 'git', 'tags', 'dist', 'build' },
     mappings = {
       i = {
-        ['<C-u>'] = false,
-        ['<C-d>'] = false,
+        ['<C-u>'] = actions.results_scrolling_up,
+        ['<C-d>'] = actions.results_scrolling_down,
         ["<C-s>"] = actions.send_selected_to_qflist + actions.open_qflist,
         ["<C-q"] = actions.send_to_qflist + actions.open_qflist
       },
      n = {
-        ['<C-u>'] = false,
-        ['<C-d>'] = false,
+        ["J"] = actions.move_selection_next +  actions.move_selection_next + actions.move_selection_next + actions.move_selection_next + actions.move_selection_next,
+        ["K"] = actions.move_selection_previous +  actions.move_selection_previous + actions.move_selection_previous + actions.move_selection_previous + actions.move_selection_previous,
+        ['<C-u>'] = actions.results_scrolling_up,
+        ['<C-d>'] = actions.results_scrolling_down,
         ["<C-s>"] = actions.send_selected_to_qflist + actions.open_qflist,
         ["<C-q"] = actions.send_to_qflist + actions.open_qflist
      }
