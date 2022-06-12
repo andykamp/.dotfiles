@@ -72,6 +72,11 @@ map('n', '<leader>gy', ':Goyo <CR>', options)
 vim.g.UltiSnipsSnippetDirectories= {'~/.config/nvim/UltiSnips' }
 vim.g.UltiSnipsExpandTrigger = "<Tab>"
 vim.g.UltiSnipsEditSplit="vertical" -- If you want :UltiSnipsEdit to split your window.
+map('n', '<leader>uu', ':UltiSnipsEdit<CR>', options)
+map('n', '<leader>ujs', ':UltiSnipsEdit javascript<CR>', options)
+map('n', '<leader>uts', ':UltiSnipsEdit typescript<CR>', options)
+map('n', '<leader>ujx', ':UltiSnipsEdit javascriptreact<CR>', options)
+map('n', '<leader>utx', ':UltiSnipsEdit typescriptreact<CR>', options)
 
 -----------------------------------------------------------------------------
 -- ale
@@ -97,6 +102,7 @@ vim.g.ale_linter_aliases = aliases
 -----------------------------------------------------------------------------
 -- Telescope
 -----------------------------------------------------------------------------
+local actions = require "telescope.actions"
 require('telescope').setup {
   defaults = {
     file_ignore_patterns = { "node_modules", 'git', 'tags', 'dist', 'build' },
@@ -104,12 +110,24 @@ require('telescope').setup {
       i = {
         ['<C-u>'] = false,
         ['<C-d>'] = false,
+        ["<C-s>"] = actions.send_selected_to_qflist + actions.open_qflist,
+        ["<C-q"] = actions.send_to_qflist + actions.open_qflist
       },
+     n = {
+        ['<C-u>'] = false,
+        ['<C-d>'] = false,
+        ["<C-s>"] = actions.send_selected_to_qflist + actions.open_qflist,
+        ["<C-q"] = actions.send_to_qflist + actions.open_qflist
+     }
     },
   },
 }
 
 --Add leader shortcuts
+
+map('n', '<leader>fF', [[:execute 'Telescope find_files default_text=' . expand('<cword>')<CR>]],{ noremap = true, silent = true }) -- populates word under cursor
+map('n', '<leader>fG', [[:execute 'Telescope live_grep default_text=' . expand('<cword>')<CR>]],{ noremap = true, silent = true }) -- populates word under cursor
+
 map('n', '<leader>ff', [[<cmd>lua require('telescope.builtin').find_files({previewer = false, hidden=true})<CR>]], { noremap = true, silent = true })
 map('n', '<leader>?', [[<cmd>lua require('telescope.builtin').oldfiles()<CR>]], { noremap = true, silent = true })
 
