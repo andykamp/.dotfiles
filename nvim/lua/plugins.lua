@@ -103,6 +103,7 @@ vim.g.ale_linter_aliases = aliases
 -- Telescope
 -----------------------------------------------------------------------------
 local actions = require "telescope.actions"
+-- see https://github.com/nvim-telescope/telescope.nvim/blob/master/lua/telescope/mappings.lua for all telescope actions
 require('telescope').setup {
   defaults = {
     file_ignore_patterns = { "node_modules", 'git', 'tags', 'dist', 'build' },
