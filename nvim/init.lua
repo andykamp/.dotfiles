@@ -25,7 +25,8 @@ require('packer').startup(function()
 
   -- git related plugins 
   use 'tpope/vim-fugitive' -- Git commands in nvim TODOOOOO
-  use 'tpope/vim-rhubarb' -- Fugitive-companion to interact with github TODOOOOO
+  use 'tpope/vim-rhubarb' -- Fugitive-companion to interact with github (:Gbrowse--> opens git)
+  use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } } -- Add git related info in the signs columns and popups
 
   -- handy dandy shorcut plugins
   use 'tpope/vim-commentary' -- "gc" to comment visual regions/lines (gcc to comment a line) TODOOOOOO
@@ -50,13 +51,12 @@ require('packer').startup(function()
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } } -- UI to select things (files, grep results, open buffers...)
   use 'ThePrimeagen/harpoon' -- use for quick commands
   use 'easymotion/vim-easymotion' -- jump to any word you loook at by <leader><leader>w etc
-  use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } } -- Add git related info in the signs columns and popups
   use 'junegunn/goyo.vim'
   use 'akinsho/toggleterm.nvim'
   use 'chentoast/marks.nvim'
   -- use { 'preservim/tagbar' }
 
-  -- visual helpers  
+-- visual helpers  
   use 'norcalli/nvim-colorizer.lua'
   use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
   use 'lukas-reineke/headlines.nvim' -- background highlighting from headlines in markdown, vimwiki and orgmode
@@ -118,25 +118,6 @@ vim.g.edge_style = 'aura'
 vim.g.edge_better_performanc = 1
 vim.cmd [[colorscheme edge]]
 
-
--- bottom line  setup
-require('lualine').setup {
-    options = {
-		theme = "rose-pine",
-        section_separators = '',
-        component_separators = ''
-	},
-    -- sections = {
-    --     lualine_a = { 'mode', {'branch'},{'filename', path=2},  },
-    --     lualine_b = {},
-    --     lualine_c = {{'diagnostics', always_visible = true, symbols = { error = 'E', warn = 'W', info = 'I', hint='H', } } },
-    --     lualine_x = {},
-    --     lualine_y = {},
-    --     lualine_z = {},
-    -- }
-}
-
-
 -----------------------------------------------------------------------------
 -- Highlight on yank
 -----------------------------------------------------------------------------
@@ -146,8 +127,6 @@ vim.cmd [[
     autocmd TextYankPost * silent! lua vim.highlight.on_yank()
   augroup end
 ]]
-
-
 
 -----------------------------------------------------------------------------
 -- Treesitter configuration

@@ -1,3 +1,5 @@
+
+
 -----------------------------------------------------------------------------
 -- This file contains plugin configurations
 -----------------------------------------------------------------------------
@@ -5,8 +7,25 @@
 local map = vim.api.nvim_set_keymap
 local options = { noremap = true }
 
-
-
+-----------------------------------------------------------------------------
+-- lualine
+-----------------------------------------------------------------------------
+--  UNCOMMENT TO USE CUSTOM THEME require('lualineConfig')
+require('lualine').setup {
+    options = {
+		theme = "rose-pine",
+        section_separators = '',
+        component_separators = ''
+	},
+    -- sections = {
+    --     lualine_a = { 'mode', {'branch'},{'filename', path=2},  },
+    --     lualine_b = {},
+    --     lualine_c = {{'diagnostics', always_visible = true, symbols = { error = 'E', warn = 'W', info = 'I', hint='H', } } },
+    --     lualine_x = {},
+    --     lualine_y = {},
+    --     lualine_z = {},
+    -- }
+}
 -----------------------------------------------------------------------------
 -- nvim-colorizer
 -----------------------------------------------------------------------------
