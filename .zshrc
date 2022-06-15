@@ -102,6 +102,8 @@ source $ZSH/oh-my-zsh.sh
 alias g=git
 # remap visualizing github tree for convinience
 alias glog1="sh ~/log-git-live.sh"
+# remap taking backup of wimwiki
+alias backupvimwiki="cp -R ~/vimwiki ~/Documents/BACKUPS/vimwiki"
 
 # Add colors to Terminal
 export CLICOLOR=1
