@@ -96,6 +96,7 @@ map('n', '<leader>ujs', ':UltiSnipsEdit javascript<CR>', options)
 map('n', '<leader>uts', ':UltiSnipsEdit typescript<CR>', options)
 map('n', '<leader>ujx', ':UltiSnipsEdit javascriptreact<CR>', options)
 map('n', '<leader>utx', ':UltiSnipsEdit typescriptreact<CR>', options)
+map('n', '<leader>umd', ':UltiSnipsEdit md<CR>', options)
 
 -----------------------------------------------------------------------------
 -- ale

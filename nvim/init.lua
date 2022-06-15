@@ -95,6 +95,10 @@ require('packer').startup(function()
 
   -- Markdown and documentation
   use({
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+  })
+  use({
 		"akinsho/org-bullets.nvim",
 		config = function()
 			require("org-bullets").setup({
