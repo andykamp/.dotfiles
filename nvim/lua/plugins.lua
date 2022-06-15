@@ -72,6 +72,7 @@ local l = {}
 l.path = '~/vimwiki/'
 l.syntax = 'markdown'
 l.ext = '.md'
+l.auto_diary_index = 1 -- autogenerate vimwiki diary
 vim.g.vimwiki_list = { l }
 vim.g.vimwiki_listsyms = '✗○◐●✓'
 map('n', '<leader>wq',  ':VimwikiToggleListItem<CR>', options)

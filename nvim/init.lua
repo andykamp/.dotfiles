@@ -94,6 +94,7 @@ require('packer').startup(function()
 
 
   -- Markdown and documentation
+  use 'mattn/calendar-vim' -- calander for wim diary
   use({
     "iamcco/markdown-preview.nvim",
     run = function() vim.fn["mkdp#util#install"]() end,
