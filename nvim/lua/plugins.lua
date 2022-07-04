@@ -33,6 +33,16 @@ require'colorizer'.setup()
 
 
 -----------------------------------------------------------------------------
+-- vim-test
+-----------------------------------------------------------------------------
+map('n',  '<leader>tn',  ':TestNearest<CR>', options)
+map('n',  '<leader>tf',  ':TestFile<CR>', options)
+map('n',  '<leader>ta',  ':TestSuite<CR>', options)
+map('n',  '<leader>tl',  ':TestLast<CR>', options)
+map('n',  '<leader>tv',  ':TestVisit<CR>', options)
+
+
+-----------------------------------------------------------------------------
 -- gutentags
 -----------------------------------------------------------------------------
 vim.g.gutentags_ctags_auto_set_tags = 0
@@ -76,6 +86,7 @@ l.auto_diary_index = 1 -- autogenerate vimwiki diary
 vim.g.vimwiki_list = { l }
 vim.g.vimwiki_listsyms = '✗○◐●✓'
 map('n', '<leader>wq',  ':VimwikiToggleListItem<CR>', options)
+map('n', '<leader>wc',  ':CalendarVR<CR>', options)
 
 -----------------------------------------------------------------------------
 -- goyo
@@ -108,6 +119,7 @@ l.javascriptreact = {'eslint', 'prettier'}
 l.typescript = {'eslint', 'prettier'}
 l.typescriptreact = {'eslint', 'prettier'}
 l.css = {'prettier'}
+l.svelte = {'prettier'}
 
 vim.g.ale_fixers = l
 -- vim.g.ale_sign_error = '❌'
@@ -158,16 +170,21 @@ map('n', '<leader>?', [[<cmd>lua require('telescope.builtin').oldfiles()<CR>]], 
 map('n', '<leader>fb', [[<cmd>lua require('telescope.builtin').buffers()<CR>]], { noremap = true, silent = true })
 
 -- vim.api.nvim_set_keymap('n', '<leader>fb', [[<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>]], { noremap = true, silent = true })
-map('n', '<leader>fd', [[<cmd>lua require('telescope.builtin').grep_string()<CR>]], { noremap = true, silent = true })
+-- map('n', '<leader>fd', [[<cmd>lua require('telescope.builtin').grep_string()<CR>]], { noremap = true, silent = true })
 map('n', '<leader>fg', [[<cmd>lua require('telescope.builtin').live_grep()<CR>]], { noremap = true, silent = true })
 
 map('n', '<leader>fh', [[<cmd>lua require('telescope.builtin').help_tags()<CR>]], { noremap = true, silent = true })
 map('n', '<leader>ft', [[<cmd>lua require('telescope.builtin').tags{ only_current_buffer = true }<CR>]], { noremap = true, silent = true })
 -- map('n', '<leader>ft', [[<cmd>lua require('telescope.builtin').tags()<CR>]], { noremap = true, silent = true })
 
+
+map('n', '<leader>fr', [[<cmd>lua require('telescope.builtin').lsp_references()<CR>]], { noremap = true, silent = true })
+map('n', '<leader>fd', [[<cmd>lua require('telescope.builtin').diagnostics()<CR>]], { noremap = true, silent = true })
+
 map('n', '<leader>gb', [[<cmd>lua require('telescope.builtin').git_branches()<CR>]], { noremap = true, silent = true })
-map('n', '<leader>gc', [[<cmd>lua require('telescope.builtin').git_bcommits()<CR>]], { noremap = true, silent = true })
+map('n', '<leader>gc', [[<cmd>lua require('telescope.builtin').git_commits()<CR>]], { noremap = true, silent = true })
 map('n', '<leader>gs', [[<cmd>lua require('telescope.builtin').git_stash()<CR>]], { noremap = true, silent = true })
+map('n', '<leader>gt', [[<cmd>lua require('telescope.builtin').git_status()<CR>]], { noremap = true, silent = true })
 
 
 -----------------------------------------------------------------------------

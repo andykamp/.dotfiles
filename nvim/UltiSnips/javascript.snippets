@@ -134,11 +134,20 @@ function $1 ($2){
 }
 endsnippet
 	
-snippet fa "func async" 
-async function $1 ($2){
+snippet cf "class func " 
+$1 ($2){
 	${3://something}
 }
 endsnippet
+
+
+snippet cfa "class func async" 
+async $1 ($2){
+	${3://something}
+}
+endsnippet
+
+
 
 
 
@@ -461,4 +470,44 @@ endsnippet
 snippet us.rf "useRef" w
 const $1 = useRef($2)${0:;}
 endsnippet
+
+
+
+################################################
+# test functions  
+###############################################
+
+snippet t. "test" w 
+it("$1", ()=>{
+	${2://write test here...}
+});
+endsnippet
+
+snippet t.t "test todo" w 
+it.todo("$1");
+endsnippet
+
+snippet e.tobe "expect tobe" w 
+expect($1).toBe($2)
+endsnippet
+
+snippet e.toeq "expect toEqual" w 
+expect($1).toEqual($2)
+endsnippet
+
+
+
+snippet t.be "beforeEach" w 
+beforeEach(() => {
+	${1://write test here...}
+});
+endsnippet
+
+snippet t.ba "beforeAll" w 
+beforeAll(()=>{
+	${1://write test here...}
+})
+endsnippet
+
+
 

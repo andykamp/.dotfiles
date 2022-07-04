@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "/Users/anderskampenes/.local/share/nvim/site/pack/packer/start/auto-pairs",
     url = "https://github.com/jiangmiao/auto-pairs"
   },
+  ["calendar-vim"] = {
+    loaded = true,
+    path = "/Users/anderskampenes/.local/share/nvim/site/pack/packer/start/calendar-vim",
+    url = "https://github.com/mattn/calendar-vim"
+  },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "/Users/anderskampenes/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",

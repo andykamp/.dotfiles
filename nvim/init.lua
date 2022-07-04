@@ -75,6 +75,9 @@ require('packer').startup(function()
   -- use 'hrsh7th/cmp-path'
   -- use 'hrsh7th/cmp-cmdline'
 
+ -- Testing 
+ use 'vim-test/vim-test'
+
  -- Snippets (TODO map to something smooth)
  use 'SirVer/ultisnips' -- create own code snippets located at ./Ultisnips
  use({
@@ -280,6 +283,18 @@ lspconfig.sumneko_lua.setup {
   },
 }
 
+lspconfig.svelte.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	filetypes = { "svelte" },
+	settings = {
+		plugin = {
+			html = { completions = { enable = true, emmet = false } },
+			svelte = { completions = { enable = true, emmet = false } },
+			css = { completions = { enable = true, emmet = true } },
+		},
+	},
+})
 -------------------------------------------------------------------------------
 ---- ultisnip setup
 -------------------------------------------------------------------------------

@@ -69,6 +69,8 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=( git, zsh-autosuggestions )
+bindkey '^I' autosuggest-accept
+
 
 source $ZSH/oh-my-zsh.sh
 
@@ -104,6 +106,12 @@ alias g=git
 alias glog1="sh ~/log-git-live.sh"
 # remap taking backup of wimwiki
 alias backupvimwiki="cp -R ~/vimwiki ~/Documents/BACKUPS/vimwiki"
+
+ # add fast back/forward work laps
+bindkey "^[^[[C" forward-word
+bindkey "^[^[[D" backward-word
+bindkey "^[[C" end-of-line 
+bindkey "^[[D" beginning-of-line 
 
 # Add colors to Terminal
 export CLICOLOR=1
