@@ -113,6 +113,13 @@ require('packer').startup(function()
   use 'vimwiki/vimwiki' -- used for markdown notes
 end)
 
+
+-----------------------------------------------------------------------------
+-- autocammand setting .mdx to markdown
+-----------------------------------------------------------------------------
+vim.cmd [[
+    autocmd BufNewFile,BufRead *.mdx :set filetype=vimwiki
+]]
 -----------------------------------------------------------------------------
 --Set colorscheme (order is important here)
 -----------------------------------------------------------------------------
