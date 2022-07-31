@@ -10,6 +10,39 @@ snippet ws "white space" t
 endsnippet
 
 ################################################
+#  react
+###############################################
+
+
+snippet rfc "React Functional Component" b
+import React from 'react';
+
+interface Props {`!p
+props = t[2]
+if props:
+  snip >> 1
+  for prop in props.split(', '):
+    snip += prop + ': any,'
+`
+};
+
+export const $1 = ({$2} : Props) => {
+	return (
+		<${5:div} className="$6">
+			$8
+		</${5/(\w+).*/$1/}>
+	);
+};
+
+$1.defaultProps = {
+	$3
+};
+
+endsnippet
+
+
+
+################################################
 #  storybook 
 ###############################################
 
@@ -48,9 +81,7 @@ endsnippet
 
 snippet ss "storybook story"
 import React from 'react';
-
-import { ComponentMeta } from '@storybook/react';
-
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { $1 } from './${2:$1}';
 
 export default {
@@ -58,7 +89,7 @@ export default {
 	component: $1,
 } as ComponentMeta<typeof $1>;
 
-const Template = (args) => <$1 {...args} />;
+const Template: ComponentStory<typeof $1> = (args) => <$1 {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

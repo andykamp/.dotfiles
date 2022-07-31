@@ -17,6 +17,14 @@ require('lualine').setup {
         section_separators = '',
         component_separators = ''
 	},
+    sections = {
+        lualine_a = {'mode'},
+        lualine_b = {'branch', 'diff', 'diagnostics'},
+        lualine_c = {{'filename', path=2}},
+        lualine_x = {'encoding', 'fileformat', 'filetype'},
+        lualine_y = {'progress'},
+        lualine_z = {'location'}
+    },
     -- sections = {
     --     lualine_a = { 'mode', {'branch'},{'filename', path=2},  },
     --     lualine_b = {},
@@ -104,6 +112,7 @@ vim.g.UltiSnipsSnippetDirectories= {'~/.config/nvim/UltiSnips' }
 vim.g.UltiSnipsExpandTrigger = "<Tab>"
 vim.g.UltiSnipsEditSplit="vertical" -- If you want :UltiSnipsEdit to split your window.
 map('n', '<leader>uu', ':UltiSnipsEdit<CR>', options)
+map('n', '<leader>ual', ':UltiSnipsEdit all<CR>', options)
 map('n', '<leader>ujs', ':UltiSnipsEdit javascript<CR>', options)
 map('n', '<leader>uts', ':UltiSnipsEdit typescript<CR>', options)
 map('n', '<leader>ujx', ':UltiSnipsEdit javascriptreact<CR>', options)
@@ -193,6 +202,7 @@ map('n', '<leader>gt', [[<cmd>lua require('telescope.builtin').git_status()<CR>]
 require('harpoon.term')
 map('n',  '<leader>hm',  ':lua require("harpoon.mark").add_file()<CR>', options)
 map('n',  '<leader>ha',  ':lua require("harpoon.ui").toggle_quick_menu()<CR>', options)
+
 map('n',  '<leader>hA',  ':lua require("harpoon.cmd-ui").toggle_quick_menu()<CR>', options)
 
 map('n',  '<leader>t1',  ':lua require("harpoon.term").gotoTerminal(1)<CR>', options)
@@ -285,6 +295,8 @@ require'marks'.setup {
         prev = "m;",
     }
 }
+
+map('n', 'mæ', ':delmarks!<cr>', options) -- delete all lowercase marks in buffer
 
 -----------------------------------------------------------------------------
 --- toggleterm

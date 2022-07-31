@@ -239,7 +239,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 -- Enable the following language servers
-local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver' }
+local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'tailwindcss' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
@@ -253,6 +253,11 @@ lspconfig.tsserver.setup {
     cmd = { vim.env.HOME .. "/.local/share/nvim/lsp_servers/tsserver/node_modules/.bin/typescript-language-server", "--stdio" },
 }
 
+lspconfig.tailwindcss.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    cmd = { vim.env.HOME .. "/.local/share/nvim/lsp_servers/tailwindcss_npm/node_modules/.bin/tailwindcss-language-server", "--stdio" },
+}
 -- Example custom server
 -- Make runtime files discoverable to the server
 local runtime_path = vim.split(package.path, ';')

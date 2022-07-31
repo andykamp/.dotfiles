@@ -87,6 +87,28 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components'
 endsnippet
 
+################################################
+#  export 
+###############################################
+
+snippet ex "export module" 
+export { ${1} } from '${2:$1}';
+endsnippet
+
+snippet exs "export as" 
+import { ${1} as ${2} } from '${3}';
+endsnippet
+
+snippet exa "export all" 
+import * from '${1}';
+endsnippet
+
+snippet exas "export all as" 
+import * as ${1} from '${2}';
+endsnippet
+
+
+
 
 ################################################
 #  tags

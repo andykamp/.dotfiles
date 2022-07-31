@@ -1,7 +1,13 @@
 
 ################################################
+################################################
+################################################
+################################################
 # Styled Component - OPS needs to be here to handle the inline css stuff!
 ###############################################
+################################################
+################################################
+################################################
 
 snippet sti "Styled Component import" b
 import styled from 'styled-components';
@@ -37,8 +43,14 @@ ${1:value}: ${props => props.theme.${2:$1}};
 endsnippet
 
 ################################################
+################################################
+################################################
+################################################
 # css
 ###############################################
+################################################
+################################################
+################################################
 
 # flex
 snippet cssf "flex" 
@@ -99,9 +111,17 @@ snippet cssh "hover"
 }
 endsnippet
 
+
+
 ################################################
-# html boilerplate 
+################################################
+################################################
+################################################
+# prettier 
 ###############################################
+################################################
+################################################
+################################################
 
 snippet hprettier "help prettier"
 // add this after you have added esling (see next snipppet) 
@@ -119,6 +139,16 @@ module.exports = {
   arrowParens: 'always',
 };
 endsnippet
+
+################################################
+################################################
+################################################
+################################################
+# eslint 
+################################################
+################################################
+################################################
+###############################################
 
 snippet heslint "helpt eslint"
 // install eslint
@@ -157,8 +187,14 @@ snippet eslintrc "eslintrc boilerplate"
 endsnippet
 
 ################################################
+################################################
+################################################
+################################################
 # html boilerplate 
 ###############################################
+################################################
+################################################
+################################################
 
 snippet htmlb "html boilerplate" 
 <!doctype html>
@@ -191,4 +227,327 @@ snippet htmlb "html boilerplate"
   <script src="js/ycripts.js"></script>
 </body>
 </html>
+endsnippet
+
+
+################################################
+################################################
+################################################
+################################################
+################################################
+# GraphQL 
+###############################################
+################################################
+################################################
+################################################
+################################################
+
+
+
+# schema
+snippet ql.s "grapGL schema" 
+const ${1:schemaName} = gql\`
+	$0
+\`
+endsnippet
+
+################################################
+# GraphQL Server 
+###############################################
+
+# import
+snippet ql.s.i "grapQL import server"
+const {gql} = require('apollo-server');
+endsnippet
+
+
+# type
+snippet ql.s.t "grapGL type" 
+type ${1:someType} {
+	$0
+}
+endsnippet
+
+
+# scema template
+snippet ql.s.new "graphQL new server"
+const {gql} = require('apollo-server');
+
+const typeDefs = gql\`
+	$0
+\`;
+
+module.exports = typeDefs;
+endsnippet
+
+
+# API 
+snippet ql.s.newapi	"grapQL new schema"
+const {RESTDataSource} = require('apollo-datasource-rest');
+
+export class ${1:some}API extends RESTDataSource {
+	constructor() {
+		super();
+		this.baseURL = '${2:baseUrl}'
+	}
+
+	/*
+	// method(){
+	//	return this.get('someEndpoint')
+	// }
+	*/
+
+}
+endsnippet
+snippet ql.s.apiget	"grapQL api get"
+${1:method}(){
+	return this.get('${2:someEndpoint}')
+}
+endsnippet
+snippet ql.s.apipost	"grapQL api post"
+${1:method}(){
+	return this.post('${2:someEndpoint}')
+}
+endsnippet
+
+
+# Resolvers
+snippet ql.s.res "grapGL resovler"
+export const resolvers = {
+	// ql.s.resq$0
+}
+endsnippet
+snippet ql.s.resq "grapGL resovler"
+${1:someType}: (parent, args, {dataSource}, info) => {
+	return dataSource.$0
+}
+endsnippet
+
+################################################
+# GraphQL Client 
+###############################################
+
+
+# import gql and  optinally useQuery
+snippet ql.c.i "grapGL useQuery" 
+import {gql ${1:, useQuery} ${2:, useMutation}  } from '@apollo/client';
+endsnippet
+
+# query
+snippet ql.c.q "grapGL query" 
+query ${1:someQuery} {
+	$0
+}
+endsnippet
+
+
+# useQuery
+snippet ql.c.uq "grapGL useQuery" 
+const {loading, error, data} = useQuery(${1:someQuery} ${2:, {
+	variables: {$0}
+}});
+endsnippet
+
+
+# useQuery
+snippet ql.c.um "grapGL useMutatoin" 
+const [${1:mutationFunc}, {loading, error, data}] = useMutation(${2:someMutation} ${3:, {
+	variables: {$4},
+	onComplete: (data) => {
+		console.log('Mutation Complete')
+		${5: // ... }
+	}
+}});
+endsnippet
+
+
+
+
+# client server template
+snippet ql.c.new "grapql new client"
+import {gql} from '@apollo/client';
+
+const client = new ApolloClient({
+uri: 'http://localhost:${1:4000}',
+cache: new InMemoryCache()
+});
+
+endsnippet
+
+
+################################################
+# Apollo server 
+###############################################
+
+
+
+snippet apollo.s.new "apollo new server"
+const {ApolloServer} = require('apollo-server');
+const typeDefs = require('./schema');
+
+const server = new ApolloServer({ 
+	typeDefs,
+	// mocks,
+	// resolvers,
+	// dataSources: () => {
+	// 	return {
+	//  	someAPI: new SomeAPI()
+	// 	}
+	// }
+});
+
+const {url, port } = await server.listen({ port: process.env.PORT || 4000}).then(() => {
+  console.log(\`
+    🚀  Server is running!
+    🔉  Listening on port ${port}
+    📭  Query at ${url}
+  \`);
+});
+
+endsnippet
+
+################################################
+# Apollo Client 
+###############################################
+
+snippet apollo.c.new "grapql new client"
+import {ApolloClient, InMemoryCache, ApolloProvider} from '@apollo/client';
+
+const client = new ApolloClient({
+uri: 'http://localhost:${1:4000}',
+cache: new InMemoryCache()
+});
+
+endsnippet
+
+
+################################################
+# Apollo helps 
+###############################################
+
+snippet apollo.help "apollo help"
+/*
+-------------------------
+-------------------------
+
+---- Basic server setup ----
+
+// create a new server in server/src/index.
+$0apollo.s.new
+
+// create a schema named typeDefs in server/src/schema.
+ql.s.new 
+
+// create mockups in a server/src/schema-mocks.
+export const mocks = {
+	someField1: ()=> //someFuncition,
+	someField2: ()=> //someFuncition2,
+}
+
+---- RESTDatasource ----
+
+// install rest datasource
+npm install apollo-datasource-rest
+
+// create a API file called a <something>-api. 
+ql.s.newapi
+
+//  create resolvers in server/src/resolvers.
+ql.s.res
+
+//  replace certain fields with resolvers queries
+ql.s.resq
+
+// --> the end result should look somthing like this:
+export const resolvers = {
+  Query:{
+    //...
+  },
+  Track:{
+    author: ({autorId}, _, {dataSource}) => {
+      return dataSource.trackAPI.getAuthor(autorId)
+    }
+  }
+}
+
+
+---- Basic client setup ----
+
+// create a new server in client/src/index.
+ql.c.new
+
+// create actuall graphQL queries in component files
+ql.c.i  // import gql and useQuery
+ql.s    // create a schema
+ql.c.q  // create a query inside the schema
+ql.c.uq // use tehe useQuery to get the data in a hook	
+
+
+
+// 
+-------------------------
+-------------------------
+*/
+
+endsnippet
+
+
+
+
+################################################
+################################################
+################################################
+################################################
+################################################
+# Array creation helper 
+###############################################
+################################################
+################################################
+################################################
+################################################
+
+global !p
+def create_matrix_placeholders(snip):
+	# Create anonymous snippet body
+	anon_snippet_body = ""
+
+	# Get start and end line number of expanded snippet
+	start = snip.snippet_start[0]
+	end = snip.snippet_end[0]
+
+  # Append current line into anonymous snippet
+	for i in range(start, end + 1):
+		anon_snippet_body += snip.buffer[i]
+		anon_snippet_body += "" if i == end else "\n"
+
+	# Delete expanded snippet line till second to last line
+	for i in range(start, end):
+		del snip.buffer[start]
+
+	# Empty last expanded snippet line while preserving the line
+	snip.buffer[start] = ''
+
+	# Expand anonymous snippet
+	snip.expand_anon(anon_snippet_body)
+
+def create_matrix(cols, rows, sep, start, end):
+	res = ""
+	placeholder = 1
+	for _ in range(0, int(rows)):
+		res += start + f"${placeholder} "
+		placeholder += 1
+		for _ in range(0, int(cols) - 1):
+			res += sep + f" ${placeholder} "
+			placeholder += 1
+		res += end
+	return res[:-1]
+endglobal
+
+post_jump "create_matrix_placeholders(snip)"
+snippet 'arr(\d+),(\d+)' "JS array" br
+const arr = [
+`!p
+snip.rv = create_matrix(match.group(1), match.group(2), ",", "[\t", "]\n")
+`$0
+]
 endsnippet
