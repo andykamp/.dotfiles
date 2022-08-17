@@ -54,7 +54,7 @@ require('packer').startup(function()
   use 'ThePrimeagen/harpoon' -- use for quick commands
   use 'easymotion/vim-easymotion' -- jump to any word you loook at by <leader><leader>w etc
   use 'junegunn/goyo.vim'
-  -- use 'akinsho/toggleterm.nvim'
+  use 'akinsho/toggleterm.nvim'
   use 'chentoast/marks.nvim'
   -- use { 'preservim/tagbar' }
 
