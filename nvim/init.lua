@@ -23,17 +23,19 @@ local use = require('packer').use
 require('packer').startup(function()
   use 'wbthomason/packer.nvim' -- Package manager
 
-  -- git related plugins 
-  use 'tpope/vim-fugitive' -- Git commands in nvim TODOOOOO
+  -- git related plugins
+  use 'tpope/vim-fugitive' -- Git commands in nvim
   use 'tpope/vim-rhubarb' -- Fugitive-companion to interact with github (:Gbrowse--> opens git)
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } } -- Add git related info in the signs columns and popups
 
   -- handy dandy shorcut plugins
   use 'tpope/vim-commentary' -- "gc" to comment visual regions/lines (gcc to comment a line) TODOOOOOO
-  use 'tpope/vim-surround' -- enables the s and S command TODOOOOOOO
-  use 'jiangmiao/auto-pairs' -- create pars of brackets etc
-  use 'alvan/vim-closetag'  -- close jsx/tsx tags
-  use 'ojroques/vim-oscyank' -- lets you copy to OS clipboard TODOOOOOO
+  use 'tpope/vim-surround' -- enables the s and S command 
+
+  -- TODO these suck. should replace
+  use 'jiangmiao/auto-pairs' -- create pars of brackets etc TODO 
+  use 'alvan/vim-closetag'  -- close jsx/tsx tags TODO
+  use 'ojroques/vim-oscyank' -- lets you copy to OS clipboard TODO
 
   -- colorschemas
   use 'joshdick/onedark.vim'
@@ -52,7 +54,7 @@ require('packer').startup(function()
   use 'ThePrimeagen/harpoon' -- use for quick commands
   use 'easymotion/vim-easymotion' -- jump to any word you loook at by <leader><leader>w etc
   use 'junegunn/goyo.vim'
-  use 'akinsho/toggleterm.nvim'
+  -- use 'akinsho/toggleterm.nvim'
   use 'chentoast/marks.nvim'
   -- use { 'preservim/tagbar' }
 
@@ -62,7 +64,8 @@ require('packer').startup(function()
   use 'lukas-reineke/headlines.nvim' -- background highlighting from headlines in markdown, vimwiki and orgmode
 
   -- Code formatting and language servers
-  use 'dense-analysis/ale'  -- async linter
+  -- use 'dense-analysis/ale'  -- async linter
+  use 'sbdchd/neoformat' -- formatter (esling and prettier)
   use 'ludovicchabant/vim-gutentags' -- Automatic tags management
   use 'nvim-treesitter/nvim-treesitter'-- Highlight, edit, and navigate code using a fast incremental parsing library
   use 'nvim-treesitter/nvim-treesitter-textobjects' -- ??? Additional textobjects for treesitter
@@ -207,6 +210,7 @@ local on_attach = function(_, bufnr)
   local opts = { noremap = true, silent = true }
   --go-to definition etc
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts) -- goes to where it is defined
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gv', ':vs<CR> <cmd>lua vim.lsp.buf.definition()<CR>', opts) -- goes to where it is defined
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts) -- quiclist of all references
   -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
   -- vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)

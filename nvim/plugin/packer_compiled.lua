@@ -69,11 +69,6 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  ale = {
-    loaded = true,
-    path = "/Users/anderskampenes/.local/share/nvim/site/pack/packer/start/ale",
-    url = "https://github.com/dense-analysis/ale"
-  },
   ["auto-pairs"] = {
     loaded = true,
     path = "/Users/anderskampenes/.local/share/nvim/site/pack/packer/start/auto-pairs",
@@ -138,6 +133,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/anderskampenes/.local/share/nvim/site/pack/packer/start/marks.nvim",
     url = "https://github.com/chentoast/marks.nvim"
+  },
+  neoformat = {
+    loaded = true,
+    path = "/Users/anderskampenes/.local/share/nvim/site/pack/packer/start/neoformat",
+    url = "https://github.com/sbdchd/neoformat"
   },
   nerdtree = {
     loaded = true,
@@ -224,11 +224,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/anderskampenes/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
-  },
-  ["toggleterm.nvim"] = {
-    loaded = true,
-    path = "/Users/anderskampenes/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
-    url = "https://github.com/akinsho/toggleterm.nvim"
   },
   ultisnips = {
     loaded = true,

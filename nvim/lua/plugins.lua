@@ -1,9 +1,18 @@
+
 -----------------------------------------------------------------------------
 -- This file contains plugin configurations
 -----------------------------------------------------------------------------
 
 local map = vim.api.nvim_set_keymap
 local options = { noremap = true }
+
+-----------------------------------------------------------------------------
+-- folds
+-----------------------------------------------------------------------------
+vim.cmd [[set foldmethod=expr]]
+vim.cmd [[set foldexpr=nvim_treesitter#foldexpr()]]
+vim.cmd [[set foldlevelstart=99]] --start file with all folds opened
+
 
 -----------------------------------------------------------------------------
 -- lualine
@@ -116,25 +125,46 @@ map('n', '<leader>uts', ':UltiSnipsEdit typescript<CR>', options)
 map('n', '<leader>ujx', ':UltiSnipsEdit javascriptreact<CR>', options)
 map('n', '<leader>utx', ':UltiSnipsEdit typescriptreact<CR>', options)
 map('n', '<leader>umd', ':UltiSnipsEdit md<CR>', options)
------------------------------------------------------------------------------
--- ale
------------------------------------------------------------------------------
-local l = {}
-l.javascript = {'eslint', 'prettier'}
-l.javascriptreact = {'eslint', 'prettier'}
-l.typescript = {'eslint', 'prettier'}
-l.typescriptreact = {'eslint', 'prettier'}
-l.css = {'prettier'}
-l.svelte = {'prettier'}
 
-vim.g.ale_fixers = l
--- vim.g.ale_sign_error = '❌'
--- vim.g.ale_sign_warning = '⚠️'
-vim.g.ale_fix_on_save = 1
-local aliases = {}
-aliases.jsx =  'javascript'
-aliases.jsx =  'javascript'
-vim.g.ale_linter_aliases = aliases
+
+-----------------------------------------------------------------------------
+-- neoformat
+-----------------------------------------------------------------------------
+
+map('n', '<leader>p', ':Neoformat prettier<CR>', options)
+-- use a project-local version of Prettier
+vim.g.neoformat_try_node_exe = 1
+-- Enable alignment
+vim.g.neoformat_basic_format_align = 1
+-- Enable tab to spaces conversion
+vim.g.neoformat_basic_format_retab = 1
+-- Enable trimmming of trailing whitespace
+vim.g.neoformat_basic_format_trim = 1
+
+--run Prettier on save
+-- vim.cmd([[
+--     autocmd BufWritePre *.js Neoformat  
+-- ]])
+
+-----------------------------------------------------------------------------
+-- ale (NOT USED)
+-----------------------------------------------------------------------------
+-- local l = {}
+-- l.javascript = {'eslint', 'prettier'}
+-- l.javascriptreact = {'eslint', 'prettier'}
+-- l.typescript = {'eslint', 'prettier'}
+-- l.typescriptreact = {'eslint', 'prettier'}
+-- l.css = {'prettier'}
+-- l.svelte = {'prettier'}
+
+-- vim.g.ale_fixers = l
+-- -- vim.g.ale_sign_error = '❌'
+-- -- vim.g.ale_sign_warning = '⚠️'
+-- vim.g.ale_fix_on_save = 1
+-- local aliases = {}
+-- aliases.jsx =  'javascript'
+-- aliases.jsx =  'javascript'
+-- vim.g.ale_linter_aliases = aliases
 
 
 
@@ -298,40 +328,40 @@ map('n', 'mæ', ':delmarks!<cr>', options) -- delete all lowercase marks in buff
 -----------------------------------------------------------------------------
 --- toggleterm
 -----------------------------------------------------------------------------
-require('toggleterm').setup({
-	size = 20,
-	open_mapping = [[<C-t>]],
-	hide_numbers = true,
-	-- shade_filetypes = {},
-	-- shade_terminals = true,
-	-- shading_factor = '1',
-	start_in_insert = true,
-	insert_mappings = true,
-	persist_size = true,
-	direction = "horizontal",
-	close_on_exit = true,
-	shell = vim.o.shell,
-	float_opts = {
-		border = "curved",
-		winblend = 0,
-		highlights = {
-			border = "Normal",
-			background = "Normal",
-		},
-	},
-})
+-- require('toggleterm').setup({
+-- 	size = 20,
+-- 	open_mapping = [[<C-t>]],
+-- 	hide_numbers = true,
+-- 	-- shade_filetypes = {},
+-- 	-- shade_terminals = true,
+-- 	-- shading_factor = '1',
+-- 	start_in_insert = true,
+-- 	insert_mappings = true,
+-- 	persist_size = true,
+-- 	direction = "horizontal",
+-- 	close_on_exit = true,
+-- 	shell = vim.o.shell,
+-- 	float_opts = {
+-- 		border = "curved",
+-- 		winblend = 0,
+-- 		highlights = {
+-- 			border = "Normal",
+-- 			background = "Normal",
+-- 		},
+-- 	},
+-- })
 
-function _G.set_terminal_keymaps()
-  local opts = {noremap = true}
-  vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts)
-  vim.api.nvim_buf_set_keymap(0, 't', 'jk', [[<C-\><C-n>]], opts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-j>', [[<C-\><C-n><C-W>j]], opts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-k>', [[<C-\><C-n><C-W>k]], opts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-l>', [[<C-\><C-n><C-W>l]], opts)
-end
+-- function _G.set_terminal_keymaps()
+--   local opts = {noremap = true}
+--   vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts)
+--   vim.api.nvim_buf_set_keymap(0, 't', 'jk', [[<C-\><C-n>]], opts)
+--   vim.api.nvim_buf_set_keymap(0, 't', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
+--   vim.api.nvim_buf_set_keymap(0, 't', '<C-j>', [[<C-\><C-n><C-W>j]], opts)
+--   vim.api.nvim_buf_set_keymap(0, 't', '<C-k>', [[<C-\><C-n><C-W>k]], opts)
+--   vim.api.nvim_buf_set_keymap(0, 't', '<C-l>', [[<C-\><C-n><C-W>l]], opts)
+-- end
 
-vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
+-- vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
 -- UNCOMMENT IF FIND USEFUL IN THE FUTURE
 -- local Terminal = require("toggleterm.terminal").Terminal

@@ -3,6 +3,8 @@
 -----------------------------------------------------------------------------
 local map = vim.api.nvim_set_keymap
 
+
+
 --Remap space as leader key
 map('n', '<Space>', '', {})
 map('', '<Space>', '<Nop>', { noremap = true, silent = true })
@@ -61,3 +63,6 @@ map('n', "æ", "'", options)
 
 
 
+-- Set timestampp
+
+map('n', '<leader>wt', ":put =strftime('%c')<CR>", options)
