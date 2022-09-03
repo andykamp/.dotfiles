@@ -250,7 +250,7 @@ map('n',  '<leader>h6',  ':lua require("harpoon.ui").nav_file(6)  <CR>', options
 -- map('n',  'g1',  ':lua require("harpoon.term").sendCommand(1, 1)  <CR>', options)
 -- map('n',  'g2',  ':lua require("harpoon.term").sendCommand(1, 2)  <CR>', options)
 -- map('n',  '<F3>',  ':lua require("harpoon.term").sendCommand(1, 3)  <CR>', options)
--- map('n',  '<F4>',  ':lua require("harpoon.term").sendCommand(1, 4)  <CR>', options)
+-- map('n',  '<F4>',  ':lua require("harpoon.term").sendCommand(1, 4)  <CR>', option
 -- map('n',  '<F5>',  ':lua require("harpoon.term").sendCommand(1, 5)  <CR>', options)
 map('n',  '<leader>hg',  ':Telescope git_files<CR>', options)
 
