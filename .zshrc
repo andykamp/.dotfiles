@@ -52,6 +52,10 @@ ZSH_THEME="robbyrussell"
 # much, much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
+
+# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
+
+
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # You can set one of the optional three formats:
@@ -68,8 +72,9 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(vi-mode zsh-autosuggestions zsh-syntax-highlighting )
-bindkey '^I' autosuggest-accept
+plugins=(vi-mode zsh-autosuggestions zsh-syntax-highlighting fzf-zsh-plugin )
+# bindkey '^I' autosuggest-accept
+bindkey '^I' autosuggest-execute
 
 # Enable vi mode
 bindkey -v
@@ -103,8 +108,36 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+findFiles(){
+    cd $(find * -mindepth 0 -maxdepth 0 -type d | fzf)
+}
+
+findFilesAny(){
+    cd $(find ~/* -mindepth 1 -maxdepth 3 -type d | fzf)
+}
 
 
+findFilesCoding(){
+    cd  ~/Documents && cd $(find  ./WORK ./side-projects  -mindepth 1 -maxdepth 1 -type d | fzf)
+}
+
+findFilesWork(){
+    cd  ~/Documents && cd $(find  ./WORK -mindepth 1 -maxdepth 1 -type d | fzf)
+}
+
+findFilesSideProjects(){
+    cd  ~/Documents && cd $(find  ./side-projects -mindepth 1 -maxdepth 1 -type d | fzf)
+}
+findFilesDotfiles(){
+    cd  ~/dotfiles 
+}
+
+alias fdot=findFilesDotfiles 
+alias f=findFiles
+alias fa=findFilesAny
+alias ff=findFilesCoding
+alias fw=findFilesWork
+alias fs=findFilesSideProjects
 alias ls="ls -1"
 alias exa="exa --oneline --long"
 alias g=git
