@@ -104,8 +104,12 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# remap git to g for convinience
+
+alias ls="ls -1"
+alias exa="exa --oneline --long"
 alias g=git
+alias pip=pip3
+alias python=python3
 # remap visualizing github tree for convinience
 alias glog1="sh ~/log-git-live.sh"
 # remap taking backup of wimwiki
