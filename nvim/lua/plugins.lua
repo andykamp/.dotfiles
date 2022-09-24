@@ -27,8 +27,8 @@ require('lualine').setup {
     sections = {
         lualine_a = {'mode'},
         lualine_b = {'branch', 'diff', 'diagnostics'},
-        lualine_c = {{'filename', path=2}},
-        lualine_x = {'encoding', 'fileformat', 'filetype'},
+        lualine_c = {{'filename', path=1}},
+        lualine_x = { 'filetype'},
         lualine_y = {'progress'},
         lualine_z = {'location'}
     },
@@ -131,7 +131,7 @@ map('n', '<leader>umd', ':UltiSnipsEdit md<CR>', options)
 -- neoformat
 -----------------------------------------------------------------------------
 
-map('n', '<leader>p', ':Neoformat prettier<CR>', options)
+-- map('n', '<leader>p', ':Neoformat prettier<CR>', options)
 -- use a project-local version of Prettier
 vim.g.neoformat_try_node_exe = 1
 -- Enable alignment
