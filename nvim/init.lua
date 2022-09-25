@@ -98,6 +98,17 @@ require('packer').startup(function()
  -- use 'honza/vim-snippets' -- set of pre-generated snippets for mulitple language
  -- use 'mlaursen/vim-react-snippets' -- spesific reat snippets
 
+use {
+  "folke/trouble.nvim",
+  requires = "kyazdani42/nvim-web-devicons",
+  config = function()
+    require("trouble").setup {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    }
+  end
+}
   use 'stevearc/aerial.nvim'
 
   -- Markdown and documentation
@@ -232,7 +243,8 @@ local on_attach = function(_, bufnr)
   -- diagnostics
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '-', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '_', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>-', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>-', '<cmd>TroubleToggle<CR>', opts)
+  -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>-', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts) -- shows the error message in a float
 
   -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>k', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
