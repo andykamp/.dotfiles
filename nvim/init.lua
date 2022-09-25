@@ -98,6 +98,7 @@ require('packer').startup(function()
  -- use 'honza/vim-snippets' -- set of pre-generated snippets for mulitple language
  -- use 'mlaursen/vim-react-snippets' -- spesific reat snippets
 
+  use 'stevearc/aerial.nvim'
 
   -- Markdown and documentation
   use 'mattn/calendar-vim' -- calander for wim diary
@@ -208,6 +209,7 @@ require('nvim-treesitter.configs').setup {
 local lspconfig = require 'lspconfig'
 local on_attach = function(_, bufnr)
   local opts = { noremap = true, silent = true }
+  require("aerial").on_attach(_, bufnr)
   --go-to definition etc
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts) -- goes to where it is defined
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gv', ':vs<CR> <cmd>lua vim.lsp.buf.definition()<CR>', opts) -- goes to where it is defined

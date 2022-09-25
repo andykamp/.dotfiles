@@ -216,6 +216,7 @@ map('n', '<leader>ft', [[<cmd>lua require('telescope.builtin').tags{ only_curren
 
 map('n', '<leader>fr', [[<cmd>lua require('telescope.builtin').lsp_references()<CR>]], { noremap = true, silent = true })
 map('n', '<leader>fd', [[<cmd>lua require('telescope.builtin').diagnostics()<CR>]], { noremap = true, silent = true })
+map('n', '<leader>fs', [[<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]], { noremap = true, silent = true })
 
 map('n', '<leader>gb', [[<cmd>lua require('telescope.builtin').git_branches()<CR>]], { noremap = true, silent = true })
 map('n', '<leader>gc', [[<cmd>lua require('telescope.builtin').git_commits()<CR>]], { noremap = true, silent = true })
@@ -324,6 +325,34 @@ require'marks'.setup {
 }
 
 map('n', 'mæ', ':delmarks!<cr>', options) -- delete all lowercase marks in buffer
+
+-----------------------------------------------------------------------------
+--- aerial
+-----------------------------------------------------------------------------
+require('aerial').setup({
+  attach_mode = "global",
+  -- backends = { "lsp", "treesitter", "markdown" },
+  min_width = 28,
+  show_guides = true,
+  -- filter_kind = false,
+  guides = {
+    mid_item = "├ ",
+    last_item = "└ ",
+    nested_top = "│ ",
+    whitespace = "  ",
+  },
+  on_attach = function(bufnr)
+   -- Toggle the aerial window with <leader>a
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>a', '<cmd>AerialToggle!<CR>', {})
+    -- Jump forwards/backwards with '{' and '}'
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '{', '<cmd>AerialPrev<CR>', {})
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '}', '<cmd>AerialNext<CR>', {})
+    -- Jump up the tree with '[[' or ']]'
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '[[', '<cmd>AerialPrevUp<CR>', {})
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', ']]', '<cmd>AerialNextUp<CR>', {})
+    end
+})
+
 
 -----------------------------------------------------------------------------
 --- toggleterm
