@@ -65,7 +65,9 @@ require('packer').startup(function()
 
   -- Code formatting and language servers
   -- use 'dense-analysis/ale'  -- async linter
-  use 'sbdchd/neoformat' -- formatter (esling and prettier)
+  use 'sbdchd/neoformat' -- formatter (prettier)
+  use { 'jose-elias-alvarez/null-ls.nvim', requires = { 'nvim-lua/plenary.nvim' }}
+
   use 'ludovicchabant/vim-gutentags' -- Automatic tags management
   use 'nvim-treesitter/nvim-treesitter'-- Highlight, edit, and navigate code using a fast incremental parsing library
   use 'nvim-treesitter/nvim-treesitter-textobjects' -- ??? Additional textobjects for treesitter
@@ -128,6 +130,35 @@ use {
   use 'vimwiki/vimwiki' -- used for markdown notes
 end)
 
+-----------------------------------------------------------------------------
+--  linting
+-----------------------------------------------------------------------------
+
+local null_ls = require("null-ls")
+
+local function has_eslint_configured(utils)
+  return utils.root_has_file("/.eslintrc.js")
+end
+
+-- use local eslint if possible
+local project_local_bin = "node_modules/.bin/eslint"
+
+null_ls.setup({
+  sources = {
+    null_ls.builtins.code_actions.eslint.with({
+        condition = has_eslint_configured,
+        command = has_eslint_configured and project_local_bin or "eslint"
+        }),
+    null_ls.builtins.diagnostics.eslint.with({
+        condition = has_eslint_configured,
+        command = has_eslint_configured and project_local_bin or "eslint"
+        }),
+    null_ls.builtins.formatting.eslint.with({
+        condition = has_eslint_configured,
+        command = has_eslint_configured and project_local_bin or "eslint"
+        }),
+  }
+})
 
 -----------------------------------------------------------------------------
 -- autocammand setting .mdx to markdown
