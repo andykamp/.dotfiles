@@ -148,7 +148,8 @@ alias glog1="sh ~/log-git-live.sh"
 # remap taking backup of wimwiki
 alias backupvimwiki="cp -R ~/vimwiki ~/Documents/BACKUPS/vimwiki"
 
- # add fast back/forward work laps
+# add fast back/forward work laps
+# TODO not neeeded when we use vim i think
 bindkey "^[^[[C" forward-word
 bindkey "^[^[[D" backward-word
 bindkey "^[[C" end-of-line 

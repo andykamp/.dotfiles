@@ -12,7 +12,12 @@ Some painpoints that still exists:
 - cannot use vim commands to edit vims :term commands. I only focus on the end of the input command, not where the cursor is. So the solution here is to try to use harpoon to write most commenly used commands and limit the writing in the .term. see issue at [github](https://github.com/neovim/neovim/issues/8805) 
 - 
 
+## Symlinks needed for this repo
+Remember that most dotfiles har a place somewhere. Make sure they point to the links inside this dotfile repo. 
+Use the `ln -s <actual existing filepath> <this will point to existing file filepath>` to create a symlink
+
 ## TODO
+-  lazygit https://github.com/jesseduffield/lazygit
 - use this fzf for completion?? https://github.com/Aloxaf/fzf-tab
 - always open tmux when using ff (see https://www.youtube.com/watch?v=bdumjiHabhQ&t=5s)
 - use fzf for more usecasess https://www.youtube.com/watch?v=qgG5Jhi_Els
