@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+# first find out what dir we select
+# either by being in it or by using the fzf
+if [[ $# -eq 1 ]]; then
+    selected=$1
+else
+    selected=$(find ~/documents/work ~/documents/side-projects   -mindepth 1 -maxdepth 1 -type d | fzf)
+fi
+
+# TODO some check  
+if [[ -z $selected ]]; then
+    exit 0
+fi
+
+# create a name from the path by tr (translate) command 
+selected_name=$(basename "$selected" | tr . _)
+# check if tmux is running
+# pgrip allows you to find the process IDs of a running program based e.g name 
+tmux_running=$(pgrep tmux)
+
+# 
+if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+    tmux new-session -s $selected_name -c $selected # create session wuth name $selected_name with path $selected
+    exit 0 # exit successfully because it will attach automatically
+fi
+
+# if we have do not have a session with the current $selection_name 
+# we create one in detached mode
+if ! tmux has-session -t=$selected_name 2> /dev/null; then
+    tmux new-session -ds $selected_name -c $selected
+fi
+
+# finally switch session to the $selection_name session 
+if [[ -z $TMUX ]] 
+then
+    tmux attach -t $selected_name
+else 
+    tmux switch-client -t $selected_name
+
+fi

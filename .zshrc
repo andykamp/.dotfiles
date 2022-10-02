@@ -108,6 +108,10 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+source ~/.zsh_profile
+
+
+
 findFiles(){
     cd $(find * -mindepth 0 -maxdepth 0 -type d | fzf)
 }
@@ -133,16 +137,22 @@ findFilesDotfiles(){
 }
 
 alias fdot=findFilesDotfiles 
+alias fwork="cd ~/documents/work" 
+alias fsp="cd ~/documents/side-projects" 
 alias f=findFiles
-alias fa=findFilesAny
-alias ff=findFilesCoding
 alias fw=findFilesWork
 alias fs=findFilesSideProjects
+
+alias tk='tmux kill-server'
+
 alias ls="ls -1"
 alias exa="exa --oneline --long"
+
 alias g=git
+
 alias pip=pip3
 alias python=python3
+
 # remap visualizing github tree for convinience
 alias glog1="sh ~/log-git-live.sh"
 # remap taking backup of wimwiki

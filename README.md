@@ -24,7 +24,10 @@ This must be done for (might be missing some):
 - vimrc
 - zshrc
 - .zsh_profile
+Also for ll scrips/executable u need to make it executble and giev u access
+`chmod u+x filepath`
 - 
+
 
 ## 🙇 Worth remembering
 - terminal commands and replacements descibed [here](https://andrew.cloud/blog/dev-setup/)
@@ -57,7 +60,10 @@ This must be done for (might be missing some):
     - alias for getting own ip adress
 - Remove bashrc and bash_profile when i use zsh
 - Remove vimrc? or maybe make it super up-to-date without plugins to utilize it on remote servers etc?
-- Add script to dynamically create all files and symlinks ? 
+- Add script to dynamically create all files and symlinksand settings chmod premissions 
+- better at identifying performance by using htop or tiptop 
+- how to make first letter become uppercase
+- use somethign like this tmux session chooser https://waylonwalker.com/tmux-choose-tree/
 
 
 ## 💡 Currently experimenting with 
@@ -74,3 +80,14 @@ This must be done for (might be missing some):
 - workflow
     - context switching overhead: to many tabs to keep track of for frontend + server + misc  
 - sometimes lag  
+
+# 📈 Monitoring
+- htop or tiptop
+    - (cant descide which one to use)
+- tmux session monitoring TODO i need this!!!
+
+# 👨👨👦👦 Tmux
+- can create a server that re-uses buffers. 
+- currently i have to 
+    - either close and repoen nvim all the time and 'start form frach'
+    - have a shitton of tabs etc open

@@ -1,0 +1,17 @@
+addToPath() {
+    if [[ "$PATH" != *"$1"* ]]; then
+        export PATH=$PATH:$1
+    fi
+}
+
+addToPathFront() {
+    if [[ "$PATH" != *"$1"* ]]; then
+        export PATH=$1:$PATH
+    fi
+}
+
+# need to put this into a folder and source the enitre folder
+addToPathFront $HOME/.local/scripts
+
+# Where should I put you?
+bindkey -s ^f "tmux-sessionizer\n"
