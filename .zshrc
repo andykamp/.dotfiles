@@ -138,11 +138,13 @@ findFilesDotfiles(){
 
 alias fdot=findFilesDotfiles 
 alias fwork="cd ~/documents/work" 
-alias fsp="cd ~/documents/side-projects" 
+alias fside="cd ~/documents/side-projects" 
 alias f=findFiles
+alias fa=findFilesAny
 alias fw=findFilesWork
 alias fs=findFilesSideProjects
 
+alias nv='nvim .'
 alias tk='tmux kill-server'
 
 alias ls="ls -1"
@@ -152,6 +154,17 @@ alias g=git
 
 alias pip=pip3
 alias python=python3
+
+getIPLocal(){
+    ifconfig | grep "inet " | grep -fv 127.0.0.1 | awk '{print $2}' 
+}
+
+getIPPublic(){
+    dig -4 TXT +short o-o.myaddr.l.google.com @ns1.google.com
+}
+
+alias ipl=getIPLocal
+alias ipp=getIPPublic
 
 # remap visualizing github tree for convinience
 alias glog1="sh ~/log-git-live.sh"

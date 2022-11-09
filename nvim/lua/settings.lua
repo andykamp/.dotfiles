@@ -41,6 +41,8 @@ o.updatetime = 250
 wo.signcolumn = 'yes'
 
 
+-- always use cliboard
+vim.cmd [[set clipboard=unnamed]]
 
 -- Set completeopt to have a better completion experience
 o.completeopt = 'menuone,noselect'

@@ -14,3 +14,7 @@
 # Most used 
 - ctrl + s View sessions
     - h or l or side arrows to open windows for the hover session
+-
+
+# TODO
+- make prefix UI entire bottom row so it is easy to se on bug screen

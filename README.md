@@ -64,22 +64,32 @@ Also for ll scrips/executable u need to make it executble and giev u access
 - better at identifying performance by using htop or tiptop 
 - how to make first letter become uppercase
 - use somethign like this tmux session chooser https://waylonwalker.com/tmux-choose-tree/
-
+- øve på nummer
+    - Sette vimium til kun nr for å øve?
+- fikse copy to clipboard and remove oscyank
 
 ## 💡 Currently experimenting with 
 - use harpoon quicktoggle more
 - keep gitsigns as is or revert to oldschool?
-- use trouble or loclist for error/warnings?
+- [use](use) trouble or loclist for error/warnings?
 -  use aerial as tagbar alternativ. overrides { and  } but i usually dont use that anywhat
 - use <leader>fs to search for functions and symbolds
-    - insp [here](https://user-images.githubusercontent.com/39233597/110256294-57385c00-7f98-11eb-86e9-9f647bb2a659.mp4)  and [here](https://www.reddit.com/r/neovim/comments/m9vwy2/search_for_class_using_telescope_and_native_lsp/)
+    -insp [here](https://user-images.githubusercontent.com/39233597/110256294-57385c00-7f98-11eb-86e9-9f647bb2a659.mp4)  and [here](https://www.reddit.com/r/neovim/comments/m9vwy2/search_for_class_using_telescope_and_native_lsp/)
+- 
 
 ## 😩 Existing painpoints
 - zsh 
     -  cannot use vim commands to edit vims :term commands. It only focus on the end of the input command, not where the cursor is. So the solution here is to try to use harpoon to write most commenly used commands and limit the writing in the .term. see issue at [github](https://github.com/neovim/neovim/issues/8805) 
-- workflow
-    - context switching overhead: to many tabs to keep track of for frontend + server + misc  
-- sometimes lag  
+-  zsh and tmux and neovim terminals not 100% sure on optimal flow
+- [○] workflow
+    - [✓] context switching overhead: to many tabs to keep track of for frontend + server + misc  
+    - [✗] cannot open random tmux panes
+    - [✗] ff does not work anymore
+- eslint warning does not work properly in placepoint monorepo
+- grapql colors
+- error colors not showing (plugin exist for this)
+- <leader>p not working properly
+- 
 
 # 📈 Monitoring
 - htop or tiptop
