@@ -1,4 +1,3 @@
-
 -----------------------------------------------------------------------------
 -- This file contains plugin configurations
 -----------------------------------------------------------------------------
@@ -13,6 +12,13 @@ vim.cmd [[set foldmethod=expr]]
 vim.cmd [[set foldexpr=nvim_treesitter#foldexpr()]]
 vim.cmd [[set foldlevelstart=99]] --start file with all folds opened
 
+-----------------------------------------------------------------------------
+-- virtual-colors
+-----------------------------------------------------------------------------
+vim.cmd[[highlight VirtualTextError guifg=#db4b4b]]
+vim.cmd[[highlight VirtualTextWarning guifg=#e0af68]]
+vim.cmd[[highlight VirtualTextInfo guifg=#10B981]]
+vim.cmd[[highlight VirtualTextHint guifg=#0db9d7]]
 
 -----------------------------------------------------------------------------
 -- lualine
@@ -182,7 +188,7 @@ local actions = require "telescope.actions"
 -- see https://github.com/nvim-telescope/telescope.nvim/blob/master/lua/telescope/mappings.lua for all telescope actions
 require('telescope').setup {
   defaults = {
-    file_ignore_patterns = { "node_modules", 'git', 'tags', 'dist', 'build' },
+    file_ignore_patterns = { "node_modules", 'git', 'tags', 'dist/', 'build/' },
     mappings = {
       i = {
         -- ['<C-u>'] = actions.results_scrolling_up,
