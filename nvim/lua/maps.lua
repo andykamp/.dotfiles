@@ -49,8 +49,8 @@ map('n',  '<C-j>', '<C-W>j', options)
 map('n',  '<C-k>', '<C-W>k', options)
 map('n',  '<C-l>', '<C-w>l', options)
 
---  save a paste to be bale to do it multiple times in a row
-map('x', '<leader>p', "\"_dp", options)
+--  save a paste to be abale to do it multiple times in a row
+map('x', '<leader>p', "\"_dhp", options)
 
 
 --  terminal mappings
