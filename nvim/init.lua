@@ -113,6 +113,9 @@ use {
 }
   use 'stevearc/aerial.nvim'
 
+  -- Time Tracking
+  use 'wakatime/vim-wakatime'
+
   -- Markdown and documentation
   use 'mattn/calendar-vim' -- calander for wim diary
   use({
@@ -360,6 +363,8 @@ lspconfig.svelte.setup({
 		},
 	},
 })
+
+lspconfig.graphql.setup{}
 -------------------------------------------------------------------------------
 ---- ultisnip setup
 -------------------------------------------------------------------------------
