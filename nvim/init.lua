@@ -23,114 +23,115 @@ local use = require('packer').use
 require('packer').startup(function()
   use 'wbthomason/packer.nvim' -- Package manager
 
-  -- git related plugins
-  use 'tpope/vim-fugitive' -- Git commands in nvim
-  use 'tpope/vim-rhubarb' -- Fugitive-companion to interact with github (:Gbrowse--> opens git)
-  use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } } -- Add git related info in the signs columns and popups
+   -- git related plugins
+   use 'tpope/vim-fugitive' -- Git commands in nvim
+   use 'tpope/vim-rhubarb' -- Fugitive-companion to interact with github (:Gbrowse--> opens git)
+   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } } -- Add git related info in the signs columns and popups
 
-  -- handy dandy shorcut plugins
-  use 'tpope/vim-commentary' -- "gc" to comment visual regions/lines (gcc to comment a line) TODOOOOOO
-  use 'tpope/vim-surround' -- enables the s and S command 
+   -- handy dandy shorcut plugins
+   use 'tpope/vim-commentary' -- "gc" to comment visual regions/lines (gcc to comment a line) TODOOOOOO
+   use 'tpope/vim-surround' -- enables the s and S command 
 
-  -- TODO these suck. should replace
-  use 'jiangmiao/auto-pairs' -- create pars of brackets etc TODO 
-  use 'alvan/vim-closetag'  -- close jsx/tsx tags TODO
-  use 'ojroques/vim-oscyank' -- lets you copy to OS clipboard TODO
+   -- TODO these suck. should replace
+   -- use 'jiangmiao/auto-pairs' -- create pars of brackets etc TODO 
+   -- use 'alvan/vim-closetag'  -- close jsx/tsx tags TODO
+   -- use 'ojroques/vim-oscyank' -- lets you copy to OS clipboard TODO
 
-  -- colorschemas
-  use 'joshdick/onedark.vim'
-  use 'sonph/onehalf'
-  use 'arcticicestudio/nord-vim'
-  use 'sainnhe/edge'
-  use {'rose-pine/neovim', as ='rose-pine' } -- config = "vim.cmd('colorscheme rose-pine')"}
+   -- colorschemas
+   use 'joshdick/onedark.vim'
+   use 'sonph/onehalf'
+   use 'arcticicestudio/nord-vim'
+   use 'sainnhe/edge'
+   use {'rose-pine/neovim', as ='rose-pine' } -- config = "vim.cmd('colorscheme rose-pine')"}
 
 
-  -- Helper tools for faster workflows 
-  use { 'preservim/nerdtree'} -- file explorer
-  use 'Xuyuanp/nerdtree-git-plugin' -- add gir related icon in nerdtree to visualize untracked files etc   
-  use 'ryanoasis/vim-devicons'
-  use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } } -- Fancier statusline
-  use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } } -- UI to select things (files, grep results, open buffers...)
-  use 'ThePrimeagen/harpoon' -- use for quick commands
-  use 'easymotion/vim-easymotion' -- jump to any word you loook at by <leader><leader>w etc
-  use 'junegunn/goyo.vim'
-  use 'akinsho/toggleterm.nvim'
-  use 'chentoast/marks.nvim'
-  -- use { 'preservim/tagbar' }
+   -- Helper tools for faster workflows 
+   use { 'preservim/nerdtree'} -- file explorer
+   use 'Xuyuanp/nerdtree-git-plugin' -- add gir related icon in nerdtree to visualize untracked files etc   
 
--- visual helpers  
-  use 'norcalli/nvim-colorizer.lua'
-  use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
-  use 'lukas-reineke/headlines.nvim' -- background highlighting from headlines in markdown, vimwiki and orgmode
+   use 'ryanoasis/vim-devicons'
+   use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } } -- Fancier statusline
+   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } } -- UI to select things (files, grep results, open buffers...)
+   use 'ThePrimeagen/harpoon' -- use for quick commands
+   use 'easymotion/vim-easymotion' -- jump to any word you loook at by <leader><leader>w etc
+   use 'junegunn/goyo.vim'
+   use 'akinsho/toggleterm.nvim'
+   use 'chentoast/marks.nvim'
+   -- use { 'preservim/tagbar' }
 
-  -- Code formatting and language servers
-  -- use 'dense-analysis/ale'  -- async linter
-  use 'sbdchd/neoformat' -- formatter (prettier)
-  -- use { 'jose-elias-alvarez/null-ls.nvim', requires = { 'nvim-lua/plenary.nvim' }}
+ -- visual helpers  
+   use 'norcalli/nvim-colorizer.lua'
+   use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
+   -- use 'lukas-reineke/headlines.nvim' -- background highlighting from headlines in markdown, vimwiki and orgmode
 
-  use 'ludovicchabant/vim-gutentags' -- Automatic tags management
-  use 'nvim-treesitter/nvim-treesitter'-- Highlight, edit, and navigate code using a fast incremental parsing library
-  use 'nvim-treesitter/nvim-treesitter-textobjects' -- ??? Additional textobjects for treesitter
+   -- Code formatting and language servers
+   -- use 'dense-analysis/ale'  -- async linter
+   -- use 'sbdchd/neoformat' -- formatter (prettier) TODO 
+   -- use { 'jose-elias-alvarez/null-ls.nvim', requires = { 'nvim-lua/plenary.nvim' }}
 
-  -- language server plugins
-  use 'williamboman/nvim-lsp-installer' -- allows easy lsp installment via :LspInstall
-  use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client. Needed to get quick configs for lsp
-  use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp. Needed to add capabilities to lsp
-  -- use 'hrsh7th/cmp-buffer'
-  -- use 'hrsh7th/cmp-path'
-  -- use 'hrsh7th/cmp-cmdline'
+   -- use 'ludovicchabant/vim-gutentags' -- Automatic tags management TODO 
+   use 'nvim-treesitter/nvim-treesitter'-- Highlight, edit, and navigate code using a fast incremental parsing library
+   use 'nvim-treesitter/nvim-treesitter-textobjects' -- ??? Additional textobjects for treesitter
 
- -- Testing 
- use 'vim-test/vim-test'
+   -- language server plugins
+   use 'williamboman/nvim-lsp-installer' -- allows easy lsp installment via :LspInstall
+   use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client. Needed to get quick configs for lsp
+   use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp. Needed to add capabilities to lsp
+   -- use 'hrsh7th/cmp-buffer'
+   -- use 'hrsh7th/cmp-path'
+   -- use 'hrsh7th/cmp-cmdline'
 
- -- Snippets (TODO map to something smooth)
- use 'SirVer/ultisnips' -- create own code snippets located at ./Ultisnips
- use({
-  "hrsh7th/nvim-cmp",
-  requires = {
-    "quangnguyen30192/cmp-nvim-ultisnips",
-    config = function()
-      -- optional call to setup (see customization section)
-      require("cmp_nvim_ultisnips").setup{}
-    end,
-    -- If you want to enable filetype detection based on treesitter:
-     requires = { "nvim-treesitter/nvim-treesitter" },
-  },
- })
- -- use 'honza/vim-snippets' -- set of pre-generated snippets for mulitple language
- -- use 'mlaursen/vim-react-snippets' -- spesific reat snippets
+  -- Testing 
+  use 'vim-test/vim-test'
 
-use {
-  "folke/trouble.nvim",
-  requires = "kyazdani42/nvim-web-devicons",
-  config = function()
-    require("trouble").setup {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-    }
-  end
-}
-  use 'stevearc/aerial.nvim'
-
-  -- Time Tracking
-  use 'wakatime/vim-wakatime'
-
-  -- Markdown and documentation
-  use 'mattn/calendar-vim' -- calander for wim diary
+  -- Snippets (TODO map to something smooth)
+  use 'SirVer/ultisnips' -- create own code snippets located at ./Ultisnips
   use({
-    "iamcco/markdown-preview.nvim",
-    run = function() vim.fn["mkdp#util#install"]() end,
+   "hrsh7th/nvim-cmp",
+   requires = { "quangnguyen30192/cmp-nvim-ultisnips",
+     config = function()
+       -- optional call to setup (see customization section)
+       require("cmp_nvim_ultisnips").setup{}
+     end,
+     -- If you want to enable filetype detection based on treesitter:
+      requires = { "nvim-treesitter/nvim-treesitter" },
+   },
   })
-  use({
-		"akinsho/org-bullets.nvim",
-		config = function()
-			require("org-bullets").setup({
-				symbols = { "◉", "○", "✸", "✿" },
-			})
-		end,
-	})
-  use 'vimwiki/vimwiki' -- used for markdown notes
+  -- use 'honza/vim-snippets' -- set of pre-generated snippets for mulitple language
+  -- use 'mlaursen/vim-react-snippets' -- spesific reat snippets
+
+ use {
+   "folke/trouble.nvim",
+   requires = "kyazdani42/nvim-web-devicons",
+   config = function()
+     require("trouble").setup {
+       -- your configuration comes here
+       -- or leave it empty to use the default settings
+       -- refer to the configuration section below
+     }
+   end
+ } -- TODO
+   use 'stevearc/aerial.nvim' -- TODO
+
+   -- Time Tracking
+   use 'wakatime/vim-wakatime'
+
+   -- Markdown and documentation
+   use 'mattn/calendar-vim' -- calander for wim diary
+   use({
+     "iamcco/markdown-preview.nvim",
+     run = function() vim.fn["mkdp#util#install"]() end,
+   })
+
+   -- use({
+ 		-- "akinsho/org-bullets.nvim",
+ 		-- config = function()
+ 			-- require("org-bullets").setup({
+ 				-- symbols = { "◉", "○", "✸", "✿" },
+ 			-- })
+ 		-- end,
+ 	-- }) -- TODO
+   use 'vimwiki/vimwiki' -- used for markdown notes
 end)
 
 -----------------------------------------------------------------------------
@@ -140,7 +141,7 @@ end)
 -- local null_ls = require("null-ls")
 
 -- local function has_eslint_configured(utils)
---   return utils.root_has_file("/.eslintrc.js")
+--   return utils.root_has_file("/.eslintrc.js") or  utils.root_has_file("/.eslintrc.json")
 -- end
 
 -- -- use local eslint if possible
@@ -169,6 +170,7 @@ end)
 vim.cmd [[
     autocmd BufNewFile,BufRead *.mdx :set filetype=vimwiki
 ]]
+
 -----------------------------------------------------------------------------
 --Set colorscheme (order is important here)
 -----------------------------------------------------------------------------
@@ -193,7 +195,7 @@ vim.cmd [[
 ]]
 
 -----------------------------------------------------------------------------
--- Treesitter configuration
+-- Treesitter configuration with extended treesitter-text-objects
 -----------------------------------------------------------------------------
 
 -- Parsers must be installed manually via :TSInstall
@@ -226,12 +228,12 @@ require('nvim-treesitter.configs').setup {
       },
     },
     move = {
-      enable = true,
-      set_jumps = true, -- whether to set jumps in the jumplist
-      goto_next_start = {
-        [']m'] = '@function.outer',
-        [']]'] = '@class.outer',
-      },
+            enable = true,
+            set_jumps = true, -- whether to set jumps in the jumplist
+            goto_next_start = {
+                [']m'] = '@function.outer',
+                [']]'] = '@class.outer',
+            },
       goto_next_end = {
         [']M'] = '@function.outer',
         [']['] = '@class.outer',
@@ -251,19 +253,23 @@ require('nvim-treesitter.configs').setup {
 -----------------------------------------------------------------------------
 -- LSP settings
 -----------------------------------------------------------------------------
+
 local lspconfig = require 'lspconfig'
+
+-- on_attach for all servers
 local on_attach = function(_, bufnr)
   local opts = { noremap = true, silent = true }
-  require("aerial").on_attach(_, bufnr)
+  -- require("aerial").on_attach(_, bufnr)
   --go-to definition etc
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts) -- goes to where it is defined
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gv', ':vs<CR> <cmd>lua vim.lsp.buf.definition()<CR>', opts) -- goes to where it is defined
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts) -- quiclist of all references
-  -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
   -- vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
 
   -- formatting on buffer AND an visual selection
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>l', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+  -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>l', '<cmd>lua vim.lsp.buf.format({ filter = function(client) return client.name == "null-ls" end, bufnr = bufnr})<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>l', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'v', '<leader>l', '<ESC><cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
 
   -- rename
@@ -287,12 +293,12 @@ local on_attach = function(_, bufnr)
   -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
   -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>D', '<cmd>lua vim.lsp.buftype_definition()<CR>', opts)
 
-  vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+  vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]] -- TODO do i need ?
 end
 
 -- nvim-cmp supports additional completion capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- Enable the following language servers
 local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'tailwindcss' }
@@ -303,18 +309,21 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+-- tsserver spesific setup
 lspconfig.tsserver.setup {
     on_attach = on_attach,
     capabilities = capabilities,
     cmd = { vim.env.HOME .. "/.local/share/nvim/lsp_servers/tsserver/node_modules/.bin/typescript-language-server", "--stdio" },
 }
 
+-- tailwind spesific setup
 lspconfig.tailwindcss.setup {
     on_attach = on_attach,
     capabilities = capabilities,
     cmd = { vim.env.HOME .. "/.local/share/nvim/lsp_servers/tailwindcss_npm/node_modules/.bin/tailwindcss-language-server", "--stdio" },
 }
--- Example custom server
+
+-- lua spesific setyp
 -- Make runtime files discoverable to the server
 local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, 'lua/?.lua')
@@ -351,6 +360,7 @@ lspconfig.sumneko_lua.setup {
   },
 }
 
+-- svelte spesific setup
 lspconfig.svelte.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
@@ -364,7 +374,11 @@ lspconfig.svelte.setup({
 	},
 })
 
+-- grapql spesific setup
 lspconfig.graphql.setup{}
+
+
+-- TODO move to plugins
 -------------------------------------------------------------------------------
 ---- ultisnip setup
 -------------------------------------------------------------------------------
@@ -409,8 +423,12 @@ lspconfig.graphql.setup{}
     }
 
 -----------------------------------------------------------------------------
--- imort other vim files
+-- import other vim files
 -----------------------------------------------------------------------------
+-- TODO add lsp and linter stuff ???
+-- TODO add colorscheme file 
+-- TODO add snippet stuff? 
+--
 require('maps')
 require('settings')
 require('plugins')

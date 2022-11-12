@@ -101,3 +101,15 @@ Also for ll scrips/executable u need to make it executble and giev u access
 - currently i have to 
     - either close and repoen nvim all the time and 'start form frach'
     - have a shitton of tabs etc open
+
+
+
+
+## Treeesitter and heighlighting
+- lsp is for smart language stuff. use :Lsp... in vim to get options
+- Treesitter is used fro syntax higlghtihng etc. use :TsInstall typescript5 etc to make sure higlighting is installes
+
+## Ideas
+- mikael div higlighting
+-create own colorschema create own colorschema [ondark exaple](https://github.com/lukas-reineke/onedark.nvim) 
+-  

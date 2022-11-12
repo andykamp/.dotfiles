@@ -15,10 +15,10 @@ vim.cmd [[set foldlevelstart=99]] --start file with all folds opened
 -----------------------------------------------------------------------------
 -- virtual-colors
 -----------------------------------------------------------------------------
-vim.cmd[[highlight VirtualTextError guifg=#db4b4b]]
-vim.cmd[[highlight VirtualTextWarning guifg=#e0af68]]
-vim.cmd[[highlight VirtualTextInfo guifg=#10B981]]
-vim.cmd[[highlight VirtualTextHint guifg=#0db9d7]]
+vim.cmd [[highlight VirtualTextError guifg=#db4b4b]]
+vim.cmd [[highlight VirtualTextWarning guifg=#e0af68]]
+-- vim.cmd [[highlight VirtualTextInfo guifg=#10B981]]
+-- vim.cmd [[highlight VirtualTextHint guifg=#0db9d7]]
 
 -----------------------------------------------------------------------------
 -- lualine
@@ -26,17 +26,17 @@ vim.cmd[[highlight VirtualTextHint guifg=#0db9d7]]
 --  UNCOMMENT TO USE CUSTOM THEME require('lualineConfig')
 require('lualine').setup {
     options = {
-		theme = "rose-pine",
+        theme = "rose-pine",
         section_separators = '',
         component_separators = ''
-	},
+    },
     sections = {
-        lualine_a = {'mode'},
-        lualine_b = {'branch', 'diff', 'diagnostics'},
-        lualine_c = {{'filename', path=1}},
-        lualine_x = { 'filetype'},
-        lualine_y = {'progress'},
-        lualine_z = {'location'}
+        lualine_a = { 'mode' },
+        lualine_b = { 'branch', 'diff', 'diagnostics' },
+        lualine_c = { { 'filename', path = 1 } },
+        lualine_x = { 'filetype' },
+        lualine_y = { 'progress' },
+        lualine_z = { 'location' }
     },
     -- sections = {
     --     lualine_a = { 'mode', {'branch'},{'filename', path=2},  },
@@ -50,44 +50,44 @@ require('lualine').setup {
 -----------------------------------------------------------------------------
 -- nvim-colorizer
 -----------------------------------------------------------------------------
-require'colorizer'.setup()
+require 'colorizer'.setup()
 
 
 -----------------------------------------------------------------------------
 -- vim-test
 -----------------------------------------------------------------------------
-map('n',  '<leader>tn',  ':TestNearest<CR>', options)
-map('n',  '<leader>tf',  ':TestFile<CR>', options)
-map('n',  '<leader>ta',  ':TestSuite<CR>', options)
-map('n',  '<leader>tl',  ':TestLast<CR>', options)
-map('n',  '<leader>tv',  ':TestVisit<CR>', options)
+map('n', '<leader>tn', ':TestNearest<CR>', options)
+map('n', '<leader>tf', ':TestFile<CR>', options)
+map('n', '<leader>ta', ':TestSuite<CR>', options)
+map('n', '<leader>tl', ':TestLast<CR>', options)
+map('n', '<leader>tv', ':TestVisit<CR>', options)
 
 
 -----------------------------------------------------------------------------
 -- gutentags
 -----------------------------------------------------------------------------
-vim.g.gutentags_ctags_auto_set_tags = 0
-vim.g.gutentags_file_list_command = "git ls-files"
+-- vim.g.gutentags_ctags_auto_set_tags = 0
+-- vim.g.gutentags_file_list_command = "git ls-files"
 
 
 -----------------------------------------------------------------------------
 -- gitsigns
 -----------------------------------------------------------------------------
 require('gitsigns').setup {
-  signs = {
-    add = { hl = 'GitGutterAdd', text = '+' },
-    change = { hl = 'GitGutterChange', text = '~' },
-    delete = { hl = 'GitGutterDelete', text = '_' },
-    topdelete = { hl = 'GitGutterDelete', text = '‾' },
-    changedelete = { hl = 'GitGutterChange', text = '~' },
-  },
-  -- signs = {
-  --   add = { text = "▎" },
-  --   change = { text = "▎" },
-  --   delete = { text = "▎" },
-  --   topdelete = { text = "契" },
-  --   changedelete = { text = "▎" },
-  -- },
+    signs = {
+        add = { hl = 'GitGutterAdd', text = '+' },
+        change = { hl = 'GitGutterChange', text = '~' },
+        delete = { hl = 'GitGutterDelete', text = '_' },
+        topdelete = { hl = 'GitGutterDelete', text = '‾' },
+        changedelete = { hl = 'GitGutterChange', text = '~' },
+    },
+    -- signs = {
+    --   add = { text = "▎" },
+    --   change = { text = "▎" },
+    --   delete = { text = "▎" },
+    --   topdelete = { text = "契" },
+    --   changedelete = { text = "▎" },
+    -- },
 }
 
 -----------------------------------------------------------------------------
@@ -113,8 +113,8 @@ l.ext = '.md'
 l.auto_diary_index = 1 -- autogenerate vimwiki diary
 vim.g.vimwiki_list = { l }
 vim.g.vimwiki_listsyms = '✗○◐●✓'
-map('n', '<leader>wq',  ':VimwikiToggleListItem<CR>', options)
-map('n', '<leader>wc',  ':CalendarVR<CR>', options)
+map('n', '<leader>wq', ':VimwikiToggleListItem<CR>', options)
+map('n', '<leader>wc', ':CalendarVR<CR>', options)
 
 -----------------------------------------------------------------------------
 -- goyo
@@ -128,9 +128,9 @@ map('n', '<leader>gy', ':Goyo <CR>', options)
 -- Ultisnips
 -----------------------------------------------------------------------------
 -- TODO add shortcut to toggle
-vim.g.UltiSnipsSnippetDirectories= {'~/.config/nvim/UltiSnips' }
+vim.g.UltiSnipsSnippetDirectories = { '~/.config/nvim/UltiSnips' }
 vim.g.UltiSnipsExpandTrigger = "<Tab>"
-vim.g.UltiSnipsEditSplit="vertical" -- If you want :UltiSnipsEdit to split your window.
+vim.g.UltiSnipsEditSplit = "vertical" -- If you want :UltiSnipsEdit to split your window.
 map('n', '<leader>uu', ':UltiSnipsEdit<CR>', options)
 map('n', '<leader>ual', ':UltiSnipsEdit all<CR>', options)
 map('n', '<leader>ujs', ':UltiSnipsEdit javascript<CR>', options)
@@ -144,20 +144,20 @@ map('n', '<leader>umd', ':UltiSnipsEdit md<CR>', options)
 -- neoformat
 -----------------------------------------------------------------------------
 
--- map('n', '<leader>p', ':Neoformat prettier<CR>', options)
--- use a project-local version of Prettier
-vim.g.neoformat_try_node_exe = 1
--- Enable alignment
-vim.g.neoformat_basic_format_align = 1
--- Enable tab to spaces conversion
-vim.g.neoformat_basic_format_retab = 1
--- Enable trimmming of trailing whitespace
-vim.g.neoformat_basic_format_trim = 1
+---- map('n', '<leader>p', ':Neoformat prettier<CR>', options)
+---- use a project-local version of Prettier
+--vim.g.neoformat_try_node_exe = 1
+---- Enable alignment
+--vim.g.neoformat_basic_format_align = 1
+---- Enable tab to spaces conversion
+--vim.g.neoformat_basic_format_retab = 1
+---- Enable trimmming of trailing whitespace
+--vim.g.neoformat_basic_format_trim = 1
 
---run Prettier on save
--- vim.cmd([[
---     autocmd BufWritePre *.js Neoformat  
--- ]])
+----run Prettier on save
+---- vim.cmd([[
+----     autocmd BufWritePre *.js Neoformat
+---- ]])
 
 -----------------------------------------------------------------------------
 -- ale (NOT USED)
@@ -187,33 +187,38 @@ vim.g.neoformat_basic_format_trim = 1
 local actions = require "telescope.actions"
 -- see https://github.com/nvim-telescope/telescope.nvim/blob/master/lua/telescope/mappings.lua for all telescope actions
 require('telescope').setup {
-  defaults = {
-    file_ignore_patterns = { "node_modules", 'git', 'tags', 'dist/', 'build/' },
-    mappings = {
-      i = {
-        -- ['<C-u>'] = actions.results_scrolling_up,
-        -- ['<C-d>'] = actions.results_scrolling_down,
-        ["<C-s>"] = actions.send_selected_to_qflist + actions.open_qflist,
-        ["<C-q"] = actions.send_to_qflist + actions.open_qflist
-      },
-     n = {
-        ["J"] = actions.move_selection_next +  actions.move_selection_next + actions.move_selection_next + actions.move_selection_next + actions.move_selection_next,
-        ["K"] = actions.move_selection_previous +  actions.move_selection_previous + actions.move_selection_previous + actions.move_selection_previous + actions.move_selection_previous,
-        -- ['<C-u>'] = actions.results_scrolling_up,
-        -- ['<C-d>'] = actions.results_scrolling_down,
-        ["<C-s>"] = actions.send_selected_to_qflist + actions.open_qflist,
-        ["<C-q"] = actions.send_to_qflist + actions.open_qflist
-     }
+    defaults = {
+        file_ignore_patterns = { "node_modules", 'git', 'tags', 'dist/', 'build/' },
+        mappings = {
+            i = {
+                -- ['<C-u>'] = actions.results_scrolling_up,
+                -- ['<C-d>'] = actions.results_scrolling_down,
+                ["<C-s>"] = actions.send_selected_to_qflist + actions.open_qflist,
+                ["<C-q"] = actions.send_to_qflist + actions.open_qflist
+            },
+            n = {
+                ["J"] = actions.move_selection_next + actions.move_selection_next + actions.move_selection_next +
+                    actions.move_selection_next + actions.move_selection_next,
+                ["K"] = actions.move_selection_previous + actions.move_selection_previous +
+                    actions.move_selection_previous + actions.move_selection_previous + actions.move_selection_previous,
+                -- ['<C-u>'] = actions.results_scrolling_up,
+                -- ['<C-d>'] = actions.results_scrolling_down,
+                ["<C-s>"] = actions.send_selected_to_qflist + actions.open_qflist,
+                ["<C-q"] = actions.send_to_qflist + actions.open_qflist
+            }
+        },
     },
-  },
 }
 
 --Add leader shortcuts
 
-map('n', '<leader>fF', [[:execute 'Telescope find_files default_text=' . expand('<cword>')<CR>]],{ noremap = true, silent = true }) -- populates word under cursor
-map('n', '<leader>fG', [[:execute 'Telescope live_grep default_text=' . expand('<cword>')<CR>]],{ noremap = true, silent = true }) -- populates word under cursor
+map('n', '<leader>fF', [[:execute 'Telescope find_files default_text=' . expand('<cword>')<CR>]],
+    { noremap = true, silent = true }) -- populates word under cursor
+map('n', '<leader>fG', [[:execute 'Telescope live_grep default_text=' . expand('<cword>')<CR>]],
+    { noremap = true, silent = true }) -- populates word under cursor
 
-map('n', '<leader>ff', [[<cmd>lua require('telescope.builtin').find_files({previewer = false, hidden=true})<CR>]], { noremap = true, silent = true })
+map('n', '<leader>ff', [[<cmd>lua require('telescope.builtin').find_files({previewer = false, hidden=true})<CR>]],
+    { noremap = true, silent = true })
 map('n', '<leader>?', [[<cmd>lua require('telescope.builtin').oldfiles()<CR>]], { noremap = true, silent = true })
 
 map('n', '<leader>fb', [[<cmd>lua require('telescope.builtin').buffers()<CR>]], { noremap = true, silent = true })
@@ -223,13 +228,15 @@ map('n', '<leader>fb', [[<cmd>lua require('telescope.builtin').buffers()<CR>]], 
 map('n', '<leader>fg', [[<cmd>lua require('telescope.builtin').live_grep()<CR>]], { noremap = true, silent = true })
 
 map('n', '<leader>fh', [[<cmd>lua require('telescope.builtin').help_tags()<CR>]], { noremap = true, silent = true })
-map('n', '<leader>ft', [[<cmd>lua require('telescope.builtin').tags{ only_current_buffer = true }<CR>]], { noremap = true, silent = true })
+map('n', '<leader>ft', [[<cmd>lua require('telescope.builtin').tags{ only_current_buffer = true }<CR>]],
+    { noremap = true, silent = true })
 -- map('n', '<leader>ft', [[<cmd>lua require('telescope.builtin').tags()<CR>]], { noremap = true, silent = true })
 
 
 map('n', '<leader>fr', [[<cmd>lua require('telescope.builtin').lsp_references()<CR>]], { noremap = true, silent = true })
 map('n', '<leader>fd', [[<cmd>lua require('telescope.builtin').diagnostics()<CR>]], { noremap = true, silent = true })
-map('n', '<leader>fs', [[<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]], { noremap = true, silent = true })
+map('n', '<leader>fs', [[<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]],
+    { noremap = true, silent = true })
 
 map('n', '<leader>gb', [[<cmd>lua require('telescope.builtin').git_branches()<CR>]], { noremap = true, silent = true })
 map('n', '<leader>gc', [[<cmd>lua require('telescope.builtin').git_commits()<CR>]], { noremap = true, silent = true })
@@ -241,32 +248,32 @@ map('n', '<leader>gt', [[<cmd>lua require('telescope.builtin').git_status()<CR>]
 -- harpoon
 -----------------------------------------------------------------------------
 require('harpoon.term')
-map('n',  '<leader>hm',  ':lua require("harpoon.mark").add_file()<CR>', options)
-map('n',  '<leader>ha',  ':lua require("harpoon.ui").toggle_quick_menu()<CR>', options)
+map('n', '<leader>hm', ':lua require("harpoon.mark").add_file()<CR>', options)
+map('n', '<leader>ha', ':lua require("harpoon.ui").toggle_quick_menu()<CR>', options)
 
-map('n',  '<leader>hA',  ':lua require("harpoon.cmd-ui").toggle_quick_menu()<CR>', options)
+map('n', '<leader>hA', ':lua require("harpoon.cmd-ui").toggle_quick_menu()<CR>', options)
 
-map('n',  '<leader>t1',  ':lua require("harpoon.term").gotoTerminal(1)<CR>', options)
-map('n',  '<leader>t2',  ':lua require("harpoon.term").gotoTerminal(2)<CR>', options)
-map('n',  '<leader>t3',  ':lua require("harpoon.term").gotoTerminal(2)<CR>', options)
-map('n',  '<leader>t4',  ':lua require("harpoon.term").gotoTerminal(2)<CR>', options)
-map('n',  '<leader>t5',  ':lua require("harpoon.term").gotoTerminal(2)<CR>', options)
-map('n',  '<leader>t6',  ':lua require("harpoon.term").gotoTerminal(6)<CR>', options)
+map('n', '<leader>t1', ':lua require("harpoon.term").gotoTerminal(1)<CR>', options)
+map('n', '<leader>t2', ':lua require("harpoon.term").gotoTerminal(2)<CR>', options)
+map('n', '<leader>t3', ':lua require("harpoon.term").gotoTerminal(2)<CR>', options)
+map('n', '<leader>t4', ':lua require("harpoon.term").gotoTerminal(2)<CR>', options)
+map('n', '<leader>t5', ':lua require("harpoon.term").gotoTerminal(2)<CR>', options)
+map('n', '<leader>t6', ':lua require("harpoon.term").gotoTerminal(6)<CR>', options)
 
 -- TODO can add global go-to-files here aswell
-map('n',  '<leader>h1',  ':lua require("harpoon.ui").nav_file(1)  <CR>', options)
-map('n',  '<leader>h2',  ':lua require("harpoon.ui").nav_file(2)  <CR>', options)
-map('n',  '<leader>h3',  ':lua require("harpoon.ui").nav_file(3)  <CR>', options)
-map('n',  '<leader>h4',  ':lua require("harpoon.ui").nav_file(4)  <CR>', options)
-map('n',  '<leader>h5',  ':lua require("harpoon.ui").nav_file(5)  <CR>', options)
-map('n',  '<leader>h6',  ':lua require("harpoon.ui").nav_file(6)  <CR>', options)
+map('n', '<leader>h1', ':lua require("harpoon.ui").nav_file(1)  <CR>', options)
+map('n', '<leader>h2', ':lua require("harpoon.ui").nav_file(2)  <CR>', options)
+map('n', '<leader>h3', ':lua require("harpoon.ui").nav_file(3)  <CR>', options)
+map('n', '<leader>h4', ':lua require("harpoon.ui").nav_file(4)  <CR>', options)
+map('n', '<leader>h5', ':lua require("harpoon.ui").nav_file(5)  <CR>', options)
+map('n', '<leader>h6', ':lua require("harpoon.ui").nav_file(6)  <CR>', options)
 
 -- map('n',  'g1',  ':lua require("harpoon.term").sendCommand(1, 1)  <CR>', options)
 -- map('n',  'g2',  ':lua require("harpoon.term").sendCommand(1, 2)  <CR>', options)
 -- map('n',  '<F3>',  ':lua require("harpoon.term").sendCommand(1, 3)  <CR>', options)
 -- map('n',  '<F4>',  ':lua require("harpoon.term").sendCommand(1, 4)  <CR>', option
 -- map('n',  '<F5>',  ':lua require("harpoon.term").sendCommand(1, 5)  <CR>', options)
-map('n',  '<leader>hg',  ':Telescope git_files<CR>', options)
+map('n', '<leader>hg', ':Telescope git_files<CR>', options)
 
 -----------------------------------------------------------------------------
 --- nerdtree
@@ -276,15 +283,15 @@ vim.g.NERDTreeGitStatusUseNerdFonts = 1
 vim.g.NERDTreeShowHidden = 1
 vim.g.NERDTreeAutoDeleteBuffer = 1
 vim.g.NERDTreeQuitOnOpen = 0
-vim.g.NERDTreeMinmalUi= 1
+vim.g.NERDTreeMinmalUi = 1
 vim.g.NERDTreeDirArrows = 1
 
 -- shortcut to remove allow the J and K to be the normal 5j and 5k
 vim.g.NERDTreeMapJumpLastChild = 'z'
 vim.g.NERDTreeMapJumpFirstChild = 'z'
 
--- shortcuts to toggle and find 
-map('n',  '<leader>nn',  ':NERDTreeToggle<CR>', options) -- toggle on/off nerdtree
+-- shortcuts to toggle and find
+map('n', '<leader>nn', ':NERDTreeToggle<CR>', options) -- toggle on/off nerdtree
 map('n', '<leader>r', ':NERDTreeFind<cr>', options) -- map nerdtree switch to active file
 
 -- Exit Vim if NERDTree is the only window remaining in the only tab.
@@ -300,35 +307,35 @@ autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTa
 -----------------------------------------------------------------------------
 --- marks
 -----------------------------------------------------------------------------
-require'marks'.setup {
-  -- whether to map keybinds or not. default true
-  default_mappings = true,
-  -- which builtin marks to show. default {}
-  builtin_marks = {}, --{ ".", "<", ">", "^" },
-  -- whether movements cycle back to the beginning/end of buffer. default true
-  cyclic = true,
-  -- whether the shada file is updated after modifying uppercase marks. default false
-  force_write_shada = false,
-  -- how often (in ms) to redraw signs/recompute mark positions.
-  -- higher values will have better performance but may cause visual lag,
-  -- while lower values may cause performance penalties. default 150.
-  refresh_interval = 250,
-  -- sign priorities for each type of mark - builtin marks, uppercase marks, lowercase
-  -- marks, and bookmarks.
-  -- can be either a table with all/none of the keys, or a single number, in which case
-  -- the priority applies to all marks.
-  -- default 10.
-  sign_priority = { lower=10, upper=15, builtin=8, bookmark=20 },
-  -- disables mark tracking for specific filetypes. default {}
-  excluded_filetypes = {},
-  -- marks.nvim allows you to configure up to 10 bookmark groups, each with its own
-  -- sign/virttext. Bookmarks can be used to group together positions and quickly move
-  -- across multiple buffers. default sign is '!@#$%^&*()' (from 0 to 9), and
-  -- default virt_text is "".
-  bookmark_0 = {
-    sign = "⚑",
-    virt_text = "hello world"
-  },
+require 'marks'.setup {
+    -- whether to map keybinds or not. default true
+    default_mappings = true,
+    -- which builtin marks to show. default {}
+    builtin_marks = {}, --{ ".", "<", ">", "^" },
+    -- whether movements cycle back to the beginning/end of buffer. default true
+    cyclic = true,
+    -- whether the shada file is updated after modifying uppercase marks. default false
+    force_write_shada = false,
+    -- how often (in ms) to redraw signs/recompute mark positions.
+    -- higher values will have better performance but may cause visual lag,
+    -- while lower values may cause performance penalties. default 150.
+    refresh_interval = 250,
+    -- sign priorities for each type of mark - builtin marks, uppercase marks, lowercase
+    -- marks, and bookmarks.
+    -- can be either a table with all/none of the keys, or a single number, in which case
+    -- the priority applies to all marks.
+    -- default 10.
+    sign_priority = { lower = 10, upper = 15, builtin = 8, bookmark = 20 },
+    -- disables mark tracking for specific filetypes. default {}
+    excluded_filetypes = {},
+    -- marks.nvim allows you to configure up to 10 bookmark groups, each with its own
+    -- sign/virttext. Bookmarks can be used to group together positions and quickly move
+    -- across multiple buffers. default sign is '!@#$%^&*()' (from 0 to 9), and
+    -- default virt_text is "".
+    bookmark_0 = {
+        sign = "⚑",
+        virt_text = "hello world"
+    },
     mappings = {
         set_next = 'm:',
         toggle = "m.",
@@ -343,26 +350,29 @@ map('n', 'mæ', ':delmarks!<cr>', options) -- delete all lowercase marks in buff
 --- aerial
 -----------------------------------------------------------------------------
 require('aerial').setup({
-  attach_mode = "global",
-  -- backends = { "lsp", "treesitter", "markdown" },
-  min_width = 28,
-  show_guides = true,
-  -- filter_kind = false,
-  guides = {
-    mid_item = "├ ",
-    last_item = "└ ",
-    nested_top = "│ ",
-    whitespace = "  ",
-  },
-  on_attach = function(bufnr)
-   -- Toggle the aerial window with <leader>a
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>a', '<cmd>AerialToggle!<CR>', {})
-    -- Jump forwards/backwards with '{' and '}'
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '(', '<cmd>AerialPrev<CR>', {})
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', ')', '<cmd>AerialNext<CR>', {})
-    -- Jump up the tree with '[[' or ']]'
-    -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '[[', '<cmd>AerialPrevUp<CR>', {})
-    -- vim.api.nvim_buf_set_keymap(bufnr, 'n', ']]', '<cmd>AerialNextUp<CR>', {})
+    attach_mode = "global",
+    -- backends = { "lsp", "treesitter", "markdown" },
+    layout = {
+        min_width = 28,
+    }
+    ,
+    show_guides = true,
+    -- filter_kind = false,
+    guides = {
+        mid_item = "├ ",
+        last_item = "└ ",
+        nested_top = "│ ",
+        whitespace = "  ",
+    },
+    on_attach = function(bufnr)
+        -- Toggle the aerial window with <leader>a
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>a', '<cmd>AerialToggle!<CR>', {})
+        -- Jump forwards/backwards with '{' and '}'
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', '(', '<cmd>AerialPrev<CR>', {})
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', ')', '<cmd>AerialNext<CR>', {})
+        -- Jump up the tree with '[[' or ']]'
+        -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '[[', '<cmd>AerialPrevUp<CR>', {})
+        -- vim.api.nvim_buf_set_keymap(bufnr, 'n', ']]', '<cmd>AerialNextUp<CR>', {})
     end
 })
 
@@ -371,38 +381,38 @@ require('aerial').setup({
 --- toggleterm
 -----------------------------------------------------------------------------
 require('toggleterm').setup({
-	size = 20,
-	-- open_mapping = [[<C-t>]],
-	hide_numbers = true,
-	-- shade_filetypes = {},
-	-- shade_terminals = true,
-	-- shading_factor = '1',
-	start_in_insert = true,
-	insert_mappings = true,
-	persist_size = true,
-	direction = "float",
-	close_on_exit = true,
-	shell = vim.o.shell,
-	float_opts = {
-		border = "curved",
-		winblend = 0,
-		highlights = {
-			border = "Normal",
-			background = "Normal",
-		},
-	},
+    size = 20,
+    -- open_mapping = [[<C-t>]],
+    hide_numbers = true,
+    -- shade_filetypes = {},
+    -- shade_terminals = true,
+    -- shading_factor = '1',
+    start_in_insert = true,
+    insert_mappings = true,
+    persist_size = true,
+    direction = "float",
+    close_on_exit = true,
+    shell = vim.o.shell,
+    float_opts = {
+        border = "curved",
+        winblend = 0,
+        highlights = {
+            border = "Normal",
+            background = "Normal",
+        },
+    },
 })
 
-map('n',  '<leader>tt',  ':ToggleTerm<CR>', options)
+map('n', '<leader>tt', ':ToggleTerm<CR>', options)
 
 function _G.set_terminal_keymaps()
-  local opts = {noremap = true}
-  vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts)
-  vim.api.nvim_buf_set_keymap(0, 't', 'jk', [[<C-\><C-n>]], opts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-j>', [[<C-\><C-n><C-W>j]], opts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-k>', [[<C-\><C-n><C-W>k]], opts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-l>', [[<C-\><C-n><C-W>l]], opts)
+    local opts = { noremap = true }
+    vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts)
+    vim.api.nvim_buf_set_keymap(0, 't', 'jk', [[<C-\><C-n>]], opts)
+    vim.api.nvim_buf_set_keymap(0, 't', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
+    vim.api.nvim_buf_set_keymap(0, 't', '<C-j>', [[<C-\><C-n><C-W>j]], opts)
+    vim.api.nvim_buf_set_keymap(0, 't', '<C-k>', [[<C-\><C-n><C-W>k]], opts)
+    vim.api.nvim_buf_set_keymap(0, 't', '<C-l>', [[<C-\><C-n><C-W>l]], opts)
 end
 
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
