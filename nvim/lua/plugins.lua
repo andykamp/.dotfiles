@@ -21,6 +21,19 @@ vim.cmd [[highlight VirtualTextWarning guifg=#e0af68]]
 -- vim.cmd [[highlight VirtualTextHint guifg=#0db9d7]]
 
 -----------------------------------------------------------------------------
+-- Diagnostic icons 
+-----------------------------------------------------------------------------
+-- If you want icons for diagnostic errors, you'll need to define them somewhere:
+vim.fn.sign_define("DiagnosticSignError",
+    { text = " ", texthl = "DiagnosticSignError" })
+vim.fn.sign_define("DiagnosticSignWarn",
+    { text = " ", texthl = "DiagnosticSignWarn" })
+vim.fn.sign_define("DiagnosticSignInfo",
+    { text = " ", texthl = "DiagnosticSignInfo" })
+vim.fn.sign_define("DiagnosticSignHint",
+    { text = "", texthl = "DiagnosticSignHint" })
+
+-----------------------------------------------------------------------------
 -- lualine
 -----------------------------------------------------------------------------
 --  UNCOMMENT TO USE CUSTOM THEME require('lualineConfig')
@@ -342,13 +355,13 @@ require("neo-tree").setup({
                 -- Change type
                 added     = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
                 modified  = "", -- or "", but this is redundant info if you use git_status_colors on the name
-                deleted   = "✖", -- this can only be used in the git_status source
-                renamed   = "", -- this can only be used in the git_status source
+                deleted   = "d",-- "✖", -- this can only be used in the git_status source
+                renamed   = "r", --"", -- this can only be used in the git_status source
                 -- Status type
                 untracked = "",
                 ignored   = "",
-                unstaged  = "",
-                staged    = "",
+                unstaged  = "U", --"",
+                staged    = "S", --"",
                 conflict  = "",
             }
         },
@@ -486,34 +499,6 @@ require("neo-tree").setup({
         }
     }
 })
------------------------------------------------------------------------------
---- nerdtree
------------------------------------------------------------------------------
--- vim.g.webdevicons_enable_nerdtree = 1
--- vim.g.NERDTreeGitStatusUseNerdFonts = 1
--- vim.g.NERDTreeShowHidden = 1
--- vim.g.NERDTreeAutoDeleteBuffer = 1
--- vim.g.NERDTreeQuitOnOpen = 0
--- vim.g.NERDTreeMinmalUi = 1
--- vim.g.NERDTreeDirArrows = 1
-
--- -- shortcut to remove allow the J and K to be the normal 5j and 5k
--- vim.g.NERDTreeMapJumpLastChild = 'z'
--- vim.g.NERDTreeMapJumpFirstChild = 'z'
-
--- -- shortcuts to toggle and find
--- map('n', '<leader>nn', ':NERDTreeToggle<CR>', options) -- toggle on/off nerdtree
--- map('n', '<leader>r', ':NERDTreeFind<cr>', options) -- map nerdtree switch to active file
-
--- -- Exit Vim if NERDTree is the only window remaining in the only tab.
--- vim.cmd([[
---  autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
--- ]])
--- -- Close the tab if NERDTree is the only window remaining in it.
--- vim.cmd([[
--- autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
--- ]])
-
 
 -----------------------------------------------------------------------------
 --- marks
