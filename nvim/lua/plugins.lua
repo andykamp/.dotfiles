@@ -21,7 +21,7 @@ vim.cmd [[highlight VirtualTextWarning guifg=#e0af68]]
 -- vim.cmd [[highlight VirtualTextHint guifg=#0db9d7]]
 
 -----------------------------------------------------------------------------
--- Diagnostic icons 
+-- Diagnostic icons
 -----------------------------------------------------------------------------
 -- If you want icons for diagnostic errors, you'll need to define them somewhere:
 vim.fn.sign_define("DiagnosticSignError",
@@ -48,7 +48,7 @@ require('lualine').setup {
         -- lualine_b = { 'branch', 'diff', 'diagnostics' },
         lualine_b = {},
         lualine_c = { { 'filename', path = 1 } },
-        lualine_x = {'diff', 'diagnostic' },
+        lualine_x = { 'diff', 'diagnostic' },
         lualine_y = {},
         lualine_z = {},
 
@@ -363,7 +363,7 @@ require("neo-tree").setup({
                 -- Change type
                 added     = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
                 modified  = "", -- or "", but this is redundant info if you use git_status_colors on the name
-                deleted   = "d",-- "✖", -- this can only be used in the git_status source
+                deleted   = "d", -- "✖", -- this can only be used in the git_status source
                 renamed   = "r", --"", -- this can only be used in the git_status source
                 -- Status type
                 untracked = "",
@@ -415,14 +415,20 @@ require("neo-tree").setup({
             ["y"] = "copy_to_clipboard",
             ["x"] = "cut_to_clipboard",
             ["p"] = "paste_from_clipboard",
-            ["c"] = "copy", -- takes text input for destination, also accepts the optional config.show_path option like "add":
-            -- ["c"] = {
-            --  "copy",
-            --  config = {
-            --    show_path = "none" -- "none", "relative", "absolute"
-            --  }
-            --}
-            ["m"] = "move", -- takes text input for destination, also accepts the optional config.show_path option like "add".
+            -- ["c"] = "copy", -- takes text input for destination, also accepts the optional config.show_path option like "add":
+            ["c"] = {
+                "copy",
+                config = {
+                    show_path = "relative" -- "none", "relative", "absolute"
+                }
+            },
+            -- ["m"] = "move", -- takes text input for destination, also accepts the optional config.show_path option like "add".
+            ["m"] = {
+                "move",
+                config = {
+                    show_path = "relative" -- "none", "relative", "absolute"
+                }
+            },
             ["q"] = "close_window",
             ["R"] = "refresh",
             ["?"] = "show_help",

@@ -113,20 +113,18 @@ Also for ll scrips/executable u need to make it executble and giev u access
 - mikael div higlighting
 -create own colorschema create own colorschema [ondark exaple](https://github.com/lukas-reineke/onedark.nvim) 
 
-## get path 
+## get path  (pwd like stuff)
 - DONE see the the maps section  
 
 ## neotree
 - resize shortcut
-- copy with path!!! or youd just use yan (y) or cut (x)
-- move with path
-- add with path
 
 ## orgmode???
 - pretty cool stuff right here https://github.com/nvim-orgmode/orgmode
 
 
 ## TAGs??
+- not using it atm
 
 
 ## renaming and file path update on neotree movement
