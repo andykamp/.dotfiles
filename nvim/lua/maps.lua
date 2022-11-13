@@ -70,3 +70,14 @@ map('n', "æ", "'", options)
 -- Set timestampp
 
 map('n', '<leader>wt', ":put =strftime('%c')<CR>", options)
+
+
+-- get path of current file
+
+-- relative path
+map('n', '<leader>br', ':let @+ = expand("%") <CR>', options)
+-- full path
+map('n', '<leader>ba', ':let @+ = expand("%:p") <CR>', options)
+--just filename
+map('n', '<leader>bn', ':let @+ = expand("%:t") <CR>', options)
+

@@ -112,12 +112,11 @@ Also for ll scrips/executable u need to make it executble and giev u access
 ## Ideas
 - mikael div higlighting
 -create own colorschema create own colorschema [ondark exaple](https://github.com/lukas-reineke/onedark.nvim) 
+
+## get path 
+- DONE see the the maps section  
+
 ## neotree
-- find a good way to move fiels easy
-- get the pwd 
-- see in the help for the best keybindings
-- change where the config are!!
-- auto rename all path
 - resize shortcut
 - copy with path!!! or youd just use yan (y) or cut (x)
 - move with path

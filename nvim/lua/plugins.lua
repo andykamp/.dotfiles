@@ -39,7 +39,7 @@ vim.fn.sign_define("DiagnosticSignHint",
 --  UNCOMMENT TO USE CUSTOM THEME require('lualineConfig')
 require('lualine').setup {
     options = {
-        -- theme = "rose-pine",
+        theme = "rose-pine",
         section_separators = '',
         component_separators = ''
     },
