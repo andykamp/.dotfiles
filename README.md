@@ -46,7 +46,7 @@ Also for ll scrips/executable u need to make it executble and giev u access
 - always open tmux when using ff (see https://www.youtube.com/watch?v=bdumjiHabhQ&t=5s)
 - use fzf for more usecasess https://www.youtube.com/watch?v=qgG5Jhi_Els
 - mimic this worfkflow? https://elijahmanor.com/blog/neovim-tmux
-- cool setup https://github.com/AstroNvim/AstroNvim/tree/main/lua/configs or https://elijahmanor.com/blog/neovim-tmux
+- cool setup https://github.com/AstroNvim/AstroNvim/tree/main/lua/configs or https://elijahmanor.com/blog/neovim-tmux or https://github.com/LunarVim/LunarVim
 - tag manaement. does gutentags do anything?
 - Neovim Session Manager for being able to close and reopen sessions again
 - tmux

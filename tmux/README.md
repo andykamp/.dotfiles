@@ -18,3 +18,4 @@
 
 # TODO
 - make prefix UI entire bottom row so it is easy to se on bug screen
+- copy/yank mode

@@ -82,7 +82,6 @@ require('packer').startup(function()
         }
     }
 
-    -- use 'ryanoasis/vim-devicons'
     use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } } -- Fancier statusline
     use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } } -- UI to select things (files, grep results, open buffers...)
     use 'ThePrimeagen/harpoon' -- use for quick commands

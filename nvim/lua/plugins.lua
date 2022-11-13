@@ -39,17 +39,25 @@ vim.fn.sign_define("DiagnosticSignHint",
 --  UNCOMMENT TO USE CUSTOM THEME require('lualineConfig')
 require('lualine').setup {
     options = {
-        theme = "rose-pine",
+        -- theme = "rose-pine",
         section_separators = '',
         component_separators = ''
     },
     sections = {
         lualine_a = { 'mode' },
-        lualine_b = { 'branch', 'diff', 'diagnostics' },
+        -- lualine_b = { 'branch', 'diff', 'diagnostics' },
+        lualine_b = {},
         lualine_c = { { 'filename', path = 1 } },
-        lualine_x = { 'filetype' },
-        lualine_y = { 'progress' },
-        lualine_z = { 'location' }
+        lualine_x = {'diff', 'diagnostic' },
+        lualine_y = {},
+        lualine_z = {},
+
+
+        -- lualine_b = { 'branch', 'diff', 'diagnostics' },
+        -- lualine_b = { { 'filename', path = 1 } },
+        -- lualine_x = { 'filetype' },
+        -- lualine_y = { 'progress' },
+        -- lualine_z = { 'location' }
     },
     -- sections = {
     --     lualine_a = { 'mode', {'branch'},{'filename', path=2},  },
