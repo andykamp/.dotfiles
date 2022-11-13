@@ -32,6 +32,11 @@ require('packer').startup(function()
     use 'tpope/vim-commentary' -- "gc" to comment visual regions/lines (gcc to comment a line) TODOOOOOO
     use 'tpope/vim-surround' -- enables the s and S command
 
+    -- Auto pairs
+    use {
+        "windwp/nvim-autopairs",
+        config = function() require("nvim-autopairs").setup {} end
+    }
     -- TODO these suck. should replace
     -- use 'jiangmiao/auto-pairs' -- create pars of brackets etc TODO
     -- use 'alvan/vim-closetag'  -- close jsx/tsx tags TODO
@@ -166,6 +171,10 @@ require('packer').startup(function()
     use 'vimwiki/vimwiki' -- used for markdown notes
 end)
 
+
+local npairs = require('nvim-autopairs')
+-- add option map_cr
+npairs.setup({ map_cr = true, check_ts = true })
 -----------------------------------------------------------------------------
 --  linting
 -----------------------------------------------------------------------------

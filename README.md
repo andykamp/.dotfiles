@@ -130,3 +130,7 @@ Also for ll scrips/executable u need to make it executble and giev u access
 ## renaming and file path update on neotree movement
 - learn cdo  https://vimhelp.org/quickfix.txt.html#%3Acdo
 - 
+
+## should i use nvim-cmp 
+- https://github.com/hrsh7th/nvim-cmp
+- https://github.com/quangnguyen30192/cmp-nvim-ultisnips
