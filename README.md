@@ -78,7 +78,7 @@ Also for ll scrips/executable u need to make it executble and giev u access
 - 
 
 ## 😩 Existing painpoints
-- zsh 
+- zsh  and tmux terminals
     -  cannot use vim commands to edit vims :term commands. It only focus on the end of the input command, not where the cursor is. So the solution here is to try to use harpoon to write most commenly used commands and limit the writing in the .term. see issue at [github](https://github.com/neovim/neovim/issues/8805) 
 -  zsh and tmux and neovim terminals not 100% sure on optimal flow
 - [○] workflow
@@ -86,10 +86,9 @@ Also for ll scrips/executable u need to make it executble and giev u access
     - [✗] cannot open random tmux panes
     - [✗] ff does not work anymore
 - eslint warning does not work properly in placepoint monorepo
-- grapql colors
-- error colors not showing (plugin exist for this)
-- <leader>p not working properly
-- 
+- tsx colors not working
+- lss.references opens quiqlist
+- want to make a selction bord OR in general add "more stuff to surround" at the same time
 
 # 📈 Monitoring
 - htop or tiptop
@@ -129,8 +128,20 @@ Also for ll scrips/executable u need to make it executble and giev u access
 
 ## renaming and file path update on neotree movement
 - learn cdo  https://vimhelp.org/quickfix.txt.html#%3Acdo
-- 
+j- 
 
 ## should i use nvim-cmp 
 - https://github.com/hrsh7th/nvim-cmp
 - https://github.com/quangnguyen30192/cmp-nvim-ultisnips
+
+
+## tiling manager and mac shortcuts
+- https://github.com/koekeishiya/yabai
+- https://ayazhafiz.com/articles/19/tiling-wm-macos
+- setup script to add daily notes + vorgmode to always have ut 
+-  pretty dope setup https://www.youtube.com/watch?v=fYsCAOfGjxE
+
+
+TODO 
+-  add a open go-to in next window `:vs + gd`
+

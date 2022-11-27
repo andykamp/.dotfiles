@@ -76,39 +76,13 @@ snippet is3 "import spesific module"
 import { ${1} }  from '../../../${2:$1}';
 endsnippet
 
-snippet ri "react imports"
-import React from 'react'
-import styled from 'styled-components'
-endsnippet
-
-snippet rip "react import proptypes"
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components'
-endsnippet
-
 ################################################
 #  export 
 ###############################################
 
 snippet ex "export module" 
-export { ${1} } from '${2:$1}';
+export ${1} from '${2:$1}';
 endsnippet
-
-snippet exs "export as" 
-import { ${1} as ${2} } from '${3}';
-endsnippet
-
-snippet exa "export all" 
-import * from '${1}';
-endsnippet
-
-snippet exas "export all as" 
-import * as ${1} from '${2}';
-endsnippet
-
-
-
 
 ################################################
 #  tags
@@ -118,13 +92,17 @@ snippet t "jsx tag"
 <${1:div}>$0</${1/(\w+).*/$1/}>
 endsnippet
 
+snippet tc "jsx tag closed (inline tag)"
+<${1:div}/>
+endsnippet
+
 snippet tv "jsx tag visual" 
 <${1:div}>${VISUAL}</${1/(\w+).*/$1/}>
 endsnippet
 
-snippet tc "jsx tag closed (inline tag)"
-<${1:div}/>
-endsnippet
+################################################
+#  tag and prop
+###############################################
 
 snippet rp "react prop" i
 ${1:prop}={${2:$1}}
