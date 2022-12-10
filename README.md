@@ -24,9 +24,11 @@ This must be done for (might be missing some):
 - vimrc
 - zshrc
 - .zsh_profile
+- alacritty.yml
+    - ln -s ~/.dotfiles/alacritty ~/.config/alacritty
 Also for ll scrips/executable u need to make it executble and giev u access
 `chmod u+x filepath`
-- 
+- make sure to remap capslock to control 
 
 
 ## 🙇 Worth remembering
@@ -137,6 +139,7 @@ j-
 
 ## tiling manager and mac shortcuts
 - https://github.com/koekeishiya/yabai
+    - security risk??? se [this arcile](https://apple.stackexchange.com/questions/411598/what-are-the-potential-consequences-of-partially-disabling-sip-for-yabai)
 - https://ayazhafiz.com/articles/19/tiling-wm-macos
 - setup script to add daily notes + vorgmode to always have ut 
 -  pretty dope setup https://www.youtube.com/watch?v=fYsCAOfGjxE
@@ -144,4 +147,18 @@ j-
 
 TODO 
 -  add a open go-to in next window `:vs + gd`
-
+-  personally more intuitiv with ; for forward and shift+; for backward. Default is other way around
+- get insp for dotfiles from  https://github.com/joshmedeski/dotfiles
+- add 15j 15k to vim fugitiveaJ
+-  add https://apps.apple.com/no/app/network-battery/id1387780159?mt=12
+- vim diary creates a local path.. dont want that 
+- add tmux vim. map jk so that it is similar to how neovim is now. but also fix the "i" so it dont just go to default
+- warp terminal
+-a pasteapp.io for pasting history
+- add timestamp to terminal
+- setapp - markedplace for alle mulige kule apper
+- opacity on all backgrounds
+- entire line of tmux to higlight on tmux-key pressed
+- i want fish vim to higlight instert/vim mode so i know if i can scroll etc
+- see image on phone for font etc
+- padding

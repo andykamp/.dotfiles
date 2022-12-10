@@ -29,7 +29,7 @@ require('packer').startup(function()
     use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } } -- Add git related info in the signs columns and popups
 
     -- handy dandy shorcut plugins
-    use 'tpope/vim-commentary' -- "gc" to comment visual regions/lines (gcc to comment a line) TODOOOOOO
+    use 'tpope/vim-commentary' -- "gc" to comment visual regions/lines (gcc to comment a line) 
     use 'tpope/vim-surround' -- enables the s and S command
 
     -- Auto pairs
@@ -97,7 +97,7 @@ require('packer').startup(function()
     -- use { 'preservim/tagbar' }
 
     -- visual helpers
-    use 'norcalli/nvim-colorizer.lua'
+    use 'norcalli/nvim-colorizer.lua' -- add colors to hex
     use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
     -- use 'lukas-reineke/headlines.nvim' -- background highlighting from headlines in markdown, vimwiki and orgmode
 
@@ -159,15 +159,6 @@ require('packer').startup(function()
         "iamcco/markdown-preview.nvim",
         run = function() vim.fn["mkdp#util#install"]() end,
     })
-
-    -- use({
-    -- "akinsho/org-bullets.nvim",
-    -- config = function()
-    -- require("org-bullets").setup({
-    -- symbols = { "◉", "○", "✸", "✿" },
-    -- })
-    -- end,
-    -- }) -- TODO
     use 'vimwiki/vimwiki' -- used for markdown notes
 end)
 
@@ -337,6 +328,23 @@ local on_attach = function(_, bufnr)
 
     vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]] -- TODO do i need ?
 end
+
+-- make sure refertences do not open quicjlist
+vim.lsp.handlers['textdocument/references'] = function(_, result)
+    vim.g.lsp_last_word = vim.fn.expand('<cword>')
+    if not result then return end
+    if #result == 0 then
+        vim.cmd [[ echo "getting references..."]]
+        return
+    end
+    vim.cmd [[ echo ""]]
+    local util = require('vim.lsp.util')
+    -- util.set_qflist(util.locations_to_items(result))
+    -- require('plugins.fzf').quickfix(vim.fn.expand('<cword>'));
+    -- api.nvim_command("copen")
+    -- api.nvim_command("wincmd p")
+end
+
 
 -- nvim-cmp supports additional completion capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()

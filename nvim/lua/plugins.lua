@@ -1,19 +1,18 @@
 -----------------------------------------------------------------------------
 -- This file contains plugin configurations
 -----------------------------------------------------------------------------
-
 local map = vim.api.nvim_set_keymap
 local options = { noremap = true }
 
 -----------------------------------------------------------------------------
--- folds
+-- folds TODO remove
 -----------------------------------------------------------------------------
 vim.cmd [[set foldmethod=expr]]
 vim.cmd [[set foldexpr=nvim_treesitter#foldexpr()]]
 vim.cmd [[set foldlevelstart=99]] --start file with all folds opened
 
 -----------------------------------------------------------------------------
--- virtual-colors
+-- virtual-colors aka hovered diagnostics
 -----------------------------------------------------------------------------
 vim.cmd [[highlight VirtualTextError guifg=#db4b4b]]
 vim.cmd [[highlight VirtualTextWarning guifg=#e0af68]]
@@ -21,7 +20,7 @@ vim.cmd [[highlight VirtualTextWarning guifg=#e0af68]]
 -- vim.cmd [[highlight VirtualTextHint guifg=#0db9d7]]
 
 -----------------------------------------------------------------------------
--- Diagnostic icons
+-- Diagnostic icons for nerdtreee and gutter
 -----------------------------------------------------------------------------
 -- If you want icons for diagnostic errors, you'll need to define them somewhere:
 vim.fn.sign_define("DiagnosticSignError",
@@ -36,7 +35,6 @@ vim.fn.sign_define("DiagnosticSignHint",
 -----------------------------------------------------------------------------
 -- lualine
 -----------------------------------------------------------------------------
---  UNCOMMENT TO USE CUSTOM THEME require('lualineConfig')
 require('lualine').setup {
     options = {
         theme = "rose-pine",
@@ -72,7 +70,6 @@ require('lualine').setup {
 -- nvim-colorizer
 -----------------------------------------------------------------------------
 require 'colorizer'.setup()
-
 
 -----------------------------------------------------------------------------
 -- vim-test

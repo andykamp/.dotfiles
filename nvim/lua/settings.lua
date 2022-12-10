@@ -4,7 +4,7 @@
 
 local o = vim.o
 local wo = vim.wo
-local bo = vim.bo
+-- local bo = vim.bo
 
 o.cursorline = true
 o.autoindent = true
@@ -48,9 +48,10 @@ vim.cmd [[set clipboard=unnamed]]
 o.completeopt = 'menuone,noselect'
 
 
--- Override tab for javascript and typescript and html
+-- Override tab spacing for javascript and typescript and html
  vim.api.nvim_command('autocmd FileType javascript setlocal shiftwidth=2 tabstop=2')
  vim.api.nvim_command('autocmd FileType javascriptreact setlocal shiftwidth=2 tabstop=2')
  vim.api.nvim_command('autocmd FileType typescript setlocal shiftwidth=2 tabstop=2')
  vim.api.nvim_command('autocmd FileType typescriptreact setlocal shiftwidth=2 tabstop=2')
  vim.api.nvim_command('autocmd FileType html setlocal shiftwidth=2 tabstop=2')
+ vim.api.nvim_command('autocmd FileType graphql setlocal shiftwidth=2 tabstop=2')
