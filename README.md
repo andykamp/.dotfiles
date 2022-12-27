@@ -162,3 +162,14 @@ TODO
 - i want fish vim to higlight instert/vim mode so i know if i can scroll etc
 - see image on phone for font etc
 - padding
+- test workflow needs to be improved
+- look into chrome shortcuts etc (goto brain.fm commands etc)
+- costumize vimium colors to be pink
+- chrome same color as github
+- jira black theme same color as chrome
+- get new top vim shortuts
+- use riw insted of ciw/diw
+- make tmux-session take in the target paths and great a <command>+g to go to alternative path
+- quiclist actions! rename every file etc
+- shortcuts for wimwiko to go back and forth between notes
+- figure out why wimwiki and diary opens in wrong folder sometimes

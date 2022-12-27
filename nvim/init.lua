@@ -43,6 +43,18 @@ require('packer').startup(function()
     -- use 'ojroques/vim-oscyank' -- lets you copy to OS clipboard TODO
 
     -- colorschemas
+    -- -- A clean, dark Neovim theme written in Lua, with support for lsp, treesitter and lots of plugins. Includes additional themes for Kitty, Alacritty, iTerm and Fish.
+	-- use({
+		-- "folke/tokyonight.nvim",
+		-- config = function()
+			-- require("tokyonight").setup({
+				-- style = "night",
+				-- transparent = true,
+			-- })
+			-- vim.cmd([[colorscheme tokyonight]])
+		-- end,
+	-- })
+    use 'xiyaowong/nvim-transparent' 
     use 'joshdick/onedark.vim'
     use 'sonph/onehalf'
     use 'arcticicestudio/nord-vim'
@@ -210,11 +222,12 @@ vim.cmd [[
 -- vim.o.termguicolors = false
 --vim.g.onedark_terminal_italics = 2
 vim.cmd [[set termguicolors]]
-vim.cmd [[set background=dark]]
+-- vim.cmd [[set background=dark]]
 -- vim.cmd [[colorscheme onedark]]
-vim.g.edge_style = 'aura'
-vim.g.edge_better_performanc = 1
+-- vim.g.edge_style = 'aura'
+-- vim.g.edge_better_performanc = 1
 vim.cmd [[colorscheme edge]]
+-- vim.cmd [[hi NvimTreeNormal ctermfg="yellow" ctermbg="yellow" guifg="yellow" guibg="yellow" ]]
 
 -----------------------------------------------------------------------------
 -- Highlight on yank
