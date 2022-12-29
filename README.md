@@ -16,19 +16,36 @@
 - vim-fugitive
 - easy-motion
 
+Yabai:
+- read https://github.com/koekeishiya/yabai/wiki/Disabling-System-Integrity-Protection
+- inspired by https://www.youtube.com/watch?v=fYsCAOfGjxE
+- start yabai and skhd by:
+    - brew services start yabai / brew services stop yabai
+    - brew services start skhd
+    - brew services stop skhd
+- make symlink to dotfiles 
+    - ln -s ~/dotfiles/.yabairc ~/.yabairc
+    - ln -s ~/dotfiles/.skhdrc ~/.skhdrc
 
 **Note**: Remember that most dotfiles har a place somewhere. Make sure they point/symlink to the links inside this dotfile repo. 
 Use the `ln -s <actual existing filepath> <this will point to existing file filepath>` to create a symlink
 This must be done for (might be missing some):
-- nvim
+- nvim (located in ~/.config/nvim)
 - vimrc
 - zshrc
 - .zsh_profile
-- alacritty.yml
+- alacritty.yml (located in ~/.config/alacritty)
     - ln -s ~/.dotfiles/alacritty ~/.config/alacritty
+- fish (located in ~/.config/fish)
+    - ln -s ~/dotfiles/fish/ ~/.config/fish 
+- starfish (located in ~/.config/starfish.toml)
+    - ln -s ~/dotfiles/staship.toml ~/.config/starship.toml
+- neofetch (located in  ~/.config/neofetch/config.conf)
+    - ln -s ~/dotfiles/neofetch ~/.config/neofetch 
 Also for ll scrips/executable u need to make it executble and giev u access
 `chmod u+x filepath`
 - make sure to remap capslock to control 
+
 
 
 ## 🙇 Worth remembering
@@ -38,6 +55,10 @@ Also for ll scrips/executable u need to make it executble and giev u access
 - fd to replace find (fuzzy search)
 - htop to inspect performace
 - https://github.com/ryanoasis/nerd-fonts#option-4-homebrew-fonts for exa icons
+- lsof to inspect pids
+- kill -9 <pid>  to kill a pid
+- fzf for fuzzy search
+- TODO alias them to replace DEFAULY COMMANDS
 
 
 
@@ -49,12 +70,7 @@ Also for ll scrips/executable u need to make it executble and giev u access
 - use fzf for more usecasess https://www.youtube.com/watch?v=qgG5Jhi_Els
 - mimic this worfkflow? https://elijahmanor.com/blog/neovim-tmux
 - cool setup https://github.com/AstroNvim/AstroNvim/tree/main/lua/configs or https://elijahmanor.com/blog/neovim-tmux or https://github.com/LunarVim/LunarVim
-- tag manaement. does gutentags do anything?
-- Neovim Session Manager for being able to close and reopen sessions again
-- tmux
-    - use https://github.com/tmux-plugins/tmux-resurrect or https://github.com/tmuxinator/tmuxinator
-- session manager? https://github.com/Shatur/neovim-session-manager
-- best workflow ever by primagen https://www.youtube.com/watch?v=bdumjiHabhQ&t=5s
+- tag manaement. does gutentags ds
 - terminal alias/worklows
     - utilize htop better to identify 
     - alias for lsof -i tcp:3000 etc. maybe use fzf completion to find open ports? 
@@ -173,3 +189,69 @@ TODO
 - quiclist actions! rename every file etc
 - shortcuts for wimwiko to go back and forth between notes
 - figure out why wimwiki and diary opens in wrong folder sometimes
+
+# Swithcing to fish 
+
+
+# Switching to fish? (see [docs](https://fishshell.com/docs/3.0/tutorial.html))
+If you wish to use fish (or any other shell) as your default shell, you need to enter your new shell's executable /usr/local/bin/fish in two places:
+
+- add /usr/local/bin/fish to /etc/shells
+- change your default shell with chsh -s to /usr/local/bin/fish
+
+You can use the following commands for this:
+
+Add the fish shell /usr/local/bin/fish to /etc/shells with:
+`echo /usr/local/bin/fish | sudo tee -a /etc/shells`
+
+Change your default shell to fish with:
+`chsh -s /usr/local/bin/fish`
+
+## fisher
+We also use `fisher` plugin manager. It is more barebone than `oh-my-fish` and is more like npm where `oh-my-fish` is a actual framework
+## fish.fzf
+- see documentation [here](https://github.com/PatrickF1/fzf.fish/blob/main/functions/_fzf_configure_bindings_help.fish)
+- nice way to show fuzzy search
+- used for control-r
+- and for displaying the tmux session and file explorer
+
+# [Zoxide](https://github.com/ajeetdsouza/zoxide)
+- zoxide is a smarter cd comman
+- install `brew install zoxide`
+- add `zoxide init fish | source` to config.fish
+- use z <folder> to go directly to folders you have visited before
+
+# FISH Alot of usefull hints [here](/docs/current/interactive.html)
+Especially directory movement
+```
+Several commands are provided to interact with this directory history:
+
+dirh prints the history
+
+cdh displays a prompt to quickly navigate the history
+
+prevd moves backward through the history. It is bound to Alt+←
+
+nextd moves forward through the history. It is bound to Alt+→
+```
+- `control + l ` clears + repaints the screen
+- 
+- o
+
+# if path is lost restore by https://stackoverflow.com/questions/15872666/how-to-remove-entry-from-path-on-mac
+- export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin"
+
+## Fortune | Cowsay
+- cool asci drawing.Fortune creates text that we pipe into cowsay
+- run by `fortune | cowsay`
+- add to fish greeting by configurating `fish/functions/fish_greeting.fish`
+
+## Neofetch
+- check out some cool configurations [here](https://github.com/Chick2D/neofetch-themes/blob/main/README.md)
+- run by `neofetch`
+- configure in `neofetch/config.conf`
+ 
+## Image viewer in shell
+- builtin command `qlmanage -p <path>` opens a popup in full-size that can be escaped awy
+- e.g `qlmanage -p ~/documents/backgrounds/background.jpegqlmanage`
+- we alias this to `img <path>`
