@@ -170,25 +170,26 @@ TODO
 - vim diary creates a local path.. dont want that 
 - add tmux vim. map jk so that it is similar to how neovim is now. but also fix the "i" so it dont just go to default
 - warp terminal
--a pasteapp.io for pasting history
+- a pasteapp.io for pasting history
 - add timestamp to terminal
 - setapp - markedplace for alle mulige kule apper
-- opacity on all backgrounds
+- [✓] opacity on all backgrounds
 - entire line of tmux to higlight on tmux-key pressed
 - i want fish vim to higlight instert/vim mode so i know if i can scroll etc
 - see image on phone for font etc
 - padding
 - test workflow needs to be improved
 - look into chrome shortcuts etc (goto brain.fm commands etc)
-- costumize vimium colors to be pink
+- [✓] costumize vimium colors to be pink
 - chrome same color as github
 - jira black theme same color as chrome
-- get new top vim shortuts
+- get new top vim shortuts (see redit no phone)
 - use riw insted of ciw/diw
 - make tmux-session take in the target paths and great a <command>+g to go to alternative path
 - quiclist actions! rename every file etc
 - shortcuts for wimwiko to go back and forth between notes
 - figure out why wimwiki and diary opens in wrong folder sometimes
+- is https://activitywatch.net/ a good all-app tracker?
 
 # Swithcing to fish 
 
@@ -255,3 +256,15 @@ nextd moves forward through the history. It is bound to Alt+→
 - builtin command `qlmanage -p <path>` opens a popup in full-size that can be escaped awy
 - e.g `qlmanage -p ~/documents/backgrounds/background.jpegqlmanage`
 - we alias this to `img <path>`
+
+## vim-startify
+- keeps bookmarks and easy access to reasonly used files and bookmarks
+- good for easy acces to dotfiles, work and side-projects
+
+## colros and higlightgroups
+- to see all highlilght groups do `:hl`
+- to filter based on seach do `:filter /NeoTree/ highlight`
+- to change a highlight group do `vim.api.nvim_set_hl(0, 'NeoTreeGitModified', { fg="#5DBBC1" })`
+
+## keyboard speed
+- go to `system settings` and make sure the keyboard delays are as fast as possible

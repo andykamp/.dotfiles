@@ -5,6 +5,30 @@ local map = vim.api.nvim_set_keymap
 local options = { noremap = true }
 
 -----------------------------------------------------------------------------
+-- vim-startify
+-----------------------------------------------------------------------------
+vim.g.startify_change_to_vcs_root = 1
+vim.g.startify_session_delete_buffers = 1
+vim.g.startify_fortune_use_unicode = 1
+vim.g.startify_enable_special = 0
+vim.g.startify_custom_header = {
+    '   _  __     _         __  ___         __     ___ ',
+    '  / |/ /  __(_)_ _    /  |/  /__ _____/ /    |_  |',
+    ' /    / |/ / /  ` \\  / /|_/ / _ `/ __/ _ \\  / __/ ',
+    '/_/|_/|___/_/_/_/_/ /_/  /_/\\_,_/\\__/_//_/ /____/ ',
+}
+vim.g.startify_lists = {
+    { type='files', header={'   Files'}},
+    --{ type= 'dir',       header= {'   Current Directory '}},
+    { type= 'bookmarks', header= {'   Bookmarks'}      },
+}
+vim.g.startify_bookmarks = {
+    { d= '~/dotfiles' },
+    { w= '~/documents/work' },
+    { s= '~/documents/side-projects' }
+}
+
+-----------------------------------------------------------------------------
 -- folds TODO remove
 -----------------------------------------------------------------------------
 vim.cmd [[set foldmethod=expr]]
@@ -314,6 +338,15 @@ map('n', '<leader>hg', ':Telescope git_files<CR>', options)
 -----------------------------------------------------------------------------
 --- neotree
 -----------------------------------------------------------------------------
+-- vim.api.nvim_set_hl(0, 'NeoTreeWinSeparator', { fg="#DE3163", bg="#DE3163" })
+vim.api.nvim_set_hl(0, 'NeoTreeNormal', { bg="NONE" })
+vim.api.nvim_set_hl(0, 'NeoTreeNormalNC', { bg="NONE" })
+vim.api.nvim_set_hl(0, 'NeoTreeEndOfBuffer', { bg="NONE" })
+vim.api.nvim_set_hl(0, 'NeoTreeFileIcon', { fg="#5DBBC1" })
+vim.api.nvim_set_hl(0, 'NeoTreeDirectoryIcon', { fg="#5DBBC1" })
+vim.api.nvim_set_hl(0, 'NeoTreeDirectoryName', { fg="#5DBBC1" })
+vim.api.nvim_set_hl(0, 'NeoTreeGitModified', { fg="#D38AEA" })
+
 -- Unless you are still migrating, remove the deprecated commands from v1.x
 vim.g.neo_tree_remove_legacy_commands = 1
 map('n', '<leader>nn', ':Neotree toggle <CR>', options)

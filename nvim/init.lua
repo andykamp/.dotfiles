@@ -29,7 +29,7 @@ require('packer').startup(function()
     use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } } -- Add git related info in the signs columns and popups
 
     -- handy dandy shorcut plugins
-    use 'tpope/vim-commentary' -- "gc" to comment visual regions/lines (gcc to comment a line) 
+    use 'tpope/vim-commentary' -- "gc" to comment visual regions/lines (gcc to comment a line)
     use 'tpope/vim-surround' -- enables the s and S command
 
     -- Auto pairs
@@ -44,22 +44,23 @@ require('packer').startup(function()
 
     -- colorschemas
     -- -- A clean, dark Neovim theme written in Lua, with support for lsp, treesitter and lots of plugins. Includes additional themes for Kitty, Alacritty, iTerm and Fish.
-	-- use({
-		-- "folke/tokyonight.nvim",
-		-- config = function()
-			-- require("tokyonight").setup({
-				-- style = "night",
-				-- transparent = true,
-			-- })
-			-- vim.cmd([[colorscheme tokyonight]])
-		-- end,
-	-- })
-    use 'xiyaowong/nvim-transparent' 
+    -- use({
+    -- "folke/tokyonight.nvim",
+    -- config = function()
+    -- require("tokyonight").setup({
+    -- style = "night",
+    -- transparent = true,
+    -- })
+    -- vim.cmd([[colorscheme tokyonight]])
+    -- end,
+    -- })
+    use 'xiyaowong/nvim-transparent'
     use 'joshdick/onedark.vim'
     use 'sonph/onehalf'
     use 'arcticicestudio/nord-vim'
     use 'sainnhe/edge'
     use { 'rose-pine/neovim', as = 'rose-pine' } -- config = "vim.cmd('colorscheme rose-pine')"}
+    use 'mhinz/vim-startify'
 
 
     -- Helper tools for faster workflows
@@ -227,7 +228,6 @@ vim.cmd [[set termguicolors]]
 -- vim.g.edge_style = 'aura'
 -- vim.g.edge_better_performanc = 1
 vim.cmd [[colorscheme edge]]
--- vim.cmd [[hi NvimTreeNormal ctermfg="yellow" ctermbg="yellow" guifg="yellow" guibg="yellow" ]]
 
 -----------------------------------------------------------------------------
 -- Highlight on yank

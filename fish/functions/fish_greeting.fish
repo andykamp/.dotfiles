@@ -1,3 +1,3 @@
 function fish_greeting
-    fortune | cowsay
+    tput setaf 6 ; fortune | cowsay
 end
