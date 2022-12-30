@@ -25,7 +25,8 @@ vim.g.startify_lists = {
 vim.g.startify_bookmarks = {
     { d= '~/dotfiles' },
     { w= '~/documents/work' },
-    { s= '~/documents/side-projects' }
+    { s= '~/documents/side-projects' },
+    { r= '~/documents/random' }
 }
 
 -----------------------------------------------------------------------------

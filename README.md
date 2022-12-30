@@ -215,6 +215,8 @@ We also use `fisher` plugin manager. It is more barebone than `oh-my-fish` and i
 - nice way to show fuzzy search
 - used for control-r
 - and for displaying the tmux session and file explorer
+- instead of piping to ilc fzf we can pipe to `_fzf_wapper` e.g `ls | _fzf_wrapper`
+- OR just use the native popup in fzf that the `_fzf_wrapper` by just adding `fzf --border --height=90% --preview-window=wrap --layout=reverse` 
 
 # [Zoxide](https://github.com/ajeetdsouza/zoxide)
 - zoxide is a smarter cd comman
