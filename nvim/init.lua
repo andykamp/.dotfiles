@@ -60,6 +60,7 @@ require('packer').startup(function()
     use 'arcticicestudio/nord-vim'
     use 'sainnhe/edge'
     use { 'rose-pine/neovim', as = 'rose-pine' } -- config = "vim.cmd('colorscheme rose-pine')"}
+
     use 'mhinz/vim-startify'
 
 
@@ -149,6 +150,7 @@ require('packer').startup(function()
     })
     -- use 'honza/vim-snippets' -- set of pre-generated snippets for mulitple language
     -- use 'mlaursen/vim-react-snippets' -- spesific reat snippets
+    use 'github/copilot.vim'
 
     use {
         "folke/trouble.nvim",
