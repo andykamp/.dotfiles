@@ -58,12 +58,14 @@ bind -M insert \cf tmux-sessionizer
 alias nv='nvim .'
 
 alias tk='tmux kill-server'
-alias tn="tmux new -s (pwd | sed 's/.*\///g')" # creates new sessio with directory name
-alias tw="tmux-sessionizer ~/documents/WORK/"
-alias tp="tmux-sessionizer ~/documents/WORK/placepoint"
-alias ts="tmux-sessionizer ~/documents/side-projects/"
-alias td="tmux-sessionizer ~/dotfiles/"
-alias tt="tmux-sessionizer ~/documents/random/"
+alias tn="tmux new -s (pwd | sed 's/.*\///g')" # creates new session with directory name
+alias tt="tmux-sessionizer-known"
+
+#alias tw="tmux-sessionizer ~/documents/WORK/"
+#alias tp="tmux-sessionizer ~/documents/WORK/placepoint"
+#alias ts="tmux-sessionizer ~/documents/side-projects/"
+#alias td="tmux-sessionizer ~/dotfiles/"
+#alias tt="tmux-sessionizer ~/documents/random/"
 
 alias ls="ls -1"
 alias exa="exa --oneline --long"

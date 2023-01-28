@@ -5,8 +5,7 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    # selected=$(find ~/documents/work ~/documents/side-projects   -mindepth 1 -maxdepth 1 -type d | fzf --reverse --cycle --layout=reverse --border --height=90% --preview-window=wrap --marker="*" --prompt='Tmux sessionizer ' )
-    selected=$(zoxide query -l | fzf --reverse --cycle --layout=reverse --border --height=90% --preview-window=wrap --marker="*" --prompt='Tmux sessionizer ' )
+    selected=$(find ~/documents/work ~/documents/side-projects   -mindepth 1 -maxdepth 1 -type d | fzf --reverse --cycle --layout=reverse --border --height=90% --preview-window=wrap --marker="*" --prompt='Tmux sessionizer ' )
 fi
 
 # TODO some check  

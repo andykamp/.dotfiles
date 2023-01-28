@@ -1,4 +1,5 @@
 #!/bin/bash
+# This is not really used compared to the tmux -sessionizer
 
 if [ "$1" = "-h" ]; then
   echo ""
