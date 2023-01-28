@@ -18,19 +18,19 @@ vim.g.startify_custom_header = {
     '/_/|_/|___/_/_/_/_/ /_/  /_/\\_,_/\\__/_//_/ /____/ ',
 }
 vim.g.startify_lists = {
-    { type='files', header={'   Files'}},
+    { type = 'files', header = { '   Files' } },
     --{ type= 'dir',       header= {'   Current Directory '}},
-    { type= 'bookmarks', header= {'   Bookmarks'}      },
+    { type = 'bookmarks', header = { '   Bookmarks' } },
 }
 vim.g.startify_bookmarks = {
-    { d= '~/dotfiles' },
-    { w= '~/documents/work' },
-    { s= '~/documents/side-projects' },
-    { r= '~/documents/random' }
+    { d = '~/dotfiles' },
+    { w = '~/documents/work' },
+    { s = '~/documents/side-projects' },
+    { r = '~/documents/random' }
 }
 
 -----------------------------------------------------------------------------
--- copilot 
+-- copilot
 -----------------------------------------------------------------------------
 vim.g.copilot_no_tab_map = true
 vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
@@ -83,19 +83,19 @@ vim.fn.sign_define("DiagnosticSignHint",
 -- transparant
 -----------------------------------------------------------------------------
 require("transparent").setup({
-  enable = true, -- boolean: enable transparent
-  extra_groups = { -- table/string: additional groups that should be cleared
-    -- In particular, when you set it to 'all', that means all available groups
+    enable = true, -- boolean: enable transparent
+    extra_groups = { -- table/string: additional groups that should be cleared
+        -- In particular, when you set it to 'all', that means all available groups
 
-    -- example of akinsho/nvim-bufferline.lua
-    "BufferLineTabClose",
-    "BufferlineBufferSelected",
-    "BufferLineFill",
-    "BufferLineBackground",
-    "BufferLineSeparator",
-    "BufferLineIndicatorSelected",
-  },
-  exclude = {}, -- table: groups you don't want to clear
+        -- example of akinsho/nvim-bufferline.lua
+        "BufferLineTabClose",
+        "BufferlineBufferSelected",
+        "BufferLineFill",
+        "BufferLineBackground",
+        "BufferLineSeparator",
+        "BufferLineIndicatorSelected",
+    },
+    exclude = {}, -- table: groups you don't want to clear
 })
 -----------------------------------------------------------------------------
 -- lualine
@@ -362,13 +362,13 @@ map('n', '<leader>hg', ':Telescope git_files<CR>', options)
 --- neotree
 -----------------------------------------------------------------------------
 -- vim.api.nvim_set_hl(0, 'NeoTreeWinSeparator', { fg="#DE3163", bg="#DE3163" })
-vim.api.nvim_set_hl(0, 'NeoTreeNormal', { bg="NONE" })
-vim.api.nvim_set_hl(0, 'NeoTreeNormalNC', { bg="NONE" })
-vim.api.nvim_set_hl(0, 'NeoTreeEndOfBuffer', { bg="NONE" })
-vim.api.nvim_set_hl(0, 'NeoTreeFileIcon', { fg="#5DBBC1" })
-vim.api.nvim_set_hl(0, 'NeoTreeDirectoryIcon', { fg="#5DBBC1" })
-vim.api.nvim_set_hl(0, 'NeoTreeDirectoryName', { fg="#5DBBC1" })
-vim.api.nvim_set_hl(0, 'NeoTreeGitModified', { fg="#D38AEA" })
+vim.api.nvim_set_hl(0, 'NeoTreeNormal', { bg = "NONE" })
+vim.api.nvim_set_hl(0, 'NeoTreeNormalNC', { bg = "NONE" })
+vim.api.nvim_set_hl(0, 'NeoTreeEndOfBuffer', { bg = "NONE" })
+vim.api.nvim_set_hl(0, 'NeoTreeFileIcon', { fg = "#5DBBC1" })
+vim.api.nvim_set_hl(0, 'NeoTreeDirectoryIcon', { fg = "#5DBBC1" })
+vim.api.nvim_set_hl(0, 'NeoTreeDirectoryName', { fg = "#5DBBC1" })
+vim.api.nvim_set_hl(0, 'NeoTreeGitModified', { fg = "#D38AEA" })
 
 -- Unless you are still migrating, remove the deprecated commands from v1.x
 vim.g.neo_tree_remove_legacy_commands = 1

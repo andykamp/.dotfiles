@@ -55,6 +55,7 @@ require('packer').startup(function()
     -- end,
     -- })
     use 'xiyaowong/nvim-transparent'
+    use 'projekt0n/github-nvim-theme'
     use 'joshdick/onedark.vim'
     use 'sonph/onehalf'
     use 'arcticicestudio/nord-vim'
