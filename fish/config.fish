@@ -1,6 +1,8 @@
 # add greeting spesified in function/fish_greeting.fish
 set fish_greeting 
 
+envsource ~/dotfiles/.env
+
 # configure fzf if one want
 set fzf_fd_opts --hidden --exclude=.git
 fzf_configure_bindings --directory=\cs --variables=\e\cv
