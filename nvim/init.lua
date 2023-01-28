@@ -176,6 +176,17 @@ require('packer').startup(function()
         run = function() vim.fn["mkdp#util#install"]() end,
     })
     use 'vimwiki/vimwiki' -- used for markdown notes
+    
+    -- ai motherfucker :P 
+    use({
+        "jackMort/ChatGPT.nvim",
+        requires = {
+            "MunifTanjim/nui.nvim",
+            "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope.nvim"
+        }
+    })
+
 end)
 
 
