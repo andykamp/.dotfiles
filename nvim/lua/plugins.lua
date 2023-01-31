@@ -38,6 +38,7 @@ vim.api.nvim_set_keymap('i', '<C-K>', '<Plug>(copilot-next)', { noremap = false 
 vim.api.nvim_set_keymap('i', '<C-L>', '<Plug>(copilot-previous)', { noremap = false })
 vim.api.nvim_set_keymap('i', '<C-S>', '<Plug>(copilot-suggest)', { noremap = false })
 vim.cmd [[highlight CopilotSuggestion guifg=#555555 ctermfg=8]] -- default copilot highlighting
+-- can be used to disable copilot for certain filetypes
 -- vim.g.copilot_filetypes = {
 --     ["*"] = false,
 --     ["javascript"] = true,
@@ -52,7 +53,8 @@ vim.cmd [[highlight CopilotSuggestion guifg=#555555 ctermfg=8]] -- default copil
 --   }
 
 -----------------------------------------------------------------------------
--- folds TODO remove
+-- folds 
+-- @todo: not really used...
 -----------------------------------------------------------------------------
 vim.cmd [[set foldmethod=expr]]
 vim.cmd [[set foldexpr=nvim_treesitter#foldexpr()]]
@@ -80,7 +82,7 @@ vim.fn.sign_define("DiagnosticSignHint",
     { text = "", texthl = "DiagnosticSignHint" })
 
 -----------------------------------------------------------------------------
--- transparant
+-- transparant backgorund
 -----------------------------------------------------------------------------
 require("transparent").setup({
     enable = true, -- boolean: enable transparent
@@ -148,6 +150,7 @@ map('n', '<leader>tv', ':TestVisit<CR>', options)
 
 -----------------------------------------------------------------------------
 -- gutentags
+-- @todo: remove as it has never been used...
 -----------------------------------------------------------------------------
 -- vim.g.gutentags_ctags_auto_set_tags = 0
 -- vim.g.gutentags_file_list_command = "git ls-files"
@@ -202,7 +205,7 @@ map('n', '<leader>wc', ':CalendarVR<CR>', options)
 -----------------------------------------------------------------------------
 -- goyo
 -----------------------------------------------------------------------------
-vim.g.goyo_width = '50%'
+vim.g.goyo_width = '100%'
 vim.g.goyo_height = 100
 vim.g.goyo_linenr = 1
 map('n', '<leader>gy', ':Goyo <CR>', options)
@@ -210,7 +213,8 @@ map('n', '<leader>gy', ':Goyo <CR>', options)
 -----------------------------------------------------------------------------
 -- Ultisnips
 -----------------------------------------------------------------------------
--- TODO add shortcut to toggle
+-- @todo: add shortcut to toggle
+-- @todo: a little painful to use tab completion inside a snippet 
 vim.g.UltiSnipsSnippetDirectories = { '~/.config/nvim/UltiSnips' }
 vim.g.UltiSnipsExpandTrigger = "<Tab>"
 vim.g.UltiSnipsEditSplit = "vertical" -- If you want :UltiSnipsEdit to split your window.
@@ -343,7 +347,7 @@ map('n', '<leader>t4', ':lua require("harpoon.term").gotoTerminal(2)<CR>', optio
 map('n', '<leader>t5', ':lua require("harpoon.term").gotoTerminal(2)<CR>', options)
 map('n', '<leader>t6', ':lua require("harpoon.term").gotoTerminal(6)<CR>', options)
 
--- TODO can add global go-to-files here aswell
+-- @todo: can add global go-to-files here aswell
 map('n', '<leader>h1', ':lua require("harpoon.ui").nav_file(1)  <CR>', options)
 map('n', '<leader>h2', ':lua require("harpoon.ui").nav_file(2)  <CR>', options)
 map('n', '<leader>h3', ':lua require("harpoon.ui").nav_file(3)  <CR>', options)
@@ -629,6 +633,7 @@ map('n', 'mæ', ':delmarks!<cr>', options) -- delete all lowercase marks in buff
 
 -----------------------------------------------------------------------------
 --- aerial
+-- @todo: Remove this as i never use it
 -----------------------------------------------------------------------------
 require('aerial').setup({
     attach_mode = "global",
@@ -656,7 +661,6 @@ require('aerial').setup({
         -- vim.api.nvim_buf_set_keymap(bufnr, 'n', ']]', '<cmd>AerialNextUp<CR>', {})
     end
 })
-
 
 -----------------------------------------------------------------------------
 --- toggleterm
