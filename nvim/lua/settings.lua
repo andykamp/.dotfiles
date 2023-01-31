@@ -47,8 +47,8 @@ vim.cmd [[set clipboard=unnamed]]
 -- Set completeopt to have a better completion experience
 o.completeopt = 'menuone,noselect'
 
-
 -- Override tab spacing for javascript and typescript and html
+-- @todo: make sure we have correct tabs for e.g python also
  vim.api.nvim_command('autocmd FileType javascript setlocal shiftwidth=2 tabstop=2')
  vim.api.nvim_command('autocmd FileType javascriptreact setlocal shiftwidth=2 tabstop=2')
  vim.api.nvim_command('autocmd FileType typescript setlocal shiftwidth=2 tabstop=2')
