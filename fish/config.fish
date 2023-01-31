@@ -58,7 +58,7 @@ bind -M insert \cf tmux-sessionizer
 alias nv='nvim .'
 
 alias tk='tmux kill-server'
-alias tn="tmux new -s (pwd | sed 's/.*\///g')" # creates new session with directory name
+alias tn='tmux-sessionizer .'  #"tmux new -s (pwd | sed 's/.*\///g')" # creates new session with directory name
 alias tt="tmux-sessionizer-known"
 
 #alias tw="tmux-sessionizer ~/documents/WORK/"
@@ -78,6 +78,7 @@ alias python=python3
 alias img="qlmanage -p"
 
 alias fdot=findFilesDotfiles 
+alias fran="cd ~/documents/random" 
 alias fwork="cd ~/documents/work" 
 alias fside="cd ~/documents/side-projects" 
 alias f=findFiles
@@ -86,6 +87,9 @@ alias fw=findFilesWork
 alias fs=findFilesSideProjects
 
 alias ip=getIPPublic
+
+# superuserful for piping to clipboard
+alias c="pbcopy"
 
 # remap visualizing github tree for convinience
 alias glog1="sh ~/log-git-live.sh"
