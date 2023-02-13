@@ -59,6 +59,7 @@ alias nv='nvim .'
 
 alias tk='tmux kill-server'
 alias tn='tmux-sessionizer .'  #"tmux new -s (pwd | sed 's/.*\///g')" # creates new session with directory name
+alias ta='tmux attach' # attaches to last session if any is open
 alias tt="tmux-sessionizer-known"
 
 #alias tw="tmux-sessionizer ~/documents/WORK/"
@@ -70,13 +71,14 @@ alias tt="tmux-sessionizer-known"
 alias ls="ls -1"
 alias exa="exa --oneline --long"
 
-alias g=git
 
 alias pip=pip3
 alias python=python3
 
-alias img="qlmanage -p"
+alias img="qlmanage -p" # preview a image by img <image_path>
 
+# cd maps
+# NB! I also use zoxide as a smart cd
 alias fdot=findFilesDotfiles 
 alias fran="cd ~/documents/random" 
 alias fwork="cd ~/documents/work" 
@@ -86,12 +88,18 @@ alias fa=findFilesAny
 alias fw=findFilesWork
 alias fs=findFilesSideProjects
 
+# ip
 alias ip=getIPPublic
 
 # superuserful for piping to clipboard
 alias c="pbcopy"
 
-# remap visualizing github tree for convinience
-alias glog1="sh ~/log-git-live.sh"
-# remap taking backup of wimwiki
-alias backupvimwiki="cp -R ~/vimwiki ~/Documents/BACKUPS/vimwiki"
+alias g=git
+alias glog1="sh ~/log-git-live.sh" # remap visualizing github tree for convinience
+
+#vimwiki
+alias vimwiki="nvim -c VimwikiIndex"
+alias backupvimwiki="cp -R ~/vimwiki ~/Documents/BACKUPS/vimwiki" # takes backup of wimwiki
+
+# processes
+alias k="kill -9(lsof -i tcp | fzf --reverse --layout=reverse --border --height=50% --preview-window=wrap --marker='*' --prompt='Kill ports ')"
