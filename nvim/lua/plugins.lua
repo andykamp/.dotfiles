@@ -63,8 +63,8 @@ vim.cmd [[set foldlevelstart=99]] --start file with all folds opened
 -----------------------------------------------------------------------------
 -- virtual-colors aka hovered diagnostics
 -----------------------------------------------------------------------------
-vim.cmd [[highlight VirtualTextError guifg=#db4b4b]]
-vim.cmd [[highlight VirtualTextWarning guifg=#e0af68]]
+vim.cmd [[highlight VirtualTextError guifg=#f97583]]
+vim.cmd [[highlight VirtualTextWarning guifg=#ffea7f]]
 -- vim.cmd [[highlight VirtualTextInfo guifg=#10B981]]
 -- vim.cmd [[highlight VirtualTextHint guifg=#0db9d7]]
 
