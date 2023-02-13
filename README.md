@@ -121,6 +121,26 @@ Also for ll scrips/executable u need to make it executble and giev u access
 
 
 
+## Shell
+- use fish
+- use starship for a nice and easy prompt
+    - @todo: add a nice battery prompt (?)
+
+## Pomodoro timer
+- used for maximum focus in short bursts
+- also benifitial for taking breaks to keep the efficiency up
+- hypototy:
+    - time used is proportional to the time one has  
+    - reduce time and remain as efficient
+    - net win on time/work ratio
+- https://github.com/olimorris/tmux-pomodoro-plus
+- @todo: add a popup for showing the timer in big-view [see implementation here](https://github.com/thegoldgoat/pomodoro-countdown)
+
+## Tmux
+- use `tmp` as tmux plugin manager
+- located in `~/.tmux/plugins/tpm` 
+- install via `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
+- copy plugins and install via `prefix-I`
 
 ## Treeesitter and heighlighting
 - lsp is for smart language stuff. use :Lsp... in vim to get options
@@ -270,3 +290,28 @@ nextd moves forward through the history. It is bound to Alt+→
 
 ## keyboard speed
 - go to `system settings` and make sure the keyboard delays are as fast as possible
+
+
+## change colorscheme colors
+- go to .local/share/nvim/site/packer/packer/start
+
+### new todos
+- make u and d always center the screen (zz in vim)
+- shorcut to replace all higlighted texts in file with whatever i type in!!
+- shortcut to autoimport (does not always happen on copy-paste!!!)
+- shortcut for openging gd in a selected pane. use the neotree functionality??
+- use info/typscript-info to get info about the current file like THOMAS
+- use code action `leader+c` more often
+- fix jabai resize in both directions
+- github in tmux
+- change tmux status background ??
+- fish history fuzzy search
+- use vim shortcuts in fzf ???
+- clean up ultisnips
+- add treeview https://pragmaticpineapple.com/four-useful-fzf-tricks-for-your-terminal/
+- multicursor in vim (like thomas)
+    - multicursor on all occurences of word under cursor for example
+- highlighting in tsx is fully broken!!!
+- vim test
+- clean up ultisnips
+- other tmux shortcut for copy [mode](mode)
