@@ -356,6 +356,7 @@ local on_attach = function(_, bufnr)
     vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]] -- TODO do i need ?
 end
 
+-- @todo does not work...
 -- make sure refertences do not open quicjlist
 vim.lsp.handlers['textdocument/references'] = function(_, result)
     vim.g.lsp_last_word = vim.fn.expand('<cword>')
@@ -402,42 +403,43 @@ lspconfig.tailwindcss.setup {
         "/.local/share/nvim/lsp_servers/tailwindcss_npm/node_modules/.bin/tailwindcss-language-server", "--stdio" },
 }
 
+-- @todo: remove no longer used
 -- lua spesific setyp
 -- Make runtime files discoverable to the server
-local runtime_path = vim.split(package.path, ';')
-table.insert(runtime_path, 'lua/?.lua')
-table.insert(runtime_path, 'lua/?/init.lua')
-table.insert(runtime_path, '/tmp/nvim/?.lua')
-table.insert(runtime_path, '/tmp/nvim/lua/?.lua')
+-- local runtime_path = vim.split(package.path, ';')
+-- table.insert(runtime_path, 'lua/?.lua')
+-- table.insert(runtime_path, 'lua/?/init.lua')
+-- table.insert(runtime_path, '/tmp/nvim/?.lua')
+-- table.insert(runtime_path, '/tmp/nvim/lua/?.lua')
 
-lspconfig.sumneko_lua.setup {
-    cmd = { vim.env.HOME .. "/.local/share/nvim/lsp_servers/sumneko_lua/extension/server/bin/lua-language-server" },
-    on_attach = on_attach,
-    capabilities = capabilities,
-    settings = {
-        Lua = {
-            runtime = {
-                -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-                version = 'LuaJIT',
-                -- Setup your lua path
-                path = runtime_path,
-            },
-            diagnostics = {
-                -- Get the language server to recognize the `vim` global
-                globals = { 'vim' },
-            },
-            workspace = {
-                -- Make the server aware of Neovim runtime files
-                library = vim.api.nvim_get_runtime_file('', true),
-                checkThirdParty = false,
-            },
-            -- Do not send telemetry data containing a randomized but unique identifier
-            telemetry = {
-                enable = false,
-            },
-        },
-    },
-}
+-- lspconfig.sumneko_lua.setup {
+--     cmd = { vim.env.HOME .. "/.local/share/nvim/lsp_servers/sumneko_lua/extension/server/bin/lua-language-server" },
+--     on_attach = on_attach,
+--     capabilities = capabilities,
+--     settings = {
+--         Lua = {
+--             runtime = {
+--                 -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+--                 version = 'LuaJIT',
+--                 -- Setup your lua path
+--                 path = runtime_path,
+--             },
+--             diagnostics = {
+--                 -- Get the language server to recognize the `vim` global
+--                 globals = { 'vim' },
+--             },
+--             workspace = {
+--                 -- Make the server aware of Neovim runtime files
+--                 library = vim.api.nvim_get_runtime_file('', true),
+--                 checkThirdParty = false,
+--             },
+--             -- Do not send telemetry data containing a randomized but unique identifier
+--             telemetry = {
+--                 enable = false,
+--             },
+--         },
+--     },
+-- }
 
 -- svelte spesific setup
 lspconfig.svelte.setup({
@@ -458,48 +460,6 @@ lspconfig.graphql.setup {}
 
 
 -- TODO move to plugins
--------------------------------------------------------------------------------
----- ultisnip setup
--------------------------------------------------------------------------------
-local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
-local cmp = require 'cmp'
-cmp.setup {
-    snippet = {
-        expand = function(args)
-            vim.fn["UltiSnips#Anon"](args.body)
-        end,
-    },
-    sources = {
-        { name = 'nvim_lsp' },
-        { name = "ultisnips" },
-        -- more sources
-    },
-    -- recommended configuration for <Tab> people:
-    mapping = {
-        ['<C-p>'] = cmp.mapping.select_prev_item(),
-        ['<C-n>'] = cmp.mapping.select_next_item(),
-        ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping.complete(),
-        ['<C-e>'] = cmp.mapping.close(),
-        ['<CR>'] = cmp.mapping.confirm {
-            behavior = cmp.ConfirmBehavior.Insert,
-            select = true,
-        },
-        ["<Tab>"] = cmp.mapping(
-            function(fallback)
-                cmp_ultisnips_mappings.expand_or_jump_forwards(fallback)
-            end,
-            { "i", "s", --[[ "c" (to enable the mapping in command mode) ]] }
-        ),
-        ["<S-Tab>"] = cmp.mapping(
-            function(fallback)
-                cmp_ultisnips_mappings.jump_backwards(fallback)
-            end,
-            { "i", "s", --[[ "c" (to enable the mapping in command mode) ]] }
-        ),
-    },
-}
 
 -----------------------------------------------------------------------------
 -- import other vim files
