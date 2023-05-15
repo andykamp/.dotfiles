@@ -27,7 +27,7 @@ Yabai:
     - ln -s ~/dotfiles/.yabairc ~/.yabairc
     - ln -s ~/dotfiles/.skhdrc ~/.skhdrc
 
-**Note**: Remember that most dotfiles har a place somewhere. Make sure they point/symlink to the links inside this dotfile repo. 
+**Note**: Remember that most dotfiles has a place somewhere. Make sure they point/symlink to the links inside this dotfile repo. 
 Use the `ln -s <actual existing filepath> <this will point to existing file filepath>` to create a symlink
 This must be done for (might be missing some):
 - nvim (located in ~/.config/nvim)
@@ -66,17 +66,10 @@ Also for ll scrips/executable u need to make it executble and giev u access
 - hold w, b, e, or j/k to go superfast. Could consider it if I speeeeeeeed up the button delay. 
 - lazygit https://github.com/jesseduffield/lazygit
 - use this fzf for completion?? https://github.com/Aloxaf/fzf-tab
-- always open tmux when using ff (see https://www.youtube.com/watch?v=bdumjiHabhQ&t=5s)
+- tmux sessionizer https://www.youtube.com/watch?v=bdumjiHabhQ&t=5s)
 - use fzf for more usecasess https://www.youtube.com/watch?v=qgG5Jhi_Els
 - mimic this worfkflow? https://elijahmanor.com/blog/neovim-tmux
 - cool setup https://github.com/AstroNvim/AstroNvim/tree/main/lua/configs or https://elijahmanor.com/blog/neovim-tmux or https://github.com/LunarVim/LunarVim
-- tag manaement. does gutentags ds
-- terminal alias/worklows
-    - utilize htop better to identify 
-    - alias for lsof -i tcp:3000 etc. maybe use fzf completion to find open ports? 
-    - alias for kill -9 
-    - alias for getting own ip adress
-- Remove bashrc and bash_profile when i use zsh
 - Remove vimrc? or maybe make it super up-to-date without plugins to utilize it on remote servers etc?
 - Add script to dynamically create all files and symlinksand settings chmod premissions 
 - better at identifying performance by using htop or tiptop 
@@ -135,6 +128,7 @@ Also for ll scrips/executable u need to make it executble and giev u access
     - net win on time/work ratio
 - https://github.com/olimorris/tmux-pomodoro-plus
 - @todo: add a popup for showing the timer in big-view [see implementation here](https://github.com/thegoldgoat/pomodoro-countdown)
+- @todo: add notifications
 
 ## Tmux
 - use `tmp` as tmux plugin manager
@@ -142,9 +136,20 @@ Also for ll scrips/executable u need to make it executble and giev u access
 - install via `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
 - copy plugins and install via `prefix-I`
 
-## Treeesitter and heighlighting
+
+## LSP 
 - lsp is for smart language stuff. use :Lsp... in vim to get options
+- `nvim-lsp-installer` installs and manages lsp servers
+    - also provides a graphic interface. use `:LspInstallInfo` to see it
+- `lsp_config` has some sane efalt configs for us
+    - users that to setup a variaty of servers
+
+## Treeesitter and heighlighting
+- we use  nvim-lsp-installer  to install language servers
+    - do :LSPInstall <some_laguage> to install get a popup about a relevant language server
 - Treesitter is used fro syntax higlghtihng etc. use :TsInstall typescript5 etc to make sure higlighting is installes
+    -   nvim-treesitter gives Neovim better language parsing capabilities. The most noticeable improvement is a better and more precise syntax highlighting, but it also brings other improvements to folding and indentation. It does that by building a syntax tree of our code rather than relying on regexps and patterns
+- IMPORTANT: tsserver will not work unless we run `:TSInstall tsx` and `:TSInstall typescript` and `:TSInstall typesscripInstall typesscript` (`jsx` does not xist)
 
 ## Ideas
 - mikael div higlighting
@@ -295,23 +300,87 @@ nextd moves forward through the history. It is bound to Alt+→
 ## change colorscheme colors
 - go to .local/share/nvim/site/packer/packer/start
 
+## fold
+- small letter --> non-recursice folding
+- big letter --> recursive folding 
+- za/zA to toggle folds
+- zm/zM to fold all functions
+- zr/zR to unfold all functions
+- @todo: 
+
 ### new todos
-- make u and d always center the screen (zz in vim)
-- shorcut to replace all higlighted texts in file with whatever i type in!!
-- shortcut to autoimport (does not always happen on copy-paste!!!)
-- shortcut for openging gd in a selected pane. use the neotree functionality??
-- use info/typscript-info to get info about the current file like THOMAS
-- use code action `leader+c` more often
-- fix jabai resize in both directions
-- github in tmux
-- change tmux status background ??
-- fish history fuzzy search
-- use vim shortcuts in fzf ???
-- clean up ultisnips
-- add treeview https://pragmaticpineapple.com/four-useful-fzf-tricks-for-your-terminal/
+- chrome
+    - learn chrome pinned tabs etc
+    - @testing: https://chrome.google.com/webstore/detail/workspaces/hpljjefgmnkloakbfckghmlapghabgfa
+- yabai
+    - fix jabai resize in both directions
+- fzf
+    - use vim shortcuts in fzf ???
+    - add treeview to fuzzysearch https://pragmaticpineapple.com/four-useful-fzf-tricks-for-your-terminal/
+- snippets 
+    - clean up ultisnips
+    - create ultinip templates for vimwiki
+        - diary
+        - scrum review/retrospective/etc
 - multicursor in vim (like thomas)
     - multicursor on all occurences of word under cursor for example
-- highlighting in tsx is fully broken!!!
-- vim test
-- clean up ultisnips
-- other tmux shortcut for copy [mode](mode)
+- tests
+    - vim test
+    - nx tests
+- lsp and treesitter
+    - [✓] shortcut to autoimport (does not always happen on copy-paste!!!)
+        - use code action on word!!!
+    - switch sumeleku to lua_ls?
+    - use info/typscript-info to get info about the current file like THOMAS
+    - use the treesitter function functionality more
+    - inspect more lsp options and code actions etc
+    - check for jsdoc options
+    - check for anchors (se lua_ls)
+- vim movements
+    - move faster with arrow keys see https://www.reddit.com/r/vim/comments/o26h8/ask_rvim_can_you_change_the_speed_of_cursor/
+    - [✓] manouver between splits much faster
+        -  use 4 c-h/l to jump between splits the same way as with vertical movementes
+    - Disable j and K to test only using relative numbers + f/t !!!!!
+    - setup aerial to work with depth to manouver from function to function to variable 
+        - then inside a func/variable  use relative_line_number +  f/t
+    - use paragraph jumping more
+    - look into useage of https://github.com/easymotion/vim-easymotion. have some cool ones
+    - make u and d always center the screen (zz in vim)
+        - is this not the case already?
+    - shortcut for openging gd in a selected pane. use the neotree functionality??
+    - neotree
+        - - neotree open buffer https://www.reddit.com/r/neovim/comments/rx67tf/new_features_in_neotree_open_buffers_source_added/
+    - use macros more
+
+- folds
+    - fold shortcuts
+    - aerial fix with depth for fast overview 
+- fish
+    - use fish history fuzzy search more often (ctrl+r))
+    - better tab completion
+    - ps fuzzy search
+    - variable search
+    - remove fish terminal github branch icons. never use them and dont know what they mean
+- lsp
+    - use code action `leader+c` more often
+    - renamin using https://github.com/smjonas/inc-rename.nvim 
+    - consider lspsaga
+    - improved code-action UI (https://elijahmanor.com/blog/neovim-tmux )
+    - learn to use the cdo command
+    - [✓] shorcut to replace all higlighted texts in file with whatever i type in!!
+        - leader-rn will do this now
+- [quicklist](quicklist) using :cdo
+    - https://github.com/gabrielpoca/replacer.nvim
+- tmux
+    - use <prefix>+  z to toggletmux zoom . Can be used to show termnial on left side!!! (see https://elijahmanor.com/blog/neovim-tmux)
+    - change tmux status background ??
+    - other tmux shortcut for copy [mode](mode)
+- marks
+    - start using them more
+    - use harpoon more
+    - make harpoonn and marks more similar in mapping
+    - make mark/harpoon stick to line number in the opened file also
+    - use some anchor plugin for @todo @note etc?
+
+## TODAY
+- learn to use the cdo command

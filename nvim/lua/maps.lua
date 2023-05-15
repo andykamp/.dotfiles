@@ -27,6 +27,9 @@ map('v', 'K', '5k', options)
 -- stop higlighting searches
 map('n',  '<leader>,',  ':nohlsearch<CR>', options)
 
+-- close loclist/quiclist
+map('n', '<leader>.', ':cclose<CR>', options)
+
 -- keep cursor on bottom when yanking
 map('v', 'y', 'ygv<esc>', options)
 
@@ -50,13 +53,15 @@ map('t', '<C-o>', '<C-\\><C-n><C-o>', options)
 -- marks
 map('n', "æ", "'", options)
 
--- Set timestampp
-map('n', '<leader>wt', ":put =strftime('%c')<CR>", options)
-
 -- get relative path
 map('n', '<leader>br', ':let @+ = expand("%") <CR>', options)
 -- get full path
 map('n', '<leader>ba', ':let @+ = expand("%:p") <CR>', options)
 -- get just filename
 map('n', '<leader>bn', ':let @+ = expand("%:t") <CR>', options)
+
+
+-- renmaing file 
+map('n', '<leader>rn', ':IncRename ', options)
+
 

@@ -55,3 +55,23 @@ o.completeopt = 'menuone,noselect'
  vim.api.nvim_command('autocmd FileType typescriptreact setlocal shiftwidth=2 tabstop=2')
  vim.api.nvim_command('autocmd FileType html setlocal shiftwidth=2 tabstop=2')
  vim.api.nvim_command('autocmd FileType graphql setlocal shiftwidth=2 tabstop=2')
+
+
+-----------------------------------------------------------------------------
+-- Highlight on yank
+-----------------------------------------------------------------------------
+vim.cmd [[
+  augroup YankHighlight
+    autocmd!
+    autocmd TextYankPost * silent! lua vim.highlight.on_yank()
+  augroup end
+]]
+    
+-----------------------------------------------------------------------------
+-- autocammand setting .mdx to markdown
+-----------------------------------------------------------------------------
+vim.cmd [[
+    autocmd BufNewFile,BufRead *.mdx :set filetype=vimwiki
+]]
+
+

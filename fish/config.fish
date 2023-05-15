@@ -41,8 +41,11 @@ function findFilesDotfiles
     cd  ~/dotfiles 
 end
 
-function getIPPublic
+function getIPPublic4
     dig -4 TXT +short o-o.myaddr.l.google.com @ns1.google.com
+end
+function getIPPublic6
+    dig TXT +short o-o.myaddr.l.google.com @ns1.google.com
 end
 
 # bindings
@@ -89,17 +92,31 @@ alias fw=findFilesWork
 alias fs=findFilesSideProjects
 
 # ip
-alias ip=getIPPublic
+alias ip4=getIPPublic4
+alias ip6=getIPPublic6
 
 # superuserful for piping to clipboard
 alias c="pbcopy"
 
+# git related stuff
 alias g=git
 alias glog1="sh ~/log-git-live.sh" # remap visualizing github tree for convinience
 
+function stashSearch
+    git stash list -S "{$1}"
+end
+
+alias gss=stashSearch
+
 #vimwiki
-alias vimwiki="nvim -c VimwikiIndex"
+alias wiki="nvim -c VimwikiIndex"
+alias daily="nvim -c VimwikiMakeDiaryNote"
 alias backupvimwiki="cp -R ~/vimwiki ~/Documents/BACKUPS/vimwiki" # takes backup of wimwiki
 
-# processes
-alias k="kill -9(lsof -i tcp | fzf --reverse --layout=reverse --border --height=50% --preview-window=wrap --marker='*' --prompt='Kill ports ')"
+# kill processes
+alias killps="kill -9(ps | fzf --reverse --layout=reverse --border --height=50% --preview-window=wrap --marker='*' --prompt='Kill ports ')"
+alias killtcp="kill -9(lsof -i tcp | fzf --reverse --layout=reverse --border --height=50% --preview-window=wrap --marker='*' --prompt='Kill ports ')"
+
+# edit host file
+alias nvhost="sudo nvim /private/etc/hosts"
+

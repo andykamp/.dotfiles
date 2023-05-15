@@ -188,19 +188,6 @@ require("indent_blankline").setup {
     show_current_context_start = true,
 }
 
------------------------------------------------------------------------------
--- vimwiki
------------------------------------------------------------------------------
-vim.g.wiki_global_ext = 0
-local l = {}
-l.path = '~/vimwiki/'
-l.syntax = 'markdown'
-l.ext = '.md'
-l.auto_diary_index = 1 -- autogenerate vimwiki diary
-vim.g.vimwiki_list = { l }
-vim.g.vimwiki_listsyms = '✗○◐●✓'
-map('n', '<leader>wq', ':VimwikiToggleListItem<CR>', options)
-map('n', '<leader>wc', ':CalendarVR<CR>', options)
 
 -----------------------------------------------------------------------------
 -- goyo
@@ -637,7 +624,7 @@ map('n', 'mæ', ':delmarks!<cr>', options) -- delete all lowercase marks in buff
 -----------------------------------------------------------------------------
 require('aerial').setup({
     attach_mode = "global",
-    -- backends = { "lsp", "treesitter", "markdown" },
+    backends = {"treesitter", "lsp", "markdown" },
     layout = {
         min_width = 28,
     }
@@ -650,6 +637,10 @@ require('aerial').setup({
         nested_top = "│ ",
         whitespace = "  ",
     },
+    nerd_font = "auto",
+    manage_folds = true,
+    link_folds_to_tree = true,
+    link_tree_to_folds = true,
     on_attach = function(bufnr)
         -- Toggle the aerial window with <leader>a
         vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>a', '<cmd>AerialToggle!<CR>', {})
