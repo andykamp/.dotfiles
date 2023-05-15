@@ -62,6 +62,7 @@ map('n', '<leader>bn', ':let @+ = expand("%:t") <CR>', options)
 
 
 -- renmaing file 
-map('n', '<leader>rn', ':IncRename ', options)
+-- map('n', '<leader>rn', ':IncRename ', options) -- did not work properly
+map('n', '<leader>rn', ':%s/<C-r><C-w>//g<Left><Left>', options)
 
 

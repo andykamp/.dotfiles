@@ -47,6 +47,23 @@ Also for ll scrips/executable u need to make it executble and giev u access
 - make sure to remap capslock to control 
 
 
+## Git workree > stash and checkout 
+- use [git-worktrees](https://www.gitkraken.com/learn/git/git-worktree) to have multiple workspaces open at all times
+    - good explanation [here](https://www.gitkraken.com/learn/git/git-worktree)
+- all workspaces are added to `./worktrees` folder for convinience (so they dont float around)
+    - simply `cd` into one of the workspaces to work on it and the active branch inside it
+    - NB! Remember to add ./worktrees to .gitignore
+- use 2 workspaces per repo
+    - m (main/master)
+    - wb (working-branc)
+    - hotfix
+- consider using the [git-worktree.nvim](https://github.com/ThePrimeagen/git-worktree.nvim)
+- commands
+    - git worktree list 
+    - git worktree add
+    - git worktree remove
+      
+
 
 ## 🙇 Worth remembering
 - terminal commands and replacements descibed [here](https://andrew.cloud/blog/dev-setup/)
@@ -113,6 +130,10 @@ Also for ll scrips/executable u need to make it executble and giev u access
     - have a shitton of tabs etc open
 
 
+## Alfred
+- move to applications quickly
+- search folders in finder (cmd+space -->cmd+space -->  alfre preferences preferences--> features --> default results)
+- search a file (not folder) by prefixing space
 
 ## Shell
 - use fish
@@ -153,13 +174,18 @@ Also for ll scrips/executable u need to make it executble and giev u access
 
 ## Ideas
 - mikael div higlighting
--create own colorschema create own colorschema [ondark exaple](https://github.com/lukas-reineke/onedark.nvim) 
+- create own colorschema create own colorschema [ondark exaple](https://github.com/lukas-reineke/onedark.nvim) 
+- use less color on if statements etc and make variables and functions POP. more black background
+
 
 ## get path  (pwd like stuff)
 - DONE see the the maps section  
 
 ## neotree
 - resize shortcut
+- use < to toggle fulltree-gittree-buffertree
+- use :setlocal relativenumber (see https://github.com/nvim-tree/nvim-tree.lua/issues/422)
+- 
 
 ## orgmode???
 - pretty cool stuff right here https://github.com/nvim-orgmode/orgmode
@@ -351,7 +377,8 @@ nextd moves forward through the history. It is bound to Alt+→
     - neotree
         - - neotree open buffer https://www.reddit.com/r/neovim/comments/rx67tf/new_features_in_neotree_open_buffers_source_added/
     - use macros more
-
+- aerial
+    - add nested stuff so that react tsx files work. currently there is only on level
 - folds
     - fold shortcuts
     - aerial fix with depth for fast overview 
@@ -367,6 +394,7 @@ nextd moves forward through the history. It is bound to Alt+→
     - consider lspsaga
     - improved code-action UI (https://elijahmanor.com/blog/neovim-tmux )
     - learn to use the cdo command
+        - use `:cdo s/old_name/new_name` to replace across buffers do `:cdo s/old_name/new_name | update`. i this we dont need the `$ and the /g` because we already have the spesific loaation in the quicklist
     - [✓] shorcut to replace all higlighted texts in file with whatever i type in!!
         - leader-rn will do this now
 - [quicklist](quicklist) using :cdo
@@ -381,6 +409,79 @@ nextd moves forward through the history. It is bound to Alt+→
     - make harpoonn and marks more similar in mapping
     - make mark/harpoon stick to line number in the opened file also
     - use some anchor plugin for @todo @note etc?
+- misc
+    - setup environment for quick tests
+    - use codepen etc to test out stuff quickly(but need to be wim)
+- github tree
+- COLORSCHEME 
+    - more black/gray/white
+    - diffuse the non-important code stuff. want the important stuff to POP while the rest is in the background
+    - fix colorscheme for pomordory timer aswell
+    - use mikaels div setup
 
-## TODAY
-- learn to use the cdo command
+
+- tiptop alternative thatt does not hog memory/cpu
+- better tmux bar?
+- shortcut for control+a (choose everything) 
+- alfred settings: make slack come up on s
+- clean mail (gmail and outlook)
+pomodoro
+- remove github options in startupship
+- check out chrome "fest fane" vs the tab manager
+desk
+- checkout opitions for ergodox stand where curretn headphones are
+- remarkable stand
+- laptop stand for home
+yabai fixes:
+- fix focus etc like here? https://github.com/koekeishiya/yabai/issues/475
+- fixed workspace tabs? nice because i cannot go to 89
+- higlight what is the active tab? https://github.com/koekeishiya/yabai/issues/565
+- fix multi monitor yabai workspace 
+lsp
+- remove unused lsp
+- look at pategoen lsp
+
+- set tmux statusbar to update less (smaller interval)
+- 
+- undotree
+- make the pomodoro visible for single-monitor also!! make the popup sound/bigger etc
+
+
+- [X] clean disk space 
+    - [X] clean my mac 
+    - create script to detect and/or remove all node-modules in a folder
+    - remove old placepoint repos
+    - move all old ragnarock stuff over to a minnepinne
+    - move stuff to icloud??
+    - create a polycy for desctop storage... always delete? or never put stuff there. with cleanshot i can maybe create a "proof" folder to put it in?
+    - create shortcut to remove hj 
+    - update to new mac (check if yabai needs to be updated aswell? :0)
+    - rename all path
+    - remove/disable icloud bilder
+    - go trough side project
+        - delete unused repos
+        - make sure they have a github account
+            - make sure i have a naming standard for done/experimental/done projects
+            - or maybe prefix [side]
+            - or just have a banner in the readme!
+            - find some cool open source ways to write the readmes like [this](https://stackoverflow.com/questions/58737436/how-to-create-a-good-looking-notification-or-warning-box-in-github-flavoured-mar)
+            - 
+        - add private repos for rvs, ragnario and ragnaock account
+        - 
+- write the essential apps down
+    - postman and hoppscotch.io
+    - ....
+- delete unused stashes and branches (locally and remotely)
+- use tags for how completed a repo is like this https://github.com/dense-analysis/neural
+- make markdown files dropdowns  like below 
+
+<details>
+<summary>How do I dropdown?</summary>
+This is how you dropdown.
+</details>
+
+<details><summary><a href="https://hello.ca">link text</a></summary>
+
+Works!
+
+</details>

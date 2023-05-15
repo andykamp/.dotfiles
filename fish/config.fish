@@ -7,11 +7,15 @@ envsource ~/dotfiles/.env
 set fzf_fd_opts --hidden --exclude=.git
 fzf_configure_bindings --directory=\cs --variables=\e\cv
 
+
 # command promp
 starship init fish | source
 
 # use z as a smart cd
 zoxide init fish | source
+
+# increaser max space node can use on this machine
+set -gx NODE_OPTIONS --max_old_space_size=16384
 
 
 # helper functions TODO move to functions ?
@@ -25,16 +29,16 @@ function findFilesAny
 end
 
 function findFilesCoding
-    cd  ~/Documents && cd $(find  ./WORK ./side-projects  -mindepth 1 -maxdepth 1 -type d | fzf)
+    cd && cd $(find  ./work ./side-projects  -mindepth 1 -maxdepth 1 -type d | fzf)
 end
 
 function findFilesWork
-    cd  ~/Documents && cd $(find  ./WORK -mindepth 1 -maxdepth 1 -type d | fzf)
+    cd && cd $(find  ./work -mindepth 1 -maxdepth 1 -type d | fzf)
 end
 
 
 function findFilesSideProjects
-    cd  ~/Documents && cd $(find  ./side-projects -mindepth 1 -maxdepth 1 -type d | fzf)
+    cd && cd $(find  ./side-projects -mindepth 1 -maxdepth 1 -type d | fzf)
 end
 
 function findFilesDotfiles
@@ -65,11 +69,11 @@ alias tn='tmux-sessionizer .'  #"tmux new -s (pwd | sed 's/.*\///g')" # creates 
 alias ta='tmux attach' # attaches to last session if any is open
 alias tt="tmux-sessionizer-known"
 
-#alias tw="tmux-sessionizer ~/documents/WORK/"
-#alias tp="tmux-sessionizer ~/documents/WORK/placepoint"
-#alias ts="tmux-sessionizer ~/documents/side-projects/"
+#alias tw="tmux-sessionizer ~/work/"
+#alias tp="tmux-sessionizer ~/work/placepoint"
+#alias ts="tmux-sessionizer ~/side-projects/"
 #alias td="tmux-sessionizer ~/dotfiles/"
-#alias tt="tmux-sessionizer ~/documents/random/"
+#alias tt="tmux-sessionizer ~/random/"
 
 alias ls="ls -1"
 alias exa="exa --oneline --long"
@@ -83,9 +87,9 @@ alias img="qlmanage -p" # preview a image by img <image_path>
 # cd maps
 # NB! I also use zoxide as a smart cd
 alias fdot=findFilesDotfiles 
-alias fran="cd ~/documents/random" 
-alias fwork="cd ~/documents/work" 
-alias fside="cd ~/documents/side-projects" 
+alias fran="cd ~/random" 
+alias fwork="cd ~/work" 
+alias fside="cd ~/side-projects" 
 alias f=findFiles
 alias fa=findFilesAny
 alias fw=findFilesWork
@@ -111,7 +115,7 @@ alias gss=stashSearch
 #vimwiki
 alias wiki="nvim -c VimwikiIndex"
 alias daily="nvim -c VimwikiMakeDiaryNote"
-alias backupvimwiki="cp -R ~/vimwiki ~/Documents/BACKUPS/vimwiki" # takes backup of wimwiki
+alias backupvimwiki="cp -R ~/vimwiki ~/Documents/_backup/vimwiki" # takes backup of wimwiki
 
 # kill processes
 alias killps="kill -9(ps | fzf --reverse --layout=reverse --border --height=50% --preview-window=wrap --marker='*' --prompt='Kill ports ')"

@@ -35,7 +35,7 @@ vim.g.vimwiki_list = { l }
 -- vim.g.vimwiki_listsyms = '✗○◐●✓'
 -- toggle list time to done/not done
 -- not needed as cntr+space does the same
--- map('n', '<leader>wq', ':VimwikiToggleListItem<CR>', options)
+map('n', '<leader>wq', ':VimwikiToggleListItem<CR>', options)
 -- open calendar view
 map('n', '<leader>wc', ':CalendarVR<CR>', options)
 -- map('n', '<leader>wr', ':VimwikiDiaryGenerateLinks<CR>', options)
