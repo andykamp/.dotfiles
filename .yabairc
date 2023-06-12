@@ -44,6 +44,9 @@ yabai -m config right_padding                15
 yabai -m config window_gap                   15
 
 # apps to not manage (ignore)
+yabai -m rule --add app="^CleanShot" manage=off
+yabai -m rule --add app="^Freeform" manage=off
+yabai -m rule --add app="^Systeminstillinger" manage=off
 yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^Systemvalg$" manage=off
 yabai -m rule --add app="^Finder$" manage=off
