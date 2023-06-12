@@ -377,6 +377,9 @@ nextd moves forward through the history. It is bound to Alt+→
     - neotree
         - - neotree open buffer https://www.reddit.com/r/neovim/comments/rx67tf/new_features_in_neotree_open_buffers_source_added/
     - use macros more
+    - use 0 and $ more instad of i and a 
+    - use global rename  (quicklist and :cdo)
+    - set relative numbers on neotree
 - aerial
     - add nested stuff so that react tsx files work. currently there is only on level
 - folds
@@ -418,7 +421,8 @@ nextd moves forward through the history. It is bound to Alt+→
     - diffuse the non-important code stuff. want the important stuff to POP while the rest is in the background
     - fix colorscheme for pomordory timer aswell
     - use mikaels div setup
-
+    - use pywal to generate colorscheme???
+- look at https://github.com/atidyshirt/MacOS-Dotfiles for inspiration
 
 - tiptop alternative thatt does not hog memory/cpu
 - better tmux bar?
