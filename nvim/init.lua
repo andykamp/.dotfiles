@@ -109,6 +109,7 @@ require('packer').startup(function()
     use 'junegunn/goyo.vim'
     use 'akinsho/toggleterm.nvim'
     use 'chentoast/marks.nvim'
+    use 'mbbill/undotree'
     -- use { 'preservim/tagbar' }
 
     -- visual helpers

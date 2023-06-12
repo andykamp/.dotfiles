@@ -85,7 +85,6 @@ vim.fn.sign_define("DiagnosticSignHint",
 -- transparant backgorund
 -----------------------------------------------------------------------------
 require("transparent").setup({
-    enable = true, -- boolean: enable transparent
     extra_groups = { -- table/string: additional groups that should be cleared
         -- In particular, when you set it to 'all', that means all available groups
 
@@ -97,7 +96,7 @@ require("transparent").setup({
         "BufferLineSeparator",
         "BufferLineIndicatorSelected",
     },
-    exclude = {}, -- table: groups you don't want to clear
+    exclude_groups = {}, -- table: groups you don't want to clear
 })
 -----------------------------------------------------------------------------
 -- lualine
@@ -205,6 +204,8 @@ map('n', '<leader>gy', ':Goyo <CR>', options)
 vim.g.UltiSnipsSnippetDirectories = { '~/.config/nvim/UltiSnips' }
 vim.g.UltiSnipsExpandTrigger = "<Tab>"
 vim.g.UltiSnipsEditSplit = "vertical" -- If you want :UltiSnipsEdit to split your window.
+vim.g.UltiSnipsJumpForwardTrigger = "" -- so not copilot fucks up with ultisnips
+vim.g.UltiSnipsJumpBackwardTrigger = "" -- so not copolot fucks up with ultisnips
 map('n', '<leader>uu', ':UltiSnipsEdit<CR>', options)
 map('n', '<leader>ual', ':UltiSnipsEdit all<CR>', options)
 map('n', '<leader>ujs', ':UltiSnipsEdit javascript<CR>', options)
@@ -361,9 +362,13 @@ vim.api.nvim_set_hl(0, 'NeoTreeDirectoryIcon', { fg = "#5DBBC1" })
 vim.api.nvim_set_hl(0, 'NeoTreeDirectoryName', { fg = "#5DBBC1" })
 vim.api.nvim_set_hl(0, 'NeoTreeGitModified', { fg = "#D38AEA" })
 
+function OpenTree()
+  vim.cmd('Neotree toggle')
+  vim.opt.relativenumber = true
+end
 -- Unless you are still migrating, remove the deprecated commands from v1.x
 vim.g.neo_tree_remove_legacy_commands = 1
-map('n', '<leader>nn', ':Neotree toggle <CR>', options)
+map('n', '<leader>nn', ':lua OpenTree() <CR>', options)
 map('n', '<leader>rr', ':Neotree reveal <CR>', options)
 -- map('n', '/', ':Neotree toggle current reveal_force_cwd <CR>', options)
 -- map('n', 'gd', ':Neotree float reveal_file=<cfile> reveal_force_cwd <CR>', options)
@@ -728,77 +733,77 @@ vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 -- 	python:toggle()
 -- end
 
-
 -- chatGTP
 require('chatgpt').setup({
-    -- welcome_message = WELCOME_MESSAGE, -- set to "" if you don't like the fancy godot robot
-    loading_text = "loading",
-    question_sign = "", -- you can use emoji if you want e.g. 🙂
-    answer_sign = "ﮧ", -- 🤖
-    max_line_length = 120,
     yank_register = "+",
-    chat_layout = {
-        relative = "editor",
-        position = "50%",
-        size = {
-            height = "80%",
-            width = "80%",
-        },
+    edit_with_instructions = {
+      diff = false,
+      keymaps = {
+        accept = "<C-y>",
+        toggle_diff = "<C-d>",
+        toggle_settings = "<C-o>",
+        cycle_windows = "<Tab>",
+        use_output_as_input = "<C-i>",
+      },
     },
-    settings_window = {
+    chat = {
+      welcome_message = WELCOME_MESSAGE,
+      loading_text = "Loading, please wait ...",
+      question_sign = "",
+      answer_sign = "ﮧ",
+      max_line_length = 120,
+      sessions_window = {
         border = {
-            style = "rounded",
-            text = {
-                top = " Settings ",
-            },
+          style = "rounded",
+          text = {
+            top = " Sessions ",
+          },
         },
-    },
-    chat_window = {
-        filetype = "chatgpt",
-        border = {
-            highlight = "FloatBorder",
-            style = "rounded",
-            text = {
-                top = " ChatGPT ",
-            },
+        win_options = {
+          winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
         },
-    },
-    chat_input = {
-        prompt = "  ",
-        border = {
-            highlight = "FloatBorder",
-            style = "rounded",
-            text = {
-                top_align = "center",
-                top = " Prompt ",
-            },
-        },
-    },
-    openai_params = {
-        model = "text-davinci-003",
-        frequency_penalty = 0,
-        presence_penalty = 0,
-        max_tokens = 300,
-        temperature = 0,
-        top_p = 1,
-        n = 1,
-    },
-    openai_edit_params = {
-        model = "code-davinci-edit-001",
-        temperature = 0,
-        top_p = 1,
-        n = 1,
-    },
-    keymaps = {
-        close = "<Esc>",
+      },
+      keymaps = {
+        close = { "<C-c>" },
         yank_last = "<C-y>",
+        yank_last_code = "<C-k>",
         scroll_up = "<C-u>",
         scroll_down = "<C-d>",
-        toggle_settings = "<C-o>",
         new_session = "<C-n>",
         cycle_windows = "<Tab>",
+        cycle_modes = "<C-f>",
+        select_session = "<Space>",
+        rename_session = "r",
+        delete_session = "d",
+        draft_message = "<C-a>",
+        toggle_settings = "<C-o>",
+        toggle_message_role = "<C-r>",
+        toggle_system_role_open = "<C-s>",
+      },
+    },
+    openai_params = {
+      model = "gpt-3.5-turbo",
+      frequency_penalty = 0,
+      presence_penalty = 0,
+      max_tokens = 300,
+      temperature = 0,
+      top_p = 1,
+      n = 1,
+    },
+    openai_edit_params = {
+      model = "code-davinci-edit-001",
+      temperature = 0,
+      top_p = 1,
+      n = 1,
     }
 })
+
+map('n', '<leader>cc', ':ChatGPT<CR>', options)
+map('', '<leader>ce', ':ChatGPTEditWithInstructions<CR>', options)
+map('', '<leader>cb', ':ChatGPTRun fix_bugs<CR>', options)
+map('', '<leader>co', ':ChatGPTRun optimize_code<CR>', options)
+
+
 
 -------------------------------------------------------------------------------
 ---- ultisnip setup
