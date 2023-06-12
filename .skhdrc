@@ -54,6 +54,9 @@ shift + alt - n : yabai -m space --create && \
                    yabai -m window --space "${index}" && \
                    yabai -m space --focus "${index}"
 
+# create new workspace
+alt - n : yabai -m space --create
+
 # fast focus desktop
 alt - tab : yabai -m space --focus recent
 
@@ -82,4 +85,3 @@ shift + alt - d : yabai -m window east --resize left:100:0 2> /dev/null || yabai
 alt - x            : yabai -m display --focus last
 shift + alt - tab  : yabai -m display --focus prev
 alt - tab          : yabai -m display --focus next
-
