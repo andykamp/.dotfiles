@@ -80,17 +80,17 @@ local hjkl_enabled = true
 _G.toggle_hjkl = function()
     if hjkl_enabled then
         -- disable hjkl and HJKL
-        vim.api.nvim_set_keymap('n', 'h', '<Nop>', {noremap = true, silent = true})
+        -- vim.api.nvim_set_keymap('n', 'h', '<Nop>', {noremap = true, silent = true})
         -- vim.api.nvim_set_keymap('n', 'j', '<Nop>', {noremap = true, silent = true})
         -- vim.api.nvim_set_keymap('n', 'k', '<Nop>', {noremap = true, silent = true})
-        vim.api.nvim_set_keymap('n', 'l', '<Nop>', {noremap = true, silent = true})
+        -- vim.api.nvim_set_keymap('n', 'l', '<Nop>', {noremap = true, silent = true})
         vim.api.nvim_set_keymap('n', 'H', '<Nop>', {noremap = true, silent = true})
         vim.api.nvim_set_keymap('n', 'J', '<Nop>', {noremap = true, silent = true})
         vim.api.nvim_set_keymap('n', 'K', '<Nop>', {noremap = true, silent = true})
         vim.api.nvim_set_keymap('n', 'L', '<Nop>', {noremap = true, silent = true})
     else
         -- re-enable hjkl and HJKL
-        vim.api.nvim_set_keymap('n', 'h', 'h', {noremap = true, silent = true})
+        -- vim.api.nvim_set_keymap('n', 'h', 'h', {noremap = true, silent = true})
         -- vim.api.nvim_set_keymap('n', 'j', 'j', {noremap = true, silent = true})
         -- vim.api.nvim_set_keymap('n', 'k', 'k', {noremap = true, silent = true})
         vim.api.nvim_set_keymap('n', 'l', 'l', {noremap = true, silent = true})
