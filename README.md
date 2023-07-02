@@ -326,6 +326,9 @@ nextd moves forward through the history. It is bound to Alt+→
 ## change colorscheme colors
 - go to .local/share/nvim/site/packer/packer/start
 
+
+## sketchybar
+- run  sketchybar --config $HOME/side-projects/SketchyBar/sketchybarrc 
 ## fold
 - small letter --> non-recursice folding
 - big letter --> recursive folding 
@@ -449,6 +452,7 @@ lsp
 - 
 - undotree
 - make the pomodoro visible for single-monitor also!! make the popup sound/bigger etc
+- set border around each app to higlight the one that is active
 
 
 - [X] clean disk space 
@@ -489,3 +493,29 @@ This is how you dropdown.
 Works!
 
 </details>
+
+- create script to start yabai, skhd and sketchybar
+- create the pomodory timer in sketchybar so i can use it for non-programming also!!
+- make lock screen use the same background as the desktop (https://www.idownloadblog.com/2023/02/13/how-to-change-lock-screen-wallpaper-mac/)
+- relative numbers on neotree! important!!!! just run autocomman on neotree open
+- test mikaels implementation of js/ts manouvering
+- create a own todo.md for all todos because they are messsssy
+- fix tmux bar and limelight bar in vim
+- remove old stuff from tmux configs
+- fix tailwind automcomlete
+- fix eslint/prettier in placepoint (might need to add prettier in repo)
+- fix sketchybar
+- move sketchybar to dotfiles
+- remove all unused configs and put them into a tried-and-failed.lua file that is not imported into app
+- cleanup startship colors and unused stuff
+- make colors into a global file maybe??
+- fix tmux active pane style (or atleast border style to indicate what is active)
+- set he yabai transparancy isntead of just alacritty ?? yabai -m config window_opacity               off
+- colorschema
+    - create own colorschema repo with minimal colors so i know which color is actually what
+    - fix colorschema for markdown etc so i know what they are
+- movement
+    - add the barbarian vim movements so i can go to argumetns etc
+    - use harpoon more
+    - use marks more
+- make a chrome theme to match

@@ -6,7 +6,7 @@
 #
 # see this wiki page for information:
 #  - https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)#configure-scripting-addition
-#
+
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 sudo yabai --load-sa
 
@@ -16,25 +16,30 @@ yabai -m config focus_follows_mouse          off
 yabai -m config window_origin_display        default
 yabai -m config window_placement             second_child
 yabai -m config window_topmost               off
-yabai -m config window_shadow                on
+yabai -m config window_shadow                off
 yabai -m config window_opacity               off
 yabai -m config window_opacity_duration      0.0
-yabai -m config active_window_opacity        1.0
+yabai -m config active_window_opacity        0.90
 yabai -m config normal_window_opacity        0.90
-yabai -m config window_border                off
-yabai -m config window_border_width          6
-yabai -m config active_window_border_color   0xff775759
-yabai -m config normal_window_border_color   0xff555555
-yabai -m config insert_feedback_color        0xffd75f5f
 yabai -m config split_ratio                  0.50
 yabai -m config auto_balance                 off
 yabai -m config mouse_modifier               fn
 yabai -m config mouse_action1                move
-yabai -m config mouse_action2                resize
+yabai -m config mousek_action2               resize
 yabai -m config mouse_drop_action            swap
+
+# Boarders
+yabai -m config window_border                off
+yabai -m config window_border_radius         0
+yabai -m config window_border_width          4
+yabai -m config active_window_border_color   0xFF000000
+yabai -m config normal_window_border_color   0xFF1C1D20
+yabai -m config insert_feedback_color        0xFF1C1D20
+
 
 # general space settings
 yabai -m config layout                       bsp
+yabai -m config external_bar all:40:0
 yabai -m config top_padding                  15
 yabai -m config bottom_padding               15
 yabai -m config left_padding                 15
@@ -44,6 +49,8 @@ yabai -m config right_padding                15
 yabai -m config window_gap                   15
 
 # apps to not manage (ignore)
+yabai -m rule --add app="^Alacritty$" border=on
+
 yabai -m rule --add app="^CleanShot" manage=off
 yabai -m rule --add app="^Freeform" manage=off
 yabai -m rule --add app="^Systeminstillinger" manage=off
@@ -60,5 +67,8 @@ yabai -m rule --add app="^Logi Options$" manage=off
 yabai -m rule --add app="^Alfred Preferences$" manage=off
 yabai -m rule --add app="Raycast" manage=off
 yabai -m rule --add app="^Music$" manage=off
+
+yabai -m signal --add event=window_destroyed action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
+yabai -m signal --add event=application_terminated action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
 
 echo "yabai configuration loaded.."

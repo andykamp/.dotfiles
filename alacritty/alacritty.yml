@@ -54,7 +54,7 @@ window:
   dynamic_padding: true
 
   # Window decorations
-  decorations: full
+  decorations: none
 
   # Background opacity
   #
@@ -177,11 +177,11 @@ font:
 #draw_bold_text_with_bright_colors: false
 
 # Colors (Tomorrow Night)
-#colors:
+colors:
   # Default colors
-  #primary:
-  #  background: '#1d1f21'
-  #  foreground: '#c5c8c6'
+  primary:
+   background: '#1C1D20'
+   foreground: '#c5c8c6'
 
     # Bright and dim foreground colors
     #
