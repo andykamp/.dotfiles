@@ -519,3 +519,8 @@ Works!
     - use harpoon more
     - use marks more
 - make a chrome theme to match
+- SHAVE OF TYPING SECONDS: cntr+ w for backspace? 
+- tmp file
+    - have a way to always create a tmp file of a certain file type
+    - like thomas does
+- fix folding
