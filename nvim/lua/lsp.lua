@@ -11,6 +11,9 @@ require('nvim-treesitter.configs').setup {
     highlight = {
         enable = true, -- false will disable the whole extension
     },
+    fold = {
+        enable = true
+    },
     incremental_selection = {
         enable = true,
         keymaps = {
@@ -21,6 +24,9 @@ require('nvim-treesitter.configs').setup {
         },
     },
     indent = {
+        enable = true,
+    },
+    context_commentstring = {
         enable = true,
     },
     textobjects = {
@@ -94,6 +100,7 @@ local on_attach = function(_, bufnr)
     -- info
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>k', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>s', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>c', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts) -- gives a list of action the IDE can do for you
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>so',
         [[<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]], opts) -- list all variables in float

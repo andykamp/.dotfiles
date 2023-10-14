@@ -30,6 +30,8 @@ require('packer').startup(function()
 
     -- handy dandy shorcut plugins
     use 'tpope/vim-commentary' -- "gc" to comment visual regions/lines (gcc to comment a line)
+    use 'JoosepAlviste/nvim-ts-context-commentstring'
+
     use 'tpope/vim-surround' -- enables the s and S command
 
     -- Auto pairs

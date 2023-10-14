@@ -58,7 +58,21 @@ vim.cmd [[highlight CopilotSuggestion guifg=#555555 ctermfg=8]] -- default copil
 -----------------------------------------------------------------------------
 vim.cmd [[set foldmethod=expr]]
 vim.cmd [[set foldexpr=nvim_treesitter#foldexpr()]]
+vim.cmd [[set nofoldenable]]
 vim.cmd [[set foldlevelstart=99]] --start file with all folds opened
+-- vim.cmd [[
+-- augroup MyTreesitterFolding
+--     autocmd!
+--     autocmd BufEnter * set foldmethod=expr
+--     autocmd BufEnter * set foldexpr=nvim_treesitter#foldexpr()
+--     autocmd BufEnter * set nofoldenable
+--     autocmd BufEnter * set foldlevelstart=99
+-- augroup END
+-- ]]
+-- vim.wo.foldmethod = "expr"
+-- vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
+-- vim.wo.foldenable = false
+-- -- vim.g.foldlevelstart = 99
 
 -----------------------------------------------------------------------------
 -- virtual-colors aka hovered diagnostics
