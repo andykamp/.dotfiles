@@ -37,6 +37,14 @@ require('packer').startup(function()
         "windwp/nvim-autopairs",
         config = function() require("nvim-autopairs").setup {} end
     }
+
+
+    use "folke/todo-comments.nvim"
+    -- use {
+    --   "folke/todo-comments.nvim",
+    --   requires = { "nvim-lua/plenary.nvim" },
+    -- }
+
     -- TODO these suck. should replace
     -- use 'jiangmiao/auto-pairs' -- create pars of brackets etc TODO
     -- use 'alvan/vim-closetag'  -- close jsx/tsx tags TODO
