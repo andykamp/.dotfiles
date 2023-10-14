@@ -105,6 +105,7 @@ alias c="pbcopy"
 # git related stuff
 alias g=git
 alias glog1="sh ~/log-git-live.sh" # remap visualizing github tree for convinience
+alias gcom="git log --graph --oneline --all --merges --first-parent master | grep 'Merge pull'"
 
 function stashSearch
     git stash list -S "{$1}"
