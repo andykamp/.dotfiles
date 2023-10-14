@@ -29,6 +29,17 @@ map('n',  '<leader>,',  ':nohlsearch<CR>', options)
 
 -- close loclist/quiclist
 map('n', '<leader>.', ':cclose<CR>', options)
+map('n', '<leader>.', ':cclose<CR>', options)
+map('n', '(', ':cn<CR>', options)
+map('n', ')', ':cp<CR>', options)
+-- always open quiclist at very bottom
+vim.cmd [[
+  augroup MyAutoCommands
+    autocmd!
+    autocmd FileType qf wincmd J
+  augroup END
+]]
+
 
 -- keep cursor on bottom when yanking
 map('v', 'y', 'ygv<esc>', options)
@@ -39,8 +50,9 @@ map('n',  '<C-j>', '<C-W>j', options)
 map('n',  '<C-k>', '<C-W>k', options)
 map('n',  '<C-l>', '<C-w>l', options)
 
---  save a paste to be abale to do it multiple times in a row
-map('x', '<leader>p', "\"_dhp", options)
+--  replace word under cursor with yanked word without replacing buffer
+map('n', '<leader>p', "\"_diwP", options)
+map('n', 'riw', "\"_diwP", options)
 
 --  terminal mappings
 map('t', '<C-x>', '<C-\\><C-n>', options)
