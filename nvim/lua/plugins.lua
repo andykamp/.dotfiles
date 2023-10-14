@@ -371,14 +371,20 @@ vim.api.nvim_set_hl(0, 'NeoTreeDirectoryIcon', { fg = "#5DBBC1" })
 vim.api.nvim_set_hl(0, 'NeoTreeDirectoryName', { fg = "#5DBBC1" })
 vim.api.nvim_set_hl(0, 'NeoTreeGitModified', { fg = "#D38AEA" })
 
-function OpenTree()
+function ToggleNeotree()
   vim.cmd('Neotree toggle')
-  vim.opt.relativenumber = true
+  vim.cmd('set relativenumber')
 end
+
+function GoToNeotree()
+  vim.cmd('Neotree reveal')
+  vim.cmd('set relativenumber')
+end
+
 -- Unless you are still migrating, remove the deprecated commands from v1.x
 vim.g.neo_tree_remove_legacy_commands = 1
-map('n', '<leader>nn', ':lua OpenTree() <CR>', options)
-map('n', '<leader>rr', ':Neotree reveal <CR>', options)
+map('n', '<leader>nn', ':lua ToggleNeotree() <CR>', options)
+map('n', '<leader>rr', ':lua GoToNeotree() <CR>', options)
 -- map('n', '/', ':Neotree toggle current reveal_force_cwd <CR>', options)
 -- map('n', 'gd', ':Neotree float reveal_file=<cfile> reveal_force_cwd <CR>', options)
 -- map('n', '<leader>b', ':Neotree toggle show buffers right <CR>', options)
