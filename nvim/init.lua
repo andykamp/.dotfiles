@@ -171,7 +171,7 @@ require('packer').startup(function()
             }
         end
     } -- TODO
-    use 'stevearc/aerial.nvim' -- TODO
+    -- use 'stevearc/aerial.nvim' -- TODO
 
     -- Time Tracking
     use 'wakatime/vim-wakatime'

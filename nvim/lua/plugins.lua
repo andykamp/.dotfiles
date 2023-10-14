@@ -636,36 +636,36 @@ map('n', 'mæ', ':delmarks!<cr>', options) -- delete all lowercase marks in buff
 --- aerial
 -- @todo: Remove this as i never use it
 -----------------------------------------------------------------------------
-require('aerial').setup({
-    attach_mode = "global",
-    backends = {"treesitter", "lsp", "markdown" },
-    layout = {
-        min_width = 28,
-    }
-    ,
-    show_guides = true,
-    -- filter_kind = false,
-    guides = {
-        mid_item = "├ ",
-        last_item = "└ ",
-        nested_top = "│ ",
-        whitespace = "  ",
-    },
-    nerd_font = "auto",
-    manage_folds = true,
-    link_folds_to_tree = true,
-    link_tree_to_folds = true,
-    on_attach = function(bufnr)
-        -- Toggle the aerial window with <leader>a
-        vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>a', '<cmd>AerialToggle!<CR>', {})
-        -- Jump forwards/backwards with '{' and '}'
-        vim.api.nvim_buf_set_keymap(bufnr, 'n', '(', '<cmd>AerialPrev<CR>', {})
-        vim.api.nvim_buf_set_keymap(bufnr, 'n', ')', '<cmd>AerialNext<CR>', {})
-        -- Jump up the tree with '[[' or ']]'
-        -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '[[', '<cmd>AerialPrevUp<CR>', {})
-        -- vim.api.nvim_buf_set_keymap(bufnr, 'n', ']]', '<cmd>AerialNextUp<CR>', {})
-    end
-})
+-- require('aerial').setup({
+--     attach_mode = "global",
+--     backends = {"treesitter", "lsp", "markdown" },
+--     layout = {
+--         min_width = 28,
+--     }
+--     ,
+--     show_guides = true,
+--     -- filter_kind = false,
+--     guides = {
+--         mid_item = "├ ",
+--         last_item = "└ ",
+--         nested_top = "│ ",
+--         whitespace = "  ",
+--     },
+--     nerd_font = "auto",
+--     manage_folds = true,
+--     link_folds_to_tree = true,
+--     link_tree_to_folds = true,
+--     on_attach = function(bufnr)
+--         -- Toggle the aerial window with <leader>a
+--         vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>a', '<cmd>AerialToggle!<CR>', {})
+--         -- Jump forwards/backwards with '{' and '}'
+--         -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '(', '<cmd>AerialPrev<CR>', {})
+--         -- vim.api.nvim_buf_set_keymap(bufnr, 'n', ')', '<cmd>AerialNext<CR>', {})
+--         -- Jump up the tree with '[[' or ']]'
+--         -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '[[', '<cmd>AerialPrevUp<CR>', {})
+--         -- vim.api.nvim_buf_set_keymap(bufnr, 'n', ']]', '<cmd>AerialNextUp<CR>', {})
+--     end
+-- })
 
 -----------------------------------------------------------------------------
 --- toggleterm
