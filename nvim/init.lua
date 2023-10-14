@@ -256,3 +256,5 @@ require('maps')
 require('settings')
 require('plugins')
 require('vimwiki')
+require('lualine_custom')
+
