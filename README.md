@@ -53,7 +53,7 @@ Also for ll scrips/executable u need to make it executble and giev u access
 - all workspaces are added to `./worktrees` folder for convinience (so they dont float around)
     - simply `cd` into one of the workspaces to work on it and the active branch inside it
     - NB! Remember to add ./worktrees to .gitignore
-- use 2 workspaces per repo
+- use 3 workspaces per repo
     - m (main/master)
     - wb (working-branc)
     - hotfix
@@ -62,7 +62,14 @@ Also for ll scrips/executable u need to make it executble and giev u access
     - git worktree list 
     - git worktree add
     - git worktree remove
-      
+
+# Git diff
+ - use Gvdiff <some_commit_sha> to see diff between current commit and other commit
+ - use Gvdiff HEAD~1 to see diff between current commit and previous commit
+ - use Gvdiff master to see diff between current commit and master
+ - use :G difftool --name-only master to get all changed files between current commit and master
+ - use :G difftool --name-only HEAD to get all changed files between current commit and last commit
+ - use :G difftool --name-only <some_commit_sha> to get all changed files between current commit and other commit
 
 
 ## 🙇 Worth remembering
@@ -326,16 +333,29 @@ nextd moves forward through the history. It is bound to Alt+→
 ## change colorscheme colors
 - go to .local/share/nvim/site/packer/packer/start
 
+## fun
+- cmatrix
 
 ## sketchybar
 - run  sketchybar --config $HOME/side-projects/SketchyBar/sketchybarrc 
+- to add a plugin:
+    - create a folder in plugin
+    - make it executable with chmod +x or chmod 755
+    - now i t can be added as the other plugins
+
 ## fold
 - small letter --> non-recursice folding
 - big letter --> recursive folding 
 - za/zA to toggle folds
 - zm/zM to fold all functions
 - zr/zR to unfold all functions
-- @todo: 
+- zc — close the fold (where your cursor is positioned)
+- zM — close all folds on current buffer
+- zo — open the fold (where your cursor is positioned)
+- zR — open all folds on current buffer
+- zj — cursor is moved to next fold
+- zk — cursor is moved to previous fold
+- zi - toggle fold, but save fold state
 
 ### new todos
 - chrome
@@ -494,6 +514,17 @@ Works!
 
 </details>
 
+- make comment-out work for jsx
+- [Ancher] document the use of @todo, @note, @fixme etc. maybe look at plugins or atleast some custom shortcuts?
+    - for file
+    - for nearest folder
+    - for projects
+    - for git repo
+    - only created by meonly created by me??
+    - use https://github.com/folke/todo-comments.nvim
+- move vimwiki to github. just put it into a git repo and push occacially
+- create a open in new vertival split shortcut!!
+- remove shorctus on <leader>c so that code-actions are faster. dont need chatGPT
 - create script to start yabai, skhd and sketchybar
 - create the pomodory timer in sketchybar so i can use it for non-programming also!!
 - make lock screen use the same background as the desktop (https://www.idownloadblog.com/2023/02/13/how-to-change-lock-screen-wallpaper-mac/)
@@ -524,3 +555,22 @@ Works!
     - have a way to always create a tmp file of a certain file type
     - like thomas does
 - fix folding
+- use :Telescope resume and create a shortcut foGr it
+- 
+- shortcuts to go up/down quicklist when open....
+- use unimpared for shorcuts for quickfix and others
+- shortcut for cdo for renaming
+- shortcut for copypasting the error under the cursor
+- use the <command>k together with <command>l in copilot in order to get multiple suggestions
+- snippr tabs does not work
+- saving tmux session is on some weird key
+- better tyepscript definitions with lsp
+    - maybe lssage? https://github.com/nvimdev/lspsaga.nvim
+    - https://nvimdev.github.io/lspsaga/definition/
+- POMODORO
+    - create a blocking flaoting panel showing a coffe for the break of the pomodoro
+- FOLDS
+    -  i need to be able to fold large json and arrays...
+    - make folding look like in vscode
+    - remove the fill-char by : : set fillchars=fold:\ (https://stackoverflow.com/questions/4614048/custom-folding-in-vim) 
+    - 
