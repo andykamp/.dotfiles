@@ -72,7 +72,7 @@ require('packer').startup(function()
     use 'sainnhe/edge'
     use { 'rose-pine/neovim', as = 'rose-pine' } -- config = "vim.cmd('colorscheme rose-pine')"}
 
-    use 'mhinz/vim-startify'
+    use 'mhinz/vim-startify' -- @todo: remove
 
 
     -- Helper tools for faster workflows
@@ -117,7 +117,7 @@ require('packer').startup(function()
     use 'ThePrimeagen/harpoon' -- use for quick commands
     use 'easymotion/vim-easymotion' -- jump to any word you loook at by <leader><leader>w etc
     use 'junegunn/goyo.vim'
-    use 'akinsho/toggleterm.nvim'
+    use 'akinsho/toggleterm.nvim' -- @todo: remove
     use 'chentoast/marks.nvim'
     use 'mbbill/undotree'
     -- use { 'preservim/tagbar' }
@@ -144,14 +144,14 @@ require('packer').startup(function()
     -- use 'hrsh7th/cmp-path'
     -- use 'hrsh7th/cmp-cmdline'
     use {
-        "smjonas/inc-rename.nvim",
+        "smjonas/inc-rename.nvim", -- @todo: remove
         config = function()
             require("inc_rename").setup()
         end,
     }
 
     -- Testing
-    use 'vim-test/vim-test'
+    use 'vim-test/vim-test' -- @todo: remove
 
     -- Snippets (TODO map to something smooth)
     use 'SirVer/ultisnips' -- create own code snippets located at ./Ultisnips
@@ -170,7 +170,7 @@ require('packer').startup(function()
     -- use 'mlaursen/vim-react-snippets' -- spesific reat snippets
     use 'github/copilot.vim'
 
-    use {
+    use { -- @todo: remove
         "folke/trouble.nvim",
         requires = "kyazdani42/nvim-web-devicons",
         config = function()
@@ -184,7 +184,7 @@ require('packer').startup(function()
     -- use 'stevearc/aerial.nvim' -- TODO
 
     -- Time Tracking
-    use 'wakatime/vim-wakatime'
+    use 'wakatime/vim-wakatime' -- @todo: remove
 
     -- Markdown and documentation
     use 'mattn/calendar-vim' -- calander for wim diary
@@ -195,7 +195,7 @@ require('packer').startup(function()
     use 'vimwiki/vimwiki' -- used for markdown notes
     
     -- ai motherfucker :P 
-    use({
+    use({ -- @todo: remove
         "jackMort/ChatGPT.nvim",
         requires = {
             "MunifTanjim/nui.nvim",

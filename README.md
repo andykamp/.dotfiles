@@ -302,6 +302,13 @@ nextd moves forward through the history. It is bound to Alt+→
 # if path is lost restore by https://stackoverflow.com/questions/15872666/how-to-remove-entry-from-path-on-mac
 - export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin"
 
+## chrome debugger
+- use cntr+p to get commends
+    - show console/network/elements etc
+
+## chrome
+- use cntr+d duplicatoin plugin https://chrome.google.com/webstore/detail/duplicate-tab-shortcut/klehggjefofgiajjfpoebdidnpjmljhb
+
 ## Fortune | Cowsay
 - cool asci drawing.Fortune creates text that we pipe into cowsay
 - run by `fortune | cowsay`
@@ -343,7 +350,10 @@ nextd moves forward through the history. It is bound to Alt+→
     - make it executable with chmod +x or chmod 755
     - now i t can be added as the other plugins
 
+
+
 ## fold
+- use https://github.com/kevinhwang91/nvim-ufo!!!!! 
 - small letter --> non-recursice folding
 - big letter --> recursive folding 
 - za/zA to toggle folds
@@ -574,3 +584,4 @@ Works!
     - make folding look like in vscode
     - remove the fill-char by : : set fillchars=fold:\ (https://stackoverflow.com/questions/4614048/custom-folding-in-vim) 
     - 
+- use https://github.com/kevinhwang91/nvim-ufo!!!!! 
