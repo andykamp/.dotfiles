@@ -74,4 +74,57 @@ vim.cmd [[
     autocmd BufNewFile,BufRead *.mdx :set filetype=vimwiki
 ]]
 
+-----------------------------------------------------------------------------
+-- folds 
+-- @todo: not really used...
+-----------------------------------------------------------------------------
+vim.cmd [[set foldmethod=expr]]
+vim.cmd [[set foldexpr=nvim_treesitter#foldexpr()]]
+vim.cmd [[set nofoldenable]]
+vim.cmd [[set foldlevelstart=99]] --start file with all folds opened
+-- vim.cmd [[
+-- augroup MyTreesitterFolding
+--     autocmd!
+--     autocmd BufEnter * set foldmethod=expr
+--     autocmd BufEnter * set foldexpr=nvim_treesitter#foldexpr()
+--     autocmd BufEnter * set nofoldenable
+--     autocmd BufEnter * set foldlevelstart=99
+-- augroup END
+-- ]]
+-- vim.wo.foldmethod = "expr"
+-- vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
+-- vim.wo.foldenable = false
+-- -- vim.g.foldlevelstart = 99
+
+-----------------------------------------------------------------------------
+-- virtual-colors aka hovered diagnostics
+-----------------------------------------------------------------------------
+vim.cmd [[highlight VirtualTextError guifg=#f97583]]
+vim.cmd [[highlight VirtualTextWarning guifg=#ffea7f]]
+-- vim.cmd [[highlight VirtualTextInfo guifg=#10B981]]
+-- vim.cmd [[highlight VirtualTextHint guifg=#0db9d7]]
+
+-----------------------------------------------------------------------------
+-- Diagnostic icons for nerdtreee and gutter
+-----------------------------------------------------------------------------
+-- If you want icons for diagnostic errors, you'll need to define them somewhere:
+vim.fn.sign_define("DiagnosticSignError",
+    { text = " ", texthl = "DiagnosticSignError" })
+vim.fn.sign_define("DiagnosticSignWarn",
+    { text = " ", texthl = "DiagnosticSignWarn" })
+vim.fn.sign_define("DiagnosticSignInfo",
+    { text = " ", texthl = "DiagnosticSignInfo" })
+vim.fn.sign_define("DiagnosticSignHint",
+    { text = "", texthl = "DiagnosticSignHint" })
+
+-----------------------------------------------------------------------------
+-- git diffs
+-----------------------------------------------------------------------------
+-- vim.cmd [[highlight DiffAdd guifg=#85e89d guibg=#33353f]]
+-- vim.cmd [[highlight DiffChange guifg=#9ecbff guibg=#33353f]]
+-- vim.cmd [[highlight DiffDelete guifg=#ec7279 guibg=#33353f]]
+vim.cmd [[highlight DiffAdd guibg=#313f33]]
+vim.cmd [[highlight DiffChange guibg=#313f33]]
+vim.cmd [[highlight DiffDelete guibg=#633f3e]]
+vim.cmd [[highlight DiffText guibg=#398443 guifg=NONE]]
 

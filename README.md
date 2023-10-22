@@ -45,6 +45,25 @@ This must be done for (might be missing some):
 Also for ll scrips/executable u need to make it executble and giev u access
 `chmod u+x filepath`
 - make sure to remap capslock to control 
+-----
+To check the symlinks go to `.config` and exa will show the following:
+```
+lrwxr-xr-x  40 anderskampenes 10 Dec  2022 alacritty -> /Users/anderskampenes/dotfiles/alacritty
+drwxr-xr-x   - anderskampenes  9 Mar  2022 coc
+drwxr-xr-x   - anderskampenes 13 Nov  2022 com.filestar.macos
+drwx------   - anderskampenes 15 Oct 18:32 configstore
+lrwxr-xr-x  36 anderskampenes 28 Dec  2022 fish -> /Users/anderskampenes/dotfiles/fish
+drwxr-xr-x   - anderskampenes 17 Jun  2020 gcloud
+drwx------   - anderskampenes 30 Dec  2022 github-copilot
+drwx------   - anderskampenes 27 Sep  2022 htop
+drwxr-xr-x   - anderskampenes  6 Jun  2022 iterm2
+lrwxr-xr-x  39 anderskampenes 29 Dec  2022 neofetch -> /Users/anderskampenes/dotfiles/neofetch
+lrwxr-xr-x  35 anderskampenes  5 Jun  2022 nvim -> /Users/anderskampenes/dotfiles/nvim
+drwxr-xr-x@  - anderskampenes 11 Jun 18:48 raycast
+lrwxr-xr-x  44 anderskampenes 28 Dec  2022 starship.toml -> /Users/anderskampenes/dotfiles/starship.toml
+drwxr-xr-x   - anderskampenes 11 Jul  2022 yarn
+```
+
 
 
 ## Git workree > stash and checkout 

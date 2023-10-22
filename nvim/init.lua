@@ -207,9 +207,6 @@ require('packer').startup(function()
 end)
 
 
-local npairs = require('nvim-autopairs')
--- add option map_cr
-npairs.setup({ map_cr = true, check_ts = true })
 -----------------------------------------------------------------------------
 --  linting
 -----------------------------------------------------------------------------
@@ -261,10 +258,29 @@ vim.cmd [[colorscheme edge]]
 -- TODO add colorscheme file
 -- TODO add snippet stuff?
 --
-require('lsp')
+-- require('lsp')
+require('config.nvim-autopairs')
+require('config.lsp')
 require('maps')
 require('settings')
-require('plugins')
-require('vimwiki')
-require('lualine_custom')
 
+-- require('plugins') -- take away
+-- require("config.plugins")
+require("config.vim-startify")
+require("config.copilot")
+require("config.transparant")
+require("config.colorizer")
+require("config.vim-test")
+require("config.gitsigns")
+require("config.fugitive")
+require("config.indent-blankline")
+require("config.goyo")
+require("config.telescope")
+require("config.harpoon")
+require("config.neo-tree")
+require("config.marks")
+require("config.toggleterm")
+require("config.chatgpt")
+require("config.todo-comments")
+require('config.vimwiki')
+require('config.lualine_custom')
