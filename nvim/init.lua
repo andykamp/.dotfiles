@@ -2,6 +2,7 @@
 -- Install packer
 -- Packer is used for all installs. Use PackerClean and PackerInstall to remove/install packages
 -----------------------------------------------------------------------------
+
 local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
@@ -71,8 +72,6 @@ require('packer').startup(function()
     use 'arcticicestudio/nord-vim'
     use 'sainnhe/edge'
     use { 'rose-pine/neovim', as = 'rose-pine' } -- config = "vim.cmd('colorscheme rose-pine')"}
-
-    use 'mhinz/vim-startify' -- @todo: remove
 
 
     -- Helper tools for faster workflows
@@ -256,7 +255,6 @@ require('settings')
 
 -- require('plugins') -- take away
 -- require("config.plugins")
-require("config.vim-startify")
 require("config.copilot")
 require("config.transparant")
 require("config.colorizer")
