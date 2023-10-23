@@ -85,7 +85,9 @@ require('packer').startup(function()
     use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } } -- Fancier statusline
     use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } } -- UI to select things (files, grep results, open buffers...)
     use 'ThePrimeagen/harpoon' -- use for quick commands
-    use 'easymotion/vim-easymotion' -- jump to any word you loook at by <leader><leader>w etc
+    -- use 'easymotion/vim-easymotion' -- jump to any word you loook at by <leader><leader>w etc
+    use("phaazon/hop.nvim")
+
     use 'junegunn/goyo.vim'
     use 'chentoast/marks.nvim'
     use 'mbbill/undotree'
@@ -154,6 +156,7 @@ require('settings')
 require("config.copilot")
 require("config.transparant")
 require("config.trouble")
+require("config.hop")
 require("config.colorizer")
 require("config.gitsigns")
 require("config.fugitive")

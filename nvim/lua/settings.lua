@@ -48,14 +48,12 @@ vim.cmd [[set clipboard=unnamed]]
 o.completeopt = 'menuone,noselect'
 
 -- Override tab spacing for javascript and typescript and html
--- @todo: make sure we have correct tabs for e.g python also
  vim.api.nvim_command('autocmd FileType javascript setlocal shiftwidth=2 tabstop=2')
  vim.api.nvim_command('autocmd FileType javascriptreact setlocal shiftwidth=2 tabstop=2')
  vim.api.nvim_command('autocmd FileType typescript setlocal shiftwidth=2 tabstop=2')
  vim.api.nvim_command('autocmd FileType typescriptreact setlocal shiftwidth=2 tabstop=2')
  vim.api.nvim_command('autocmd FileType html setlocal shiftwidth=2 tabstop=2')
  vim.api.nvim_command('autocmd FileType graphql setlocal shiftwidth=2 tabstop=2')
-
 
 -----------------------------------------------------------------------------
 -- Highlight on yank
