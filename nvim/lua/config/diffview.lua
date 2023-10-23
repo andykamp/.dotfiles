@@ -5,9 +5,9 @@
 -- vim.cmd [[highlight DiffChange guifg=#9ecbff guibg=#33353f]]
 -- vim.cmd [[highlight DiffDelete guifg=#ec7279 guibg=#33353f]]
 vim.cmd [[highlight DiffAdd guibg=#323F3C]]
-vim.cmd [[highlight DiffChange guibg=#395750]]
+vim.cmd [[highlight DiffChange guibg=#323F3C]]
 vim.cmd [[highlight DiffDelete guibg=#2B2429 guifg=#343539]]
-vim.cmd [[highlight DiffText guibg=#323F3C guifg=NONE]]
+vim.cmd [[highlight DiffText guibg=#85e89d guifg=#1C1D20]]
 vim.opt.fillchars:append { diff = "╱" }
 
 
