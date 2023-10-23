@@ -29,7 +29,6 @@ require('packer').startup(function()
     use 'tpope/vim-rhubarb' -- Fugitive-companion to interact with github (:Gbrowse--> opens git)
     use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } } -- Add git related info in the signs columns and popups
 
-    -- handy dandy shorcut plugins
     use 'tpope/vim-commentary' -- "gc" to comment visual regions/lines (gcc to comment a line)
     use 'JoosepAlviste/nvim-ts-context-commentstring'
 
@@ -43,28 +42,7 @@ require('packer').startup(function()
 
 
     use "folke/todo-comments.nvim"
-    -- use {
-    --   "folke/todo-comments.nvim",
-    --   requires = { "nvim-lua/plenary.nvim" },
-    -- }
 
-    -- TODO these suck. should replace
-    -- use 'jiangmiao/auto-pairs' -- create pars of brackets etc TODO
-    -- use 'alvan/vim-closetag'  -- close jsx/tsx tags TODO
-    -- use 'ojroques/vim-oscyank' -- lets you copy to OS clipboard TODO
-
-    -- colorschemas
-    -- -- A clean, dark Neovim theme written in Lua, with support for lsp, treesitter and lots of plugins. Includes additional themes for Kitty, Alacritty, iTerm and Fish.
-    -- use({
-    -- "folke/tokyonight.nvim",
-    -- config = function()
-    -- require("tokyonight").setup({
-    -- style = "night",
-    -- transparent = true,
-    -- })
-    -- vim.cmd([[colorscheme tokyonight]])
-    -- end,
-    -- })
     use 'xiyaowong/nvim-transparent'
     use 'projekt0n/github-nvim-theme'
     use 'joshdick/onedark.vim'
@@ -72,11 +50,6 @@ require('packer').startup(function()
     use 'arcticicestudio/nord-vim'
     use 'sainnhe/edge'
     use { 'rose-pine/neovim', as = 'rose-pine' } -- config = "vim.cmd('colorscheme rose-pine')"}
-
-
-    -- Helper tools for faster workflows
-    -- use { 'preservim/nerdtree'} -- file explorer
-    -- use 'Xuyuanp/nerdtree-git-plugin' -- add gir related icon in nerdtree to visualize untracked files etc
 
     use {
         "nvim-neo-tree/neo-tree.nvim",
@@ -119,19 +92,11 @@ require('packer').startup(function()
     use 'akinsho/toggleterm.nvim' -- @todo: remove
     use 'chentoast/marks.nvim'
     use 'mbbill/undotree'
-    -- use { 'preservim/tagbar' }
 
     -- visual helpers
     use 'norcalli/nvim-colorizer.lua' -- add colors to hex
     use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
-    -- use 'lukas-reineke/headlines.nvim' -- background highlighting from headlines in markdown, vimwiki and orgmode
 
-    -- Code formatting and language servers
-    -- use 'dense-analysis/ale'  -- async linter
-    -- use 'sbdchd/neoformat' -- formatter (prettier) TODO
-    -- use { 'jose-elias-alvarez/null-ls.nvim', requires = { 'nvim-lua/plenary.nvim' }}
-
-    -- use 'ludovicchabant/vim-gutentags' -- Automatic tags management TODO
     use 'nvim-treesitter/nvim-treesitter' -- Highlight, edit, and navigate code using a fast incremental parsing library
     use 'nvim-treesitter/nvim-treesitter-textobjects' -- ??? Additional textobjects for treesitter
 
@@ -179,11 +144,10 @@ require('packer').startup(function()
                 -- refer to the configuration section below
             }
         end
-    } -- TODO
-    -- use 'stevearc/aerial.nvim' -- TODO
+    }
 
     -- Time Tracking
-    use 'wakatime/vim-wakatime' -- @todo: remove
+    use 'wakatime/vim-wakatime' -- time Tracking
 
     -- Markdown and documentation
     use 'mattn/calendar-vim' -- calander for wim diary
@@ -196,65 +160,13 @@ require('packer').startup(function()
 end)
 
 
------------------------------------------------------------------------------
---  linting
------------------------------------------------------------------------------
-
--- local null_ls = require("null-ls")
-
--- local function has_eslint_configured(utils)
---   return utils.root_has_file("/.eslintrc.js") or  utils.root_has_file("/.eslintrc.json")
--- end
-
--- -- use local eslint if possible
--- local project_local_bin = "node_modules/.bin/eslint"
-
--- null_ls.setup({
---   sources = {
---     null_ls.builtins.code_actions.eslint.with({
---         condition = has_eslint_configured,
---         command = has_eslint_configured and project_local_bin or "eslint"
---         }),
---     null_ls.builtins.diagnostics.eslint.with({
---         condition = has_eslint_configured,
---         command = has_eslint_configured and project_local_bin or "eslint"
---         }),
---     null_ls.builtins.formatting.eslint.with({
---         condition = has_eslint_configured,
---         command = has_eslint_configured and project_local_bin or "eslint"
---         }),
---   }
--- })
-
-
------------------------------------------------------------------------------
---Set colorscheme (order is important here)
------------------------------------------------------------------------------
-
--- vim.o.termguicolors = false
---vim.g.onedark_terminal_italics = 2
 vim.cmd [[set termguicolors]]
--- vim.cmd [[set background=dark]]
--- vim.cmd [[colorscheme onedark]]
--- vim.g.edge_style = 'aura'
--- vim.g.edge_better_performanc = 1
 vim.cmd [[colorscheme edge]]
 
------------------------------------------------------------------------------
--- import other vim files
------------------------------------------------------------------------------
--- TODO add lsp and linter stuff ???
--- TODO add colorscheme file
--- TODO add snippet stuff?
---
--- require('lsp')
 require('config.nvim-autopairs')
 require('config.lsp')
 require('maps')
 require('settings')
-
--- require('plugins') -- take away
--- require("config.plugins")
 require("config.copilot")
 require("config.transparant")
 require("config.colorizer")
