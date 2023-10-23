@@ -554,7 +554,7 @@ Works!
     - use https://github.com/folke/todo-comments.nvim
 - move vimwiki to github. just put it into a git repo and push occacially
 - create a open in new vertival split shortcut!!
-- remove shorctus on <leader>c so that code-actions are faster. dont need chatGPT
+- [X] remove shorctus on <leader>c so that code-actions are faster. dont need chatGPT
 - create script to start yabai, skhd and sketchybar
 - create the pomodory timer in sketchybar so i can use it for non-programming also!!
 - make lock screen use the same background as the desktop (https://www.idownloadblog.com/2023/02/13/how-to-change-lock-screen-wallpaper-mac/)

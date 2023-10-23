@@ -193,16 +193,6 @@ require('packer').startup(function()
         run = function() vim.fn["mkdp#util#install"]() end,
     })
     use 'vimwiki/vimwiki' -- used for markdown notes
-    
-    -- ai motherfucker :P 
-    use({ -- @todo: remove
-        "jackMort/ChatGPT.nvim",
-        requires = {
-            "MunifTanjim/nui.nvim",
-            "nvim-lua/plenary.nvim",
-            "nvim-telescope/telescope.nvim"
-        }
-    })
 
 end)
 
@@ -280,7 +270,6 @@ require("config.harpoon")
 require("config.neo-tree")
 require("config.marks")
 require("config.toggleterm")
-require("config.chatgpt")
 require("config.todo-comments")
 require('config.vimwiki')
 require('config.lualine_custom')
