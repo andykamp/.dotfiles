@@ -9,12 +9,15 @@ function! IsCurrentBufferDiff()
     return 0
 endfunction
 ]])
+
 vim.cmd([[
   command! OpenDiff if IsCurrentBufferDiff() | :q | endif | Gvdiff origin/master
 ]])
+
 vim.cmd([[
   command! OpenDiffFull if IsCurrentBufferDiff() | :q | endif | Gvdiff -U1000 origin/master
 ]])
+
 vim.cmd([[
   command! OpenDiffFromLastCommit if IsCurrentBufferDiff() | :q | endif | Gvdiff HEAD~1
 ]])

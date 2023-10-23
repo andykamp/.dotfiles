@@ -6,6 +6,7 @@ require('gitsigns').setup {
         topdelete = { hl = 'GitGutterDelete', text = '‾' },
         changedelete = { hl = 'GitGutterChange', text = '~' },
     },
+    -- uncommment to use more modern signs
     -- signs = {
     --   add = { text = "▎" },
     --   change = { text = "▎" },
