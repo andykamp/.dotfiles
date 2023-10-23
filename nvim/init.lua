@@ -27,6 +27,7 @@ require('packer').startup(function()
     -- git related plugins
     use 'tpope/vim-fugitive' -- Git commands in nvim
     use 'tpope/vim-rhubarb' -- Fugitive-companion to interact with github (:Gbrowse--> opens git)
+    use "sindrets/diffview.nvim"
     use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } } -- Add git related info in the signs columns and popups
 
     use 'tpope/vim-commentary' -- "gc" to comment visual regions/lines (gcc to comment a line)
@@ -154,12 +155,12 @@ require('config.lsp')
 require('maps')
 require('settings')
 require("config.copilot")
+require("config.diffview")
 require("config.transparant")
 require("config.trouble")
 require("config.hop")
 require("config.colorizer")
 require("config.gitsigns")
-require("config.fugitive")
 require("config.indent-blankline")
 require("config.goyo")
 require("config.telescope")

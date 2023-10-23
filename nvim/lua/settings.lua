@@ -114,15 +114,3 @@ vim.fn.sign_define("DiagnosticSignInfo",
     { text = " ", texthl = "DiagnosticSignInfo" })
 vim.fn.sign_define("DiagnosticSignHint",
     { text = "", texthl = "DiagnosticSignHint" })
-
------------------------------------------------------------------------------
--- git diffs
------------------------------------------------------------------------------
--- vim.cmd [[highlight DiffAdd guifg=#85e89d guibg=#33353f]]
--- vim.cmd [[highlight DiffChange guifg=#9ecbff guibg=#33353f]]
--- vim.cmd [[highlight DiffDelete guifg=#ec7279 guibg=#33353f]]
-vim.cmd [[highlight DiffAdd guibg=#313f33]]
-vim.cmd [[highlight DiffChange guibg=#313f33]]
-vim.cmd [[highlight DiffDelete guibg=#633f3e]]
-vim.cmd [[highlight DiffText guibg=#398443 guifg=NONE]]
-
