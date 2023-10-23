@@ -89,7 +89,6 @@ require('packer').startup(function()
     use 'ThePrimeagen/harpoon' -- use for quick commands
     use 'easymotion/vim-easymotion' -- jump to any word you loook at by <leader><leader>w etc
     use 'junegunn/goyo.vim'
-    use 'akinsho/toggleterm.nvim' -- @todo: remove
     use 'chentoast/marks.nvim'
     use 'mbbill/undotree'
 
@@ -172,7 +171,6 @@ require("config.telescope")
 require("config.harpoon")
 require("config.neo-tree")
 require("config.marks")
-require("config.toggleterm")
 require("config.todo-comments")
 require('config.vimwiki')
 require('config.lualine_custom')
