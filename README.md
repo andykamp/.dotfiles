@@ -18,3 +18,12 @@ Super fast terminal based dev environment
 - **tmux-session** script (custom) for seamless tmux session management
 - **pomodoro-timer** script (custom) for pomodoro time management
 - **vimium** for browser navigation
+
+## Inspiration
+- [iaxhmedxi](https://github.com/ixahmedxi/nvim)
+- [bautistaaa](https://github.com/bautistaaa/dootfiles/tree/master/nvim/lua/trash/plugins/configs)
+- [trashvim](https://github.com/ixahmedxi/trashvim)
+
+## Todo
+- fork edge color and use that 
+- add ufo folds? https://github.com/kevinhwang91/nvim-ufo

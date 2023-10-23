@@ -5,9 +5,10 @@
 -- vim.cmd [[highlight DiffChange guifg=#9ecbff guibg=#33353f]]
 -- vim.cmd [[highlight DiffDelete guifg=#ec7279 guibg=#33353f]]
 vim.cmd [[highlight DiffAdd guibg=#323F3C]]
-vim.cmd [[highlight DiffChange guibg=#323F3C]]
-vim.cmd [[highlight DiffDelete guibg=#633f3e]]
+vim.cmd [[highlight DiffChange guibg=#395750]]
+vim.cmd [[highlight DiffDelete guibg=#2B2429 guifg=#343539]]
 vim.cmd [[highlight DiffText guibg=#323F3C guifg=NONE]]
+vim.opt.fillchars:append { diff = "╱" }
 
 
 local map = vim.api.nvim_set_keymap
