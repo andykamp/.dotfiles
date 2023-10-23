@@ -1,3 +1,6 @@
+local map = vim.api.nvim_set_keymap
+local options = { noremap = true }
+
 require('todo-comments').setup({
       signs = true, -- show icons in the signs column
       sign_priority = 8, -- sign priority
@@ -64,4 +67,4 @@ require('todo-comments').setup({
       },
 })
 
-
+map('n', '<leader>ft', ':TodoQuickFix<CR>', options) -- delete all lowercase marks in buffer
