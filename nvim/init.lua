@@ -43,7 +43,7 @@ require('packer').startup(function()
     use "folke/todo-comments.nvim"
     use("petertriho/nvim-scrollbar")
 
-    use 'xiyaowong/nvim-transparent'
+    use 'xiyaowong/nvim-transparent' --ffdfdsf
     use 'projekt0n/github-nvim-theme'
     use 'joshdick/onedark.vim'
     use 'sonph/onehalf'
