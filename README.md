@@ -17,3 +17,4 @@ Super fast terminal based dev environment
 - **tmux** for terminal multiplexing
 - **tmux-session** script (custom) for seamless tmux session management
 - **pomodoro-timer** script (custom) for pomodoro time management
+- **vimium** for browser navigation
