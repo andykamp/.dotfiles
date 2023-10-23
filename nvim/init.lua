@@ -41,6 +41,7 @@ require('packer').startup(function()
     }
 
     use "folke/todo-comments.nvim"
+    use("petertriho/nvim-scrollbar")
 
     use 'xiyaowong/nvim-transparent'
     use 'projekt0n/github-nvim-theme'
@@ -156,6 +157,7 @@ require('maps')
 require('settings')
 require("config.copilot")
 require("config.diffview")
+require("config.scrollbar")
 require("config.transparant")
 require("config.trouble")
 require("config.hop")
