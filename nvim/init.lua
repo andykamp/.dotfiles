@@ -108,14 +108,11 @@ require('packer').startup(function()
     -- use 'hrsh7th/cmp-path'
     -- use 'hrsh7th/cmp-cmdline'
     use {
-        "smjonas/inc-rename.nvim", -- @todo: remove
+        "smjonas/inc-rename.nvim",
         config = function()
             require("inc_rename").setup()
         end,
     }
-
-    -- Testing
-    use 'vim-test/vim-test' -- @todo: remove
 
     -- Snippets (TODO map to something smooth)
     use 'SirVer/ultisnips' -- create own code snippets located at ./Ultisnips
@@ -146,9 +143,6 @@ require('packer').startup(function()
         end
     }
 
-    -- Time Tracking
-    use 'wakatime/vim-wakatime' -- time Tracking
-
     -- Markdown and documentation
     use 'mattn/calendar-vim' -- calander for wim diary
     use({
@@ -170,7 +164,6 @@ require('settings')
 require("config.copilot")
 require("config.transparant")
 require("config.colorizer")
-require("config.vim-test")
 require("config.gitsigns")
 require("config.fugitive")
 require("config.indent-blankline")
