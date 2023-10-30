@@ -371,6 +371,11 @@ nextd moves forward through the history. It is bound to Alt+→
     - now i t can be added as the other plugins
 
 
+## resizing nvim splits
+- added mappings
+- vert resize: `<leader> < >`
+- hor resize  `<leader> + -`
+- also in neotree one can autoexpand width vie `e`
 
 ## fold
 - use https://github.com/kevinhwang91/nvim-ufo!!!!! 
