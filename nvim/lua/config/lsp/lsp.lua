@@ -72,7 +72,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- Enable the following language servers
-local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'tailwindcss' }
+local servers = { 'pyright', 'tsserver', 'tailwindcss', 'graphql' }
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
         on_attach = on_attach,
@@ -80,21 +80,23 @@ for _, lsp in ipairs(servers) do
     }
 end
 
--- tsserver spesific setup
-lspconfig.tsserver.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    cmd = { vim.env.HOME .. "/.local/share/nvim/lsp_servers/tsserver/node_modules/.bin/typescript-language-server",
-        "--stdio" },
-}
+-- -- tsserver spesific setup
+-- lspconfig.tsserver.setup {
+--     on_attach = on_attach,
+--     capabilities = capabilities,
+--     cmd = { vim.env.HOME .. "/.local/share/nvim/lsp_servers/tsserver/node_modules/.bin/typescript-language-server",
+--         "--stdio" },
+-- }
 
--- tailwind spesific setup
-lspconfig.tailwindcss.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    cmd = { vim.env.HOME ..
-        "/.local/share/nvim/lsp_servers/tailwindcss_npm/node_modules/.bin/tailwindcss-language-server", "--stdio" },
-}
+-- -- tailwind spesific setup
+-- lspconfig.tailwindcss.setup {
+--     on_attach = on_attach,
+--     capabilities = capabilities,
+--     cmd = { "tailwindcss-language-server", "--stdio" },
+--     -- { vim.env.HOME .. "/.local/share/nvim/lsp_servers/tailwindcss_npm/node_modules/.bin/tailwindcss-language-server", "--stdio" },
+--     single_file_support = false,
+--     root_dir = lspconfig.util.root_pattern('tailwind.config.js', 'tailwind.config.cjs', 'tailwind.config.mjs', 'tailwind.config.ts', 'postcss.config.js', 'postcss.config.cjs', 'postcss.config.mjs', 'postcss.config.ts', 'package.json', 'node_modules', '.git')
+-- }
 
 -- @todo: remove no longer used but does not use the lua_ls either
 -- lua spesific setyp
@@ -157,22 +159,22 @@ require'lspconfig'.lua_ls.setup {
   },
 }
 
--- svelte spesific setup
-lspconfig.svelte.setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
-    filetypes = { "svelte" },
-    settings = {
-        plugin = {
-            html = { completions = { enable = true, emmet = false } },
-            svelte = { completions = { enable = true, emmet = false } },
-            css = { completions = { enable = true, emmet = true } },
-        },
-    },
-})
+-- -- svelte spesific setup
+-- lspconfig.svelte.setup({
+--     on_attach = on_attach,
+--     capabilities = capabilities,
+--     filetypes = { "svelte" },
+--     settings = {
+--         plugin = {
+--             html = { completions = { enable = true, emmet = false } },
+--             svelte = { completions = { enable = true, emmet = false } },
+--             css = { completions = { enable = true, emmet = true } },
+--         },
+--     },
+-- })
 
 -- grapql spesific setup
-lspconfig.graphql.setup {}
+-- lspconfig.graphql.setup {}
 
 
 
