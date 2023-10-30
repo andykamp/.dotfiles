@@ -44,6 +44,9 @@ wo.signcolumn = 'yes'
 -- always use cliboard
 vim.cmd [[set clipboard=unnamed]]
 
+-- set higlight on parantes/brachet/... matches 
+vim.cmd [[ highlight MatchParen ctermbg=white guibg=white ]]
+
 -- Set completeopt to have a better completion experience
 o.completeopt = 'menuone,noselect'
 
