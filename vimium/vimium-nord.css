@@ -33,9 +33,9 @@
   /* Aurora */
   --nord11: #bf616a; /* errors */
   --nord12: #d08770; /* annotations */
-  --nord13: #ebcb8b; /* warnings */
+  --nord13: #d38aea; /* warnings */
   --nord14: #a3be8c; /* quoted */
-  --nord15: #b48ead; /* numbers */
+  --nord15: #d38aea; /* numbers */
 }
 
 /* Link hint boxes aka the small ones with the letters */
