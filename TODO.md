@@ -190,6 +190,8 @@ drwxr-xr-x   - anderskampenes 11 Jul  2022 yarn
     - also provides a graphic interface. use `:LspInstallInfo` to see it
 - `lsp_config` has some sane efalt configs for us
     - users that to setup a variaty of servers
+- for different languages see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
+- or see :help lspconfig-all
 
 ## Treeesitter and heighlighting
 - we use  nvim-lsp-installer  to install language servers
