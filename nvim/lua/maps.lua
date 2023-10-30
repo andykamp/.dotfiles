@@ -81,6 +81,11 @@ map('n', '<leader>rn', ':%s/<C-r><C-w>//g<Left><Left>', options)
 -- vim.api.nvim_set_keymap('n', '<C-U>', '<C-U>zz', {noremap = true, silent = true})
 -- vim.api.nvim_set_keymap('n', '<C-D>', '<C-D>zz', {noremap = true, silent = true})
 
+-- resize split
+map('n', '<leader>>', ':vert resize +10<CR>', options)
+map('n', '<leader><', ':vert resize -10<CR>', options)
+map('n', '<leader>+', ':resize +10<CR>', options)
+map('n', '<leader>-', ':resize -10<CR>', options)
 
 -----------------------------------------------------
 -- Helper mappings to train on not using hjkl 
