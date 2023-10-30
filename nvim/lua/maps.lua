@@ -5,6 +5,10 @@
 local map = vim.api.nvim_set_keymap
 local options = { noremap = true }
 
+--tab
+map('n', 'gn', ':tabedit TAB<CR>', { noremap = true, silent = true })
+map('n', 'gN', ':tabclose<CR>', { noremap = true, silent = true })
+
 --Remap space as leader key
 map('n', '<Space>', '', {})
 map('', '<Space>', '<Nop>', { noremap = true, silent = true })
