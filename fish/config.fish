@@ -41,6 +41,10 @@ function findFilesSideProjects
     cd && cd $(find  ./side-projects -mindepth 1 -maxdepth 1 -type d | fzf)
 end
 
+function findFilesZoxide
+    cd $(zoxide query -l | fzf)
+end
+
 function findFilesDotfiles
     cd  ~/dotfiles 
 end
@@ -94,6 +98,7 @@ alias f=findFiles
 alias fa=findFilesAny
 alias fw=findFilesWork
 alias fs=findFilesSideProjects
+alias fz=findFilesZoxide
 
 # ip
 alias ip4=getIPPublic4
@@ -106,19 +111,17 @@ alias c="pbcopy"
 alias g=git
 alias glog1="sh ~/log-git-live.sh" # remap visualizing github tree for convinience
 alias gcom="git log --graph --oneline --all --merges --first-parent master | grep 'Merge pull'"
-
 function stashSearch
     git stash list -S "{$1}"
 end
-
-alias gss=stashSearch
+alias gss=stashSearch # e.g gss "search string"
 
 #vimwiki
 alias wiki="nvim -c VimwikiIndex"
 alias daily="nvim -c VimwikiMakeDiaryNote"
 alias backupvimwiki="cp -R ~/vimwiki ~/Documents/_backup/vimwiki" # takes backup of wimwiki
 
-# kill processes
+# kill processes (never used...)
 alias killps="kill -9(ps | fzf --reverse --layout=reverse --border --height=50% --preview-window=wrap --marker='*' --prompt='Kill ports ')"
 alias killtcp="kill -9(lsof -i tcp | fzf --reverse --layout=reverse --border --height=50% --preview-window=wrap --marker='*' --prompt='Kill ports ')"
 
