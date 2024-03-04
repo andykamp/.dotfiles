@@ -23,7 +23,3 @@ Super fast terminal based dev environment
 - [iaxhmedxi](https://github.com/ixahmedxi/nvim)
 - [bautistaaa](https://github.com/bautistaaa/dootfiles/tree/master/nvim/lua/trash/plugins/configs)
 - [trashvim](https://github.com/ixahmedxi/trashvim)
-
-## Todo
-- fork edge color and use that 
-- add ufo folds? https://github.com/kevinhwang91/nvim-ufo

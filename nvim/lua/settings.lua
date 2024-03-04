@@ -119,3 +119,8 @@ vim.fn.sign_define("DiagnosticSignInfo",
     { text = " ", texthl = "DiagnosticSignInfo" })
 vim.fn.sign_define("DiagnosticSignHint",
     { text = "", texthl = "DiagnosticSignHint" })
+
+-- Set textwidth for Git commit messages
+vim.cmd [[
+  autocmd FileType gitcommit setlocal textwidth=150
+]]

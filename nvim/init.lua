@@ -23,6 +23,7 @@ vim.cmd([[
 local use = require('packer').use
 require('packer').startup(function()
     use 'wbthomason/packer.nvim' -- Package manager
+    use 'nvim-tree/nvim-web-devicons'
 
     -- git related plugins
     use 'tpope/vim-fugitive' -- Git commands in nvim
@@ -43,12 +44,12 @@ require('packer').startup(function()
     use "folke/todo-comments.nvim"
     use("petertriho/nvim-scrollbar")
 
-    use 'xiyaowong/nvim-transparent' --kkdfdf
+    use 'xiyaowong/nvim-transparent' 
     use 'projekt0n/github-nvim-theme'
     use 'joshdick/onedark.vim'
     use 'sonph/onehalf'
     use 'arcticicestudio/nord-vim'
-    use 'sainnhe/edge'
+    use 'andykamp/edge.nvim' -- own fork of edge theme
     use { 'rose-pine/neovim', as = 'rose-pine' } -- config = "vim.cmd('colorscheme rose-pine')"}
 
     use {
@@ -56,7 +57,7 @@ require('packer').startup(function()
         branch = "v2.x",
         requires = {
             "nvim-lua/plenary.nvim",
-            "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
             "MunifTanjim/nui.nvim",
             {
                 -- only needed if you want to use the commands with "_with_window_picker" suffix
@@ -84,7 +85,7 @@ require('packer').startup(function()
         }
     }
 
-    use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } } -- Fancier statusline
+    use { 'nvim-lualine/lualine.nvim', requires = { 'nvim-tree/nvim-web-devicons', opt = true } } -- Fancier statusline
     use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } } -- UI to select things (files, grep results, open buffers...)
     use 'ThePrimeagen/harpoon' -- use for quick commands
     -- use 'easymotion/vim-easymotion' -- jump to any word you loook at by <leader><leader>w etc
@@ -134,7 +135,7 @@ require('packer').startup(function()
 
     use {
         "folke/trouble.nvim",
-        requires = "kyazdani42/nvim-web-devicons"
+        requires = "nvim-tree/nvim-web-devicons"
     }
 
     -- Markdown and documentation
@@ -149,12 +150,14 @@ end)
 
 
 vim.cmd [[set termguicolors]]
+vim.gedge_better_performance = 1
 vim.cmd [[colorscheme edge]]
 
 require('config.nvim-autopairs')
 require('config.lsp')
 require('maps')
 require('settings')
+require('nvim-web-devicons')
 require("config.copilot")
 require("config.diffview")
 require("config.scrollbar")

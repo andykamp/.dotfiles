@@ -5,8 +5,8 @@ local options = { noremap = true }
 vim.g.UltiSnipsSnippetDirectories = { '~/.config/nvim/UltiSnips' }
 vim.g.UltiSnipsExpandTrigger = "<Tab>"
 vim.g.UltiSnipsEditSplit = "vertical" -- If you want :UltiSnipsEdit to split your window.
-vim.g.UltiSnipsJumpForwardTrigger = "" -- so not copilot fucks up with ultisnips
-vim.g.UltiSnipsJumpBackwardTrigger = "" -- so not copolot fucks up with ultisnips
+vim.g.UltiSnipsJumpForwardTrigger = "<F13>" -- so not copilot fucks up with ultisnips
+vim.g.UltiSnipsJumpBackwardTrigger = "<F14>"-- so not copolot fucks up with ultisnips
 map('n', '<leader>uu', ':UltiSnipsEdit<CR>', options)
 map('n', '<leader>ual', ':UltiSnipsEdit all<CR>', options)
 map('n', '<leader>ujs', ':UltiSnipsEdit javascript<CR>', options)

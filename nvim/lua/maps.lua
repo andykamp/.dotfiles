@@ -125,5 +125,33 @@ _G.toggle_hjkl = function()
     hjkl_enabled = not hjkl_enabled
 end
 
+_G.toggle_hjkl_full = function()
+    if hjkl_enabled then
+        -- disable hjkl and HJKL
+        vim.api.nvim_set_keymap('n', 'h', [[v:count ? 'h' : '<Nop>']], {expr = true, noremap = true, silent = true})
+        vim.api.nvim_set_keymap('n', 'j', [[v:count ? 'j' : '<Nop>']], {expr = true, noremap = true, silent = true})
+        vim.api.nvim_set_keymap('n', 'k', [[v:count ? 'k' : '<Nop>']], {expr = true, noremap = true, silent = true})
+        vim.api.nvim_set_keymap('n', 'l', [[v:count ? 'l' : '<Nop>']], {expr = true, noremap = true, silent = true})
+        vim.api.nvim_set_keymap('n', 'H', '<Nop>', {noremap = true, silent = true})
+        vim.api.nvim_set_keymap('n', 'J', '<Nop>', {noremap = true, silent = true})
+        vim.api.nvim_set_keymap('n', 'K', '<Nop>', {noremap = true, silent = true})
+        vim.api.nvim_set_keymap('n', 'L', '<Nop>', {noremap = true, silent = true})
+    else
+        -- re-enable hjkl and HJKL
+        vim.api.nvim_set_keymap('n', 'h', 'h', {noremap = true, silent = true})
+        vim.api.nvim_set_keymap('n', 'j', 'j', {noremap = true, silent = true})
+        vim.api.nvim_set_keymap('n', 'k', 'k', {noremap = true, silent = true})
+        vim.api.nvim_set_keymap('n', 'l', 'l', {noremap = true, silent = true})
+        vim.api.nvim_set_keymap('n', 'H', '5h', {noremap = true, silent = true})
+        vim.api.nvim_set_keymap('n', 'J', '5j', {noremap = true, silent = true})
+        vim.api.nvim_set_keymap('n', 'K', '5k', {noremap = true, silent = true})
+        vim.api.nvim_set_keymap('n', 'L', '5l', {noremap = true, silent = true})
+    end
+
+    -- Toggle the status
+    hjkl_enabled = not hjkl_enabled
+end
+
 -- Map <Space>d to toggle the hjkl and HJKL
-vim.api.nvim_set_keymap('n', '<Space>d', '<Cmd>lua _G.toggle_hjkl()<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<leader>d', '<Cmd>lua _G.toggle_hjkl()<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<leader>D', '<Cmd>lua _G.toggle_hjkl_full()<CR>', {noremap = true, silent = true})

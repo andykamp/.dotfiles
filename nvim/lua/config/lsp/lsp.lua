@@ -80,6 +80,24 @@ for _, lsp in ipairs(servers) do
     }
 end
 
+lspconfig.tsserver.setup {
+  -- other options
+    on_attach = on_attach,
+    capabilities = capabilities,
+    handlers = {
+    ['textDocument/definition'] = function(err, result, method, ...)
+      -- Check if result is a non-empty list
+      if vim.tbl_islist(result) and #result > 0 then
+        -- Return the first result to the handler
+        return vim.lsp.handlers['textDocument/definition'](err, {result[1]}, method, ...)
+      end
+
+      -- Otherwise, call the default handler
+      vim.lsp.handlers['textDocument/definition'](err, result, method, ...)
+    end
+    }
+}
+
 -- -- tsserver spesific setup
 -- lspconfig.tsserver.setup {
 --     on_attach = on_attach,

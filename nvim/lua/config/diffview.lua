@@ -44,11 +44,20 @@ local options = { noremap = true }
 -- vim.cmd('command! DiffNext if IsCurrentBufferDiff() | :q | endif | :cn | :OpenDiff')
 -- vim.cmd('command! DiffPrev if IsCurrentBufferDiff() | :q | endif | :cp | :OpenDiff')
 
-map('n', '<leader>gg', ':DiffviewOpen <CR>', options) -- current branch
-map('n', '<leader>gx', ':DiffviewClose <CR>', options) -- current branch
+map('n', '<leader>gg', ':DiffviewOpen <CR>', options) -- current branch (same as fugitive)
+map('n', '<leader>gx', ':DiffviewClose <CR>', options) -- closes diffview
 
 map('n', '<leader>ga', ':DiffviewFileHistory <CR>', options) -- current branch
 map('n', '<leader>gl', ':DiffviewFileHistory % <CR>', options) -- current file 
+
+map('n', '<leader>gl', ':DiffviewFileHistory % <CR>', options) -- current file 
+-- map('n', '<leader>gt', ':DiffviewFileHistory -g --range=stash:<CR>', options) -- current file 
+
+-- map('n', '<leader>gl', ':DiffviewFileHistory % --base=HEAD~1 <CR>', options) -- current file 
+-- map('n', '<leader>gl', ':DiffviewFileHistory % --base=origin/master <CR>', options) -- current file 
+-- " Compare history against a fixed base:
+-- :DiffviewFileHistory --base=HEAD~1
+-- :DiffviewFileHistory --base=origin/master
 
 -- use tab and shift-tab to navigate through diff sections
 
