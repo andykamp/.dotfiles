@@ -177,6 +177,10 @@ drwxr-xr-x   - anderskampenes 11 Jul  2022 yarn
 - https://github.com/olimorris/tmux-pomodoro-plus
 - @todo: add a popup for showing the timer in big-view [see implementation here](https://github.com/thegoldgoat/pomodoro-countdown)
 - @todo: add notifications
+- commands
+    - z pomodoro-countdown
+    - python pomodoro-timer.py
+
 
 ## Tmux
 - use `tmp` as tmux plugin manager
@@ -193,6 +197,8 @@ drwxr-xr-x   - anderskampenes 11 Jul  2022 yarn
     - users that to setup a variaty of servers
 - for different languages see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
 - or see :help lspconfig-all
+- install lua-language server via `brew install lua-language-server` 
+- install tailwindcss-language-server via `brew install tailwindcss-language-server` 
 
 ## Treeesitter and heighlighting
 - we use  nvim-lsp-installer  to install language servers
@@ -335,6 +341,7 @@ nextd moves forward through the history. It is bound to Alt+→
 
 ## sketchybar
 - run  sketchybar --config $HOME/side-projects/SketchyBar/sketchybarrc 
+- could also set upt the path as described here https://felixkratz.github.io/SketchyBar/setup
 - to add a plugin:
     - create a folder in plugin
     - make it executable with chmod +x or chmod 755
@@ -359,4 +366,36 @@ nextd moves forward through the history. It is bound to Alt+→
 - zR — open all folds on current buffer
 - zj — cursor is moved to next fold
 - zk — cursor is moved to previous fold
+- 
 - zi - toggle fold, but save fold state
+
+## Install new language
+- install language server via homebrew. e.g `brew install lua-language-server` or `bew install go`
+- LSPInstall <language> to install the language server
+- TSInstall <language> to install the treesitter parser (syntax higlighting)
+
+
+## Slack
+- cmd + k -->  command line
+- up/down arrow keys --> go up
+- left/right to --> into tread 
+- cmd + control + left/right --> go between section 
+- cmd + . --> close right panel
+- cmd + shift + d --> open/close nav panel 
+- cmd + n --> new message
+- message
+    - up | cmd + up --> edit last messsage
+    - e --> edit
+    - r -- emoji reaction
+    - u --> mark unread
+    - m --> remind me 
+- huddle
+    - cmd + shift + h to enter huddle
+    - cmd + shift + space --> mute
+    - V --> video ?? or just for calls
+- quick jump
+    - cmd + shift + t --> treds
+    - cmd + shift + a --> unread
+    - cmd + shift + w --> reopen last closed window 
+    - option + up/down to go up/down channels
+    - cmd + u --> add file 
