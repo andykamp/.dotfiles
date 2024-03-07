@@ -128,3 +128,5 @@ alias killtcp="kill -9(lsof -i tcp | fzf --reverse --layout=reverse --border --h
 # edit host file
 alias nvhost="sudo nvim /private/etc/hosts"
 
+alias pom="z pomodoro-countdown && python3 pomodoro-timer.py"
+alias sketch="sketchybar --config $HOME/side-projects/SketchyBar/sketchybarrc"
