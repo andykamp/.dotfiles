@@ -18,6 +18,7 @@ Super fast terminal based dev environment
 - **tmux-session** script (custom) for seamless tmux session management
 - **pomodoro-timer** script (custom) for pomodoro time management
 - **vimium** for browser navigation
+- chrome shortcuts like l3 --> localhost:3000 (OP!!)
 
 ## Inspiration
 - [iaxhmedxi](https://github.com/ixahmedxi/nvim)

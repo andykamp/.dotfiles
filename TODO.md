@@ -1,6 +1,11 @@
 # .dotfiles Todos
 
 ## new year resolution
+-  end day retro
+-  better test pipeline 
+-  use stash names 
+    - git stash push -m "should use name for long-living-stashes"
+- get to 100 wpm typing speed
 - start dressign up
 - try to be less self aware in every singlge moment. always be in the moment. Whatever else i can do nothing about. appearanse, er whatever. if i glow of un-self-awareness i win. 
 - keep appearnce up to date (harikut, tan etc all eyar around. new year new me.. be a better person next time i meat someone)
@@ -16,6 +21,12 @@
 - separate todo and notes/readme into different files
 
 - movement
+    - more generic snippets? https://github.com/rafamadriz/friendly-snippets
+
+    - yank is very enoying. tpope created some util for this...
+    - use macros
+    - always relative numbers on neotree
+    - set z to be in the middle always on U and D (primagen?)
     - fix the pair parantenses color from white....
     - fix <leader>D shortcut
     - use zz to center the screen around the cursor (M will move cursor to current midscreen)
@@ -58,6 +69,7 @@
         -  use 4 c-h/l to jump between splits the same way as with vertical movementes
     - use paragraph jumping more
     - marks
+        - add @cr: comments to the todo-comments
         - start using them more
         - use harpoon more
         - make harpoonn and marks more similar in mapping
@@ -80,6 +92,8 @@
     - use riw insted of ciw/diw
     - quiclist actions! rename every file etc
     - lsp and treesitter
+        - autocomplete
+        - completion by default when i enter inset mode .. now i have to start typing
         - fix eslint/prettier in placepoint (might need to add prettier in repo)
         - look at pategoen lsp
         - use code action `leader+c` more often
@@ -113,6 +127,7 @@
 
 
 - tmux
+    - better shortcuts for/in copy mode?
     - saving tmux session is on some weird key
     - fix higlighting on active panes in tmux. atleast fix border highlight
     - POMODORO
@@ -135,9 +150,12 @@
     - fix tmux bar and limelight bar in vim
 
 - terminal
+    - remove zsh, neofetch bash?
+    - remove neofetch
     - remove github options in startupship
     - warp terminal
     - add timestamp to terminal
+    - remove fish stuff that is not used..
     - i want fish vim to higlight instert/vim mode so i know if i can scroll etc
     - fzf
         - use vim shortcuts in fzf ???
@@ -162,6 +180,7 @@
     - look at https://github.com/atidyshirt/MacOS-Dotfiles for inspiration
 
 - worflow
+    - shortcut to close all notification
     - write the essential apps/workflow down in readme
         - postman and hoppscotch.io
         - ....
@@ -217,7 +236,26 @@ desk
     - see image on phone for font etc
     - chrome same color as github
     - jira black theme same color as chrome
+    - use dressing for UI?
+    - 
     - COLORSCHEME 
+            - insp 
+                - see https://vscodethemes.com/e/sldobri.bunker/dobri-next-a00-black?language=javascript
+            - update vimium color
+            - experiment with highlight MyGroup guifg=#FF0000 guibg=#FFFF00
+            - matching parantesematching parantesess
+                - highlight MatchParen ctermbg=white guibg=white
+            - icons
+                - icons have very weird colors
+                - tried to add the nvim-web-devicons, but it does not work....
+                - can update the config (see https://github.com/nvim-tree/nvim-web-devicons/tree/master)
+                - can fix manually (see https://github.com/bryanmylee/vim-colorscheme-icons) 
+            - markdown is very white
+            - string values are to neon. should be more dimmed
+            - yellow is to ugly and bright
+ 
+        - fork edge color and use that 
+        - remap the green to red? looked nice, but maybe more towards github
         - more black/gray/white
         - diffuse the non-important code stuff. want the important stuff to POP while the rest is in the background
         - fix colorscheme for pomordory timer aswell
@@ -249,50 +287,60 @@ desk
         ```
 
 ## unsorted TODOES
-- copypaste pomodoro to dotfiles
-- copypaste sketchybar to dotfiles
-- create a startupscript that can be accessed from dotfile root that
-    - ** if not already started
-    - start pomodoro
-    - starts sketchybar
-    - initiates yabai and skhd 
-    - verifies if yabai has the nessesarry permissions
-- shortcut to close all notification
-- completion by default when i enter inset mode .. now i have to start typing
-- always relative numbers on neotree
-- set z to be in the middle always on U and D (primagen?)
-- vim better movemetnt plugin
-- yank is very enoying. tpope created something for this...
-- remove fish stuff that is not used..
-- remove neofetch
-- fork edge color and use that 
-    - remap the green to red? looked nice, but maybe more towards github
-- add ufo folds? https://github.com/kevinhwang91/nvim-ufo
-- remove zsh, neofetch bash?
-- add @cr: comments to the todo-comments
-- use dressing?
-- add relative numbers automatically to neo-tree
-- alwas senter cursor when going up and down (like primagen?)
-- snippets? https://github.com/rafamadriz/friendly-snippets
-- sketchybar
-    - get it into the dotfiles
-        - standardize the color of the pomodoro
-- pomodoro
-    - get it into the dotfiles
-- colorscheme:
-    - insp 
-        - see https://vscodethemes.com/e/sldobri.bunker/dobri-next-a00-black?language=javascript
-    - update vimium color
-    - experiment with highlight MyGroup guifg=#FF0000 guibg=#FFFF00
-    - matching parantesematching parantesess
-        - highlight MatchParen ctermbg=white guibg=white
-    - icons
-        - icons have very weird colors
-        - tried to add the nvim-web-devicons, but it does not work....
-        - can update the config (see https://github.com/nvim-tree/nvim-web-devicons/tree/master)
-        - can fix manually (see https://github.com/bryanmylee/vim-colorscheme-icons) 
-    - markdown is very white
-    - string values are to neon. should be more dimmed
-    - yellow is to ugly and bright
-    - alacrity:
-        - 
+- gitdiffs
+    -  @todo: check master vs main and also if on master/main exclude the --range so we get everything. will currently fail
+- unify dotfiles
+    - copypaste pomodoro to dotfiles
+    - copypaste sketchybar to dotfiles
+    - create a startupscript that can be accessed from dotfile root that
+        - ** if not already started
+        - start pomodoro
+        - starts sketchybar
+        - initiates yabai and skhd 
+        - verifies if yabai has the nessesarry permissions
+        
+- mobile images
+
+    - select, swap, move and peek
+- leap.nvim
+- clever-f: https://github.com/rhysd/clever-f.vim?tab=readme-ov-file
+- flit.nvim
+- quick-scope.nvim
+- flash.nvim
+- ADD THE VISUAL SELECTION EXPAND FOR THOMAS
+- https://github.com/christoomey/vim-tmux-navigator to move along vim and tmux
+- resize tmux split. hide/show split (so i can have vim and tmux open, instead of using vim tab with terminal)
+- prefix- N for backward  
+- transient prompts:      https://ohmyposh.dev/docs/configuration/transient#:~:text=Transient%20prompt%2C%20when%20enabled%2C%20replaces,the%20previous%20primary%20prompt%20run
+- wez terminal ?
+- use signature/hover inside insert to show all types
+- replace s with /
+- :TodoTelescope or :TodoTrouble
+- open last split file
+- use lsp sage and nvim-bqf like thomas for info manouvering
+- GO-TO function/const name. so that i can go to definition. maybe a w/b for next signature or something?
+- @thomas: fyi, ser du bruker en gammel versjon av colorizer, nvchad har forket en nyere versjon her: https://github.com/NvChad/nvim-colorizer.lua 
+    - tailwind=true i config for å få taiwind farger inline
+    - også color preview i viturel texts <3
+- https://flak.tedunangst.com/post/terminal-smooth-scrolling
+- hotkey for disaple line wrapping (option + z)
+- og kan pipe output til nvim buffer slik at man kan formattere.
+- terminal commands/tools (unix utils)
+    - bruke e.g ls | xargs for å formattere input/params til neste input. feks finn alle png via ls, pipe gjennom xargs også pipe til en annen kommando
+    - sed (streaming editor). search and replace in files. kan brukes som command line util
+    - jq (json query). bruke dotpath til a gjore operations på objects. see primagen video
+    - OBS: forsiktig med å bruke xargs med rm etc. bedre å først outputte til cat/bat/less for verifisering også pipe til rm etterpå
+-make the keyReapeat and InitalKeyRepoeat faster. The UI settings are not fast enough
+- consider using delayTrain.nvim. it is a plugin that trains the delay of the keypresses so i cannot hammer the hjkl keys
+
+- use [% and ]& and [m and ]m  and [{ and ]} to jump between scopes : https://vi.stackexchange.com/questions/16829/moving-to-an-outer-block
+- 
+- skru av automatic comment continuation for line comments, men beholde det for block comments. irr når man tar o i normal mode også må man ta cc for å escape kommentaren 
+- relative line numbers on neotree!!getMatchingService!
+- use more text-objects. found a site with the extra ones 
+- Chrome devtool shortcuts
+- gitSigns for entire PR: https://github.com/lewis6991/gitsigns.nvim/issues/268
+- harpoon relative marks.  currently it is static
+- octo.nvim for github review
+- yadm dotfile manager
+- do i need ultisnippets??? rewrite the entire lsp stuff with readme and setup script
