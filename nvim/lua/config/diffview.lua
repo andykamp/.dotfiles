@@ -44,13 +44,17 @@ local options = { noremap = true }
 -- vim.cmd('command! DiffNext if IsCurrentBufferDiff() | :q | endif | :cn | :OpenDiff')
 -- vim.cmd('command! DiffPrev if IsCurrentBufferDiff() | :q | endif | :cp | :OpenDiff')
 
-map('n', '<leader>gg', ':DiffviewOpen <CR>', options) -- current branch (same as fugitive)
+-- @todo: check master vs main and also if on master/main exclude the --range so we get everything. will currently fail
+map('n', '<leader>gg', ':DiffviewOpen origin/master...HEAD <CR>', options) -- current branch (same as fugitive)
+      
+
 map('n', '<leader>gx', ':DiffviewClose <CR>', options) -- closes diffview
 
-map('n', '<leader>ga', ':DiffviewFileHistory <CR>', options) -- current branch
-map('n', '<leader>gl', ':DiffviewFileHistory % <CR>', options) -- current file 
+map('n', '<leader>ga', ':DiffviewFileHistory --range=origin..HEAD <CR>', options) --  all commits on current branch from the point it diverged from origin/master
+-- map('n', '<leader>ga', ':DiffviewFileHistory % --range=origin..HEAD <CR>', options) --  all commits on current branch from the point it diverged from origin/master
+map('n', '<leader>gm', ':DiffviewFileHistory <CR>', options) -- all commits on branch
+map('n', '<leader>gl', ':DiffviewFileHistory % --range=origin..HEAD <CR>', options) -- all commits on current file 
 
-map('n', '<leader>gl', ':DiffviewFileHistory % <CR>', options) -- current file 
 -- map('n', '<leader>gt', ':DiffviewFileHistory -g --range=stash:<CR>', options) -- current file 
 
 -- map('n', '<leader>gl', ':DiffviewFileHistory % --base=HEAD~1 <CR>', options) -- current file 
