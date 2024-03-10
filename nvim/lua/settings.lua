@@ -41,7 +41,7 @@ o.updatetime = 250
 wo.signcolumn = 'yes'
 
 -- fold color 
-vim.cmd [[ highlight Folded guibg=#d38aea]]
+-- vim.cmd [[ highlight Folded guibg=#d38aea]]
 
 -- always use cliboard
 vim.cmd [[set clipboard=unnamed]]
