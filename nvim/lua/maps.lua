@@ -158,3 +158,7 @@ end
 -- Map <Space>d to toggle the hjkl and HJKL
 vim.api.nvim_set_keymap('n', '<leader>d', '<Cmd>lua _G.toggle_hjkl()<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<leader>D', '<Cmd>lua _G.toggle_hjkl_full()<CR>', {noremap = true, silent = true})
+
+-- move out/in of scope with [% and ]& or [m and ]M
+vim.api.nvim_set_keymap('n', '<leader>o', '[m', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<leader>i', ']M', {noremap = true, silent = true})
