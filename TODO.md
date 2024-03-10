@@ -344,3 +344,6 @@ desk
 - octo.nvim for github review
 - yadm dotfile manager
 - do i need ultisnippets??? rewrite the entire lsp stuff with readme and setup script
+- switch typescript server? https://github.com/pmizio/typescript-tools.nvim
+- multi cursor? https://github.com/mg979/vim-visual-multi
+- auto session (also for tmux maybe): https://github.com/rmagatti/auto-session
