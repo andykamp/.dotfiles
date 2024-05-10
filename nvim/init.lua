@@ -22,6 +22,21 @@ vim.cmd([[
 
 local use = require('packer').use
 require('packer').startup(function()
+    -- @todo:added for folds
+    -- use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
+
+    -- use {
+    --   "folke/which-key.nvim",
+    --   config = function()
+    --     vim.o.timeout = true
+    --     vim.o.timeoutlen = 0
+    --     require("which-key").setup {
+    --       -- your configuration comes here
+    --       -- or leave it empty to use the default settings
+    --       -- refer to the configuration section below
+    --     }
+    --   end
+    -- }
     use 'wbthomason/packer.nvim' -- Package manager
     use 'nvim-tree/nvim-web-devicons'
 
