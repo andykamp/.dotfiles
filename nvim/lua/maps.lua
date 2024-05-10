@@ -35,8 +35,25 @@ map('v', 'K', '5k', options)
 map('n',  '<leader>,',  ':nohlsearch<CR>', options)
 
 -- close loclist/quiclist
-map('n', '<leader>.', ':cclose<CR>', options)
-map('n', '<leader>.', ':cclose<CR>', options)
+vim.api.nvim_set_keymap('n', '<leader>.', [[<Cmd>lua ToggleQuickfix()<CR>]], { noremap = true, silent = true })
+
+function ToggleQuickfix()
+  local windows = vim.fn.getwininfo()
+  local isQuickfixOpen = false
+
+  for _, window in pairs(windows) do
+    if window.quickfix == 1 then
+      isQuickfixOpen = true
+      break
+    end
+  end
+
+  if isQuickfixOpen then
+    vim.cmd('cclose')
+  else
+    vim.cmd('copen')
+  end
+end
 map('n', '(', ':cn<CR>', options)
 map('n', ')', ':cp<CR>', options)
 -- always open quiclist at very bottom
