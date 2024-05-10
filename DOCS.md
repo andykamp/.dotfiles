@@ -103,6 +103,8 @@ drwxr-xr-x   - anderskampenes 11 Jul  2022 yarn
 - TODO alias them to replace DEFAULY COMMANDS
 
 
+# MaC defaults
+#
 
 ## 🤷 TODO look into
 - hold w, b, e, or j/k to go superfast. Could consider it if I speeeeeeeed up the button delay. 
@@ -139,6 +141,7 @@ drwxr-xr-x   - anderskampenes 11 Jul  2022 yarn
     - [✗] cannot open random tmux panes
     - [✗] ff does not work anymore
 - eslint warning does not work properly in placepoint monorepo
+    - YES IT DOES. i just need to do LspInstall eslint
 - tsx colors not working
 - lss.references opens quiqlist
 - want to make a selction bord OR in general add "more stuff to surround" at the same time

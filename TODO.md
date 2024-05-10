@@ -347,3 +347,22 @@ desk
 - switch typescript server? https://github.com/pmizio/typescript-tools.nvim
 - multi cursor? https://github.com/mg979/vim-visual-multi
 - auto session (also for tmux maybe): https://github.com/rmagatti/auto-session
+- use :enew to open a draft buffer
+- use :InspectTree for debugging of fold and text-objects
+- RE-order the fucking inpujts to be inline or newlines..... see thomas
+- how to use undotree properly
+- rename command+num to go to tmux window. add naming to windows?j
+- create startup scripts?? pom and sketch atleast. also make sure skhd and yabai is working
+- use more non-default register e.g "dD and "cciw and "yiw
+- look into: https://github.com/ziontee113/SelectEase
+- use visual block with control+ V
+- vimium https://github.com/philc/vimium
+    - learn about visual mode https://github.com/philc/vimium/wiki/Visual-Mode
+    - use ge to edit urls etc
+    - use marks
+    - use bookmarks that i can easily find again!!!!
+    - use vc for caret mode
+- use gS more!
+- change order of params
+    - use https://github.com/echasnovski/mini.operators for replacing text
+- use yanky for yank!!!
