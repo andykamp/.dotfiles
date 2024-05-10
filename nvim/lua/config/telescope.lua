@@ -27,7 +27,33 @@ require('telescope').setup {
     },
 }
 
+_G.grep_folders_by_name= function()
+  -- Input folder name pattern
+  local folder_pattern = vim.fn.input("Enter folder name pattern: ")
 
+  -- Define the root path for the search; typically this would be your project's root directory
+  local root_path = vim.fn.getcwd()  -- Defaults to current working directory
+
+  -- Use 'find' command to get directories matching the pattern recursively
+  local find_command = string.format("find %s -type d -name '*%s*' -print", vim.fn.shellescape(root_path), folder_pattern)
+  local dirs = vim.fn.systemlist(find_command)
+
+  if vim.v.shell_error ~= 0 then
+    print("Error finding directories: " .. table.concat(dirs, "\n"))
+    return
+  end
+
+  if #dirs == 0 then
+    print("No directories found matching the pattern.")
+    return
+  end
+
+  -- Open Telescope's live_grep focused on found directories
+  require('telescope.builtin').live_grep({ search_dirs = dirs })
+end
+
+-- live grep inside folders you specify
+vim.api.nvim_set_keymap('n', '<leader>fa', '<cmd>lua _G.grep_folders_by_name()<CR>', { noremap = true, silent = true })
 
 -- file movement
 map('n', '<leader>ff', [[<cmd>lua require('telescope.builtin').find_files({previewer = false, hidden=true})<CR>]], { noremap = true, silent = true })
