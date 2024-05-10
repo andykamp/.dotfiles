@@ -90,6 +90,7 @@ require('packer').startup(function()
     use 'ThePrimeagen/harpoon' -- use for quick commands
     -- use 'easymotion/vim-easymotion' -- jump to any word you loook at by <leader><leader>w etc
     use("phaazon/hop.nvim")
+    use("folke/flash.nvim")
 
     use 'junegunn/goyo.vim'
     use 'chentoast/marks.nvim'
@@ -164,6 +165,7 @@ require("config.scrollbar")
 require("config.transparant")
 require("config.trouble")
 require("config.hop")
+require("config.flash")
 require("config.colorizer")
 require("config.gitsigns")
 require("config.indent-blankline")
@@ -175,3 +177,4 @@ require("config.marks")
 require("config.todo-comments")
 require('config.vimwiki')
 require('config.lualine_custom')
+require('config.quickfix')
