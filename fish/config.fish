@@ -130,3 +130,4 @@ alias nvhost="sudo nvim /private/etc/hosts"
 
 alias pom="z pomodoro-countdown && python3 pomodoro-timer.py"
 alias sketch="sketchybar --config $HOME/side-projects/SketchyBar/sketchybarrc"
+alias info="neofetch"
