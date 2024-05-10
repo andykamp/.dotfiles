@@ -117,6 +117,8 @@ require('packer').startup(function()
         end,
     }
 
+    -- use 'AndrewRadev/splitjoin.vim'
+    use 'echasnovski/mini.splitjoin'
     -- Snippets (TODO map to something smooth)
     use 'SirVer/ultisnips' -- create own code snippets located at ./Ultisnips
     use({
@@ -177,4 +179,5 @@ require("config.marks")
 require("config.todo-comments")
 require('config.vimwiki')
 require('config.lualine_custom')
+require('config.splitjoin')
 require('config.quickfix')
