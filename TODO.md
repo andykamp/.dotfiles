@@ -366,3 +366,5 @@ desk
 - change order of params
     - use https://github.com/echasnovski/mini.operators for replacing text
 - use yanky for yank!!!
+- create a delete shortcut (<cmd>e??) to remove to prev camelcase/_/.... to save time
+- https://github.com/roobert/tailwindcss-colorizer-cmp.nvim

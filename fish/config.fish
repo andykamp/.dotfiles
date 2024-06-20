@@ -3,6 +3,11 @@ set fish_greeting
 
 envsource ~/dotfiles/.env
 
+# needed to run go layer-server2
+set -x PATH $PATH (go env GOPATH)/bin
+set -x PKG_CONFIG_PATH /usr/local/lib/pkgconfig $PKG_CONFIG_PATH # first run `brew install proj` 
+
+
 # configure fzf if one want
 set fzf_fd_opts --hidden --exclude=.git
 fzf_configure_bindings --directory=\cs --variables=\e\cv

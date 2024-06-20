@@ -75,7 +75,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- Enable the following language servers
-local servers = { 'pyright', 'tsserver', 'tailwindcss', 'graphql', "eslint" }
+local servers = { 'pyright', 'tsserver', 'tailwindcss', 'graphql', "eslint", "gopls" }
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
         on_attach = on_attach,
