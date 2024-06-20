@@ -37,6 +37,7 @@ require('packer').startup(function()
     --     }
     --   end
     -- }
+
     use 'wbthomason/packer.nvim' -- Package manager
     use 'nvim-tree/nvim-web-devicons'
 
@@ -132,8 +133,12 @@ require('packer').startup(function()
         end,
     }
 
+    -- -- yarn type-check for typescript that puts it directly in your quickfix list
+    -- use 'dmmulroy/tsc.nvim'
+
     -- use 'AndrewRadev/splitjoin.vim'
     use 'echasnovski/mini.splitjoin'
+
     -- Snippets (TODO map to something smooth)
     use 'SirVer/ultisnips' -- create own code snippets located at ./Ultisnips
     use({
@@ -196,3 +201,4 @@ require('config.vimwiki')
 require('config.lualine_custom')
 require('config.splitjoin')
 require('config.quickfix')
+-- require('config.tsc')
