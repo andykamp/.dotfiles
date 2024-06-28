@@ -2,63 +2,68 @@
 -- This file contaqins all general vim settings
 -----------------------------------------------------------------------------
 
-local o = vim.o
-local wo = vim.wo
+local o          = vim.o
+local wo         = vim.wo
+local bo         = vim.bo
 -- local bo = vim.bo
 
-o.cursorline = true
-o.autoindent = true
-o.cmdheight=1
-o.expandtab = true
-o.hidden= true
-o.ignorecase= true
-o.smartcase= true
-o.laststatus=2
-o.linebreak= true
-o.matchtime=1
-o.modeline = true
-o.mouse='a'
-o.breakindent = true
-o.backup = false
-o.cursorcolumn = false
-o.foldenable = false
-o.hlsearch = true
-o.number = true
-o.relativenumber= true
-o.swapfile  = false
-o.numberwidth=1
-o.pumheight =10
-o.scrolloff=0
-o.shiftwidth=4
-o.showcmd = true
-o.showmatch= true
-o.smartindent = true
-o.tabstop=4
-o.undofile = true
-o.hidden = true
-o.updatetime = 250
+bo.softtabstop   = 2
+o.cursorline     = true
+o.autoindent     = true
+o.cmdheight      = 1
+o.expandtab      = true
+o.hidden         = true
+o.ignorecase     = true
+o.smartcase      = true
+o.laststatus     = 2
+o.linebreak      = true
+o.matchtime      = 1
+o.modeline       = true
+o.mouse          = 'a'
+o.breakindent    = true
+o.backup         = false
+o.cursorcolumn   = false
+o.foldenable     = false
+o.hlsearch       = true
+o.number         = true
+o.relativenumber = true
+o.swapfile       = false
+o.numberwidth    = 1
+o.pumheight      = 10
+o.scrolloff      = 0
+o.showcmd        = true
+o.showmatch      = true
+o.smartindent    = true
+o.tabstop        = 2
+o.shiftwidth     = 2
+o.undofile       = true
+o.hidden         = true
+o.updatetime     = 250
+o.linespace      = 2
+o.termguicolors  = true
+
 
 wo.signcolumn = 'yes'
 
--- fold color 
+-- fold color
 -- vim.cmd [[ highlight Folded guibg=#d38aea]]
 
 -- always use cliboard
 vim.cmd [[set clipboard=unnamed]]
 
--- set higlight on parantes/brachet/... matches 
+-- set higlight on parantes/brachet/... matches
 vim.cmd [[ highlight MatchParen ctermfg=yellow guifg=yellow ]]
 
 -- Set completeopt to have a better completion experience
 o.completeopt = 'menuone,noselect'
 
 -- Override tab spacing for javascript and typescript and html
- vim.api.nvim_command('autocmd FileType javascript setlocal shiftwidth=2 tabstop=2')
- vim.api.nvim_command('autocmd FileType javascriptreact setlocal shiftwidth=2 tabstop=2')
- vim.api.nvim_command('autocmd FileType typescript setlocal shiftwidth=2 tabstop=2')
- vim.api.nvim_command('autocmd FileType typescriptreact setlocal shiftwidth=2 tabstop=2')
- vim.api.nvim_command('autocmd FileType html setlocal shiftwidth=2 tabstop=2')
- vim.api.nvim_command('autocmd FileType graphql setlocal shiftwidth=2 tabstop=2')
+vim.api.nvim_command('autocmd FileType javascript setlocal shiftwidth=2 tabstop=2')
+vim.api.nvim_command('autocmd FileType javascriptreact setlocal shiftwidth=2 tabstop=2')
+vim.api.nvim_command('autocmd FileType typescript setlocal shiftwidth=2 tabstop=2')
+vim.api.nvim_command('autocmd FileType typescriptreact setlocal shiftwidth=2 tabstop=2')
+vim.api.nvim_command('autocmd FileType html setlocal shiftwidth=2 tabstop=2')
+vim.api.nvim_command('autocmd FileType graphql setlocal shiftwidth=2 tabstop=2')
 
 -----------------------------------------------------------------------------
 -- Highlight on yank
@@ -69,7 +74,7 @@ vim.cmd [[
     autocmd TextYankPost * silent! lua vim.highlight.on_yank()
   augroup end
 ]]
-    
+
 -----------------------------------------------------------------------------
 -- autocammand setting .mdx to markdown
 -----------------------------------------------------------------------------
@@ -78,7 +83,7 @@ vim.cmd [[
 ]]
 
 -----------------------------------------------------------------------------
--- folds 
+-- folds
 -- @todo: not really used...
 -----------------------------------------------------------------------------
 vim.cmd [[set foldmethod=expr]]

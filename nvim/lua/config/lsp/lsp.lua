@@ -14,7 +14,8 @@ local on_attach = function(_, bufnr)
     -- require("aerial").on_attach(_, bufnr)
     --go-to definition etc
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts) -- goes to where it is defined
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<cmd>vsplit<CR><cmd>wincmd l<CR><cmd>lua vim.lsp.buf.definition()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<cmd>vsplit<CR><cmd>wincmd l<CR><cmd>lua vim.lsp.buf.definition()<CR>',
+        opts)
     -- vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', ':vs<CR> <cmd>lua vim.lsp.buf.definition()<CR>', opts) -- goes to where it is defined
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts) -- quiclist of all references
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
@@ -22,8 +23,12 @@ local on_attach = function(_, bufnr)
 
     -- formatting on buffer AND an visual selection
     -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>l', '<cmd>lua vim.lsp.buf.format({ filter = function(client) return client.name == "null-ls" end, bufnr = bufnr})<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>l', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'v', '<leader>l', '<ESC><cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>m', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
+    -- @note: genius. uses the format stuff
+    vim.api.nvim_buf_create_user_command(bufnr, "Format", vim.lsp.buf.format, { desc = "format buffer" })
+
+    -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>l', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
+    -- vim.api.nvim_buf_set_keymap(bufnr, 'v', '<leader>l', '<ESC><cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
 
     -- rename
     -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts) -- renames inside the current buffer
@@ -34,7 +39,7 @@ local on_attach = function(_, bufnr)
 
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>c', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts) -- gives a list of action the IDE can do for you
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>so',
-        [[<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]], opts) -- list all variables in float
+        [[<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]], opts)                      -- list all variables in float
 
     -- diagnostics
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '-', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
@@ -84,20 +89,20 @@ for _, lsp in ipairs(servers) do
 end
 
 lspconfig.tsserver.setup {
-  -- other options
+    -- other options
     on_attach = on_attach,
     capabilities = capabilities,
     handlers = {
-    ['textDocument/definition'] = function(err, result, method, ...)
-      -- Check if result is a non-empty list
-      if vim.tbl_islist(result) and #result > 0 then
-        -- Return the first result to the handler
-        return vim.lsp.handlers['textDocument/definition'](err, {result[1]}, method, ...)
-      end
+        ['textDocument/definition'] = function(err, result, method, ...)
+            -- Check if result is a non-empty list
+            if vim.tbl_islist(result) and #result > 0 then
+                -- Return the first result to the handler
+                return vim.lsp.handlers['textDocument/definition'](err, { result[1] }, method, ...)
+            end
 
-      -- Otherwise, call the default handler
-      vim.lsp.handlers['textDocument/definition'](err, result, method, ...)
-    end
+            -- Otherwise, call the default handler
+            vim.lsp.handlers['textDocument/definition'](err, result, method, ...)
+        end
     }
 }
 
@@ -157,27 +162,27 @@ lspconfig.tsserver.setup {
 --     },
 -- }
 
-require'lspconfig'.lua_ls.setup {
-  settings = {
-    Lua = {
-      runtime = {
-        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-        version = 'LuaJIT',
-      },
-      diagnostics = {
-        -- Get the language server to recognize the `vim` global
-        globals = {'vim'},
-      },
-      workspace = {
-        -- Make the server aware of Neovim runtime files
-        library = vim.api.nvim_get_runtime_file("", true),
-      },
-      -- Do not send telemetry data containing a randomized but unique identifier
-      telemetry = {
-        enable = false,
-      },
+require 'lspconfig'.lua_ls.setup {
+    settings = {
+        Lua = {
+            runtime = {
+                -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+                version = 'LuaJIT',
+            },
+            diagnostics = {
+                -- Get the language server to recognize the `vim` global
+                globals = { 'vim' },
+            },
+            workspace = {
+                -- Make the server aware of Neovim runtime files
+                library = vim.api.nvim_get_runtime_file("", true),
+            },
+            -- Do not send telemetry data containing a randomized but unique identifier
+            telemetry = {
+                enable = false,
+            },
+        },
     },
-  },
 }
 
 -- -- svelte spesific setup
@@ -197,5 +202,15 @@ require'lspconfig'.lua_ls.setup {
 -- grapql spesific setup
 -- lspconfig.graphql.setup {}
 
-
-
+-- eslint spesific setup
+lspconfig.eslint.setup({
+    settings = {
+        packageManager = 'yarn'
+    },
+    on_attach = function(client, bufnr)
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = bufnr,
+            command = "EslintFixAll", -- @note: genious usage!! EslintFixAll is awaiable for all
+        })
+    end,
+})

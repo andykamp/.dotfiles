@@ -368,3 +368,9 @@ desk
 - use yanky for yank!!!
 - create a delete shortcut (<cmd>e??) to remove to prev camelcase/_/.... to save time
 - https://github.com/roobert/tailwindcss-colorizer-cmp.nvim
+- create a tmux last workspace toggle shortcut 
+- use tabs? https://github.com/akinsho/bufferline.nvim
+    - for backend/frontend stuff etc?
+- store nvim sessions?
+- store nvim layouts?
+    - https://github.com/folke/edgy.nvim?tab=readme-ov-file
